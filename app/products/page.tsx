@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import { IntegrationSketch, WarehouseSketch, DashboardSketch } from '@/components/Sketches';
+import { StorysetIllustration } from '@/components/StorysetIllustration';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Products | Ship-Right WMS',
+  title: 'Products | Smart Ship Right WMS',
   description: 'Explore our comprehensive warehouse management system products: FastAPI backend and Next.js frontend.',
 };
 
@@ -33,7 +34,8 @@ export default function ProductsPage() {
                 <p className="text-green-50">Robust REST API for warehouse operations</p>
               </div>
               <div className="p-8">
-                <div className="mb-6">
+                <div className="mb-6 flex flex-col gap-4">
+                  <StorysetIllustration name="integration" className="max-h-40" />
                   <IntegrationSketch />
                 </div>
                 <div className="space-y-4 mb-6">
@@ -101,7 +103,8 @@ export default function ProductsPage() {
                 <p className="text-blue-50">Modern, responsive web application</p>
               </div>
               <div className="p-8">
-                <div className="mb-6">
+                <div className="mb-6 flex flex-col gap-4">
+                  <StorysetIllustration name="dashboard" className="max-h-40" />
                   <DashboardSketch />
                 </div>
                 <div className="space-y-4 mb-6">
@@ -168,7 +171,8 @@ export default function ProductsPage() {
             <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">System Architecture</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="text-center">
-                <div className="bg-white rounded-lg p-6 shadow-sm mb-4">
+                <div className="bg-white rounded-lg p-6 shadow-sm mb-4 flex flex-col gap-4 items-center">
+                  <StorysetIllustration name="warehouse" className="max-h-36" />
                   <WarehouseSketch />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">Backend API</h3>
@@ -177,7 +181,8 @@ export default function ProductsPage() {
                 </p>
               </div>
               <div className="text-center">
-                <div className="bg-white rounded-lg p-6 shadow-sm mb-4">
+                <div className="bg-white rounded-lg p-6 shadow-sm mb-4 flex flex-col gap-4 items-center">
+                  <StorysetIllustration name="integration" className="max-h-36" />
                   <IntegrationSketch />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">Database</h3>
@@ -186,7 +191,8 @@ export default function ProductsPage() {
                 </p>
               </div>
               <div className="text-center">
-                <div className="bg-white rounded-lg p-6 shadow-sm mb-4">
+                <div className="bg-white rounded-lg p-6 shadow-sm mb-4 flex flex-col gap-4 items-center">
+                  <StorysetIllustration name="dashboard" className="max-h-36" />
                   <DashboardSketch />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">Frontend</h3>

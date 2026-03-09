@@ -38,7 +38,7 @@ export default function ContactPage() {
             Get in Touch
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Ready to transform your warehouse operations? Let's discuss how Ship-Right can help your business.
+            Ready to transform your warehouse operations? Let's discuss how Smart Ship Right can help your business.
           </p>
         </div>
       </section>

@@ -1,8 +1,8 @@
-# Ship-Right Marketing Website - Project Summary
+# Smart Ship Right Marketing Website - Project Summary
 
 ## ✅ Project Complete
 
-A modern, multi-page marketing and product portfolio website has been successfully built for Ship-Right Warehouse Management System.
+A modern, multi-page marketing and product portfolio website has been successfully built for Smart Ship Right Warehouse Management System.
 
 ## 📋 What Was Built
 

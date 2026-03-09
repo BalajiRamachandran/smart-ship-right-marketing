@@ -1,9 +1,10 @@
 import { WarehouseSketch, IntegrationSketch } from '@/components/Sketches';
+import { StorysetIllustration } from '@/components/StorysetIllustration';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'About | Ship-Right WMS',
-  description: 'Learn about Ship-Right, a modern warehouse management system built for efficiency, scalability, and reliability.',
+  title: 'About | Smart Ship Right WMS',
+  description: 'Learn about Smart Ship Right, a modern warehouse management system built for efficiency, scalability, and reliability.',
 };
 
 export default function AboutPage() {
@@ -13,7 +14,7 @@ export default function AboutPage() {
       <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            About Ship-Right
+            About Smart Ship Right
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Modern warehouse management built for the future
@@ -28,7 +29,7 @@ export default function AboutPage() {
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Mission</h2>
               <p className="text-lg text-gray-600 mb-4">
-                Ship-Right was created to provide a comprehensive, modern warehouse management system 
+                Smart Ship Right was created to provide a comprehensive, modern warehouse management system 
                 that combines the power of enterprise-grade solutions with the flexibility and 
                 accessibility of open-source software.
               </p>
@@ -38,12 +39,15 @@ export default function AboutPage() {
                 management, order processing, and fulfillment workflows.
               </p>
               <p className="text-lg text-gray-600">
-                Built with industry best practices and modern technologies, Ship-Right delivers 
+                Built with industry best practices and modern technologies, Smart Ship Right delivers 
                 the reliability and performance your warehouse operations demand.
               </p>
             </div>
-            <div className="bg-gray-50 rounded-lg p-8">
-              <WarehouseSketch />
+            <div className="flex flex-col gap-4">
+              <StorysetIllustration name="warehouse" className="max-h-52" />
+              <div className="bg-gray-50 rounded-lg p-8">
+                <WarehouseSketch />
+              </div>
             </div>
           </div>
         </div>

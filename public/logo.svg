@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" fill="none" aria-label="Smart Ship Right">
+  <!-- SR monogram (blue rounded box + SR) - same as landing page -->
+  <rect width="40" height="40" rx="8" fill="#2563eb"/>
+  <text x="20" y="27" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="18" fill="white" text-anchor="middle">SR</text>
+  <!-- Wordmark (dark for light backgrounds) -->
+  <text x="52" y="28" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="22" fill="#111827" letter-spacing="-0.02em">Smart Ship Right</text>
+</svg>

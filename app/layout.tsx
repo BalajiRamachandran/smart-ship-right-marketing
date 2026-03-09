@@ -10,12 +10,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Ship-Right | Modern Warehouse Management System",
+  title: "Smart Ship Right | Modern Warehouse Management System",
   description: "Comprehensive warehouse management system built for efficiency, scalability, and reliability. Streamline your operations with our modern WMS solution.",
   keywords: ["warehouse management", "WMS", "inventory management", "order fulfillment", "picking system"],
-  authors: [{ name: "Ship-Right Team" }],
+  authors: [{ name: "Smart Ship Right Team" }],
   openGraph: {
-    title: "Ship-Right | Modern Warehouse Management System",
+    title: "Smart Ship Right | Modern Warehouse Management System",
     description: "Comprehensive warehouse management system built for efficiency, scalability, and reliability.",
     type: "website",
   },

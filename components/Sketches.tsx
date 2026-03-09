@@ -343,7 +343,7 @@ export function IntegrationSketch() {
     <svg viewBox="0 0 400 300" className="w-full h-auto" aria-label="Integration sketch">
       {/* Central hub */}
       <circle cx="200" cy="150" r="50" fill="none" stroke="#3b82f6" strokeWidth="3" />
-      <text x="200" y="155" fontSize="14" fill="#3b82f6" textAnchor="middle" fontWeight="bold">Ship-Right</text>
+      <text x="200" y="155" fontSize="14" fill="#3b82f6" textAnchor="middle" fontWeight="bold">Smart Ship Right</text>
       
       {/* Shopify */}
       <circle cx="80" cy="80" r="30" fill="none" stroke="#96bf48" strokeWidth="2" />

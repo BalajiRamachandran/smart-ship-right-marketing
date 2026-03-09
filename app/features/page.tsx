@@ -1,8 +1,9 @@
 import { WarehouseSketch, InventorySketch, PickingSketch, OrderSketch, DashboardSketch, IntegrationSketch } from '@/components/Sketches';
+import { StorysetIllustration, type StorysetKey } from '@/components/StorysetIllustration';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Features | Ship-Right WMS',
+  title: 'Features | Smart Ship Right WMS',
   description: 'Comprehensive features for modern warehouse management including detailed batch picking processes (single-item and multi-item), ShipStation shipping integration, inventory tracking, order processing, and real-time analytics.',
 };
 
@@ -12,6 +13,7 @@ export default function FeaturesPage() {
       title: 'Inventory Management',
       description: 'Real-time tracking with location-based storage. Multi-location inventory support with reserved quantity management and automatic capacity constraint validation.',
       sketch: InventorySketch,
+      storysetKey: 'inventory' as StorysetKey,
       details: [
         'Real-time inventory tracking',
         'Multi-location inventory support',
@@ -25,6 +27,7 @@ export default function FeaturesPage() {
       title: 'Order Processing',
       description: 'Complete order lifecycle management from creation to fulfillment. Support for priority handling, order filtering, and real-time status updates.',
       sketch: OrderSketch,
+      storysetKey: 'order' as StorysetKey,
       details: [
         'Complete order lifecycle',
         'Status tracking (pending → shipped)',
@@ -38,6 +41,7 @@ export default function FeaturesPage() {
       title: 'Advanced Picking Operations',
       description: 'Comprehensive batch picking workflows designed for maximum efficiency. Support for both single-item and multi-item batch processes with intelligent route optimization and real-time validation.',
       sketch: PickingSketch,
+      storysetKey: 'picking' as StorysetKey,
       details: [
         'Single-item batch (SIB) workflow',
         'Multi-item batch (MIB) workflow',
@@ -127,6 +131,7 @@ export default function FeaturesPage() {
     },
     {
       title: 'Warehouse Management',
+      storysetKey: 'warehouse' as StorysetKey,
       description: '3D warehouse visualization with location management. Track capacity, utilization, and optimize space allocation.',
       sketch: WarehouseSketch,
       details: [
@@ -142,6 +147,7 @@ export default function FeaturesPage() {
       title: 'Real-time Dashboard',
       description: 'Comprehensive analytics and monitoring. Track orders, inventory, batches, and warehouse utilization in real-time.',
       sketch: DashboardSketch,
+      storysetKey: 'dashboard' as StorysetKey,
       details: [
         'Real-time metrics display',
         'Key performance indicators',
@@ -155,6 +161,7 @@ export default function FeaturesPage() {
       title: 'E-commerce Integration',
       description: 'Seamless integration with Shopify and other e-commerce platforms. Automatic product sync, order import, and fulfillment updates.',
       sketch: IntegrationSketch,
+      storysetKey: 'integration' as StorysetKey,
       details: [
         'Shopify integration',
         'Product synchronization',
@@ -168,6 +175,7 @@ export default function FeaturesPage() {
       title: 'ShipStation Integration',
       description: 'Seamless shipping and tracking integration with ShipStation. Automate label creation, carrier selection, and real-time tracking updates across your entire fulfillment workflow.',
       sketch: IntegrationSketch,
+      storysetKey: 'integration' as StorysetKey,
       details: [
         'Automated label generation',
         'Multi-carrier support',
@@ -183,7 +191,7 @@ export default function FeaturesPage() {
           steps: [
             {
               step: '1. Order Fulfillment',
-              detail: 'Once orders are picked and packed in Ship-Right, system automatically marks orders as ready for shipment. Packing information (weight, dimensions, items) is captured and prepared for ShipStation.',
+              detail: 'Once orders are picked and packed in Smart Ship Right, system automatically marks orders as ready for shipment. Packing information (weight, dimensions, items) is captured and prepared for ShipStation.',
             },
             {
               step: '2. ShipStation Sync',
@@ -195,11 +203,11 @@ export default function FeaturesPage() {
             },
             {
               step: '4. Label Generation',
-              detail: 'Shipping labels are automatically generated in ShipStation with all required information. Labels can be printed directly from Ship-Right interface or through ShipStation dashboard.',
+              detail: 'Shipping labels are automatically generated in ShipStation with all required information. Labels can be printed directly from Smart Ship Right interface or through ShipStation dashboard.',
             },
             {
               step: '5. Tracking Number Capture',
-              detail: 'Upon label creation, tracking numbers are automatically captured and stored in Ship-Right. System updates order status to "shipped" and associates tracking information.',
+              detail: 'Upon label creation, tracking numbers are automatically captured and stored in Smart Ship Right. System updates order status to "shipped" and associates tracking information.',
             },
             {
               step: '6. Customer Notification',
@@ -219,7 +227,7 @@ export default function FeaturesPage() {
           features: [
             {
               feature: 'Automatic Tracking Sync',
-              detail: 'ShipStation automatically updates tracking status as packages move through carrier networks. Ship-Right receives real-time updates via webhook integration.',
+              detail: 'ShipStation automatically updates tracking status as packages move through carrier networks. Smart Ship Right receives real-time updates via webhook integration.',
             },
             {
               feature: 'Multi-Carrier Tracking',
@@ -231,7 +239,7 @@ export default function FeaturesPage() {
             },
             {
               feature: 'Delivery Confirmation',
-              detail: 'Upon delivery, ShipStation captures delivery confirmation and signature (if required). Ship-Right automatically updates order status to "delivered" and triggers post-delivery workflows.',
+              detail: 'Upon delivery, ShipStation captures delivery confirmation and signature (if required). Smart Ship Right automatically updates order status to "delivered" and triggers post-delivery workflows.',
             },
             {
               feature: 'Exception Handling',
@@ -415,8 +423,13 @@ export default function FeaturesPage() {
                     )}
                   </div>
                   <div className={isEven ? '' : 'lg:order-1'}>
-                    <div className="bg-gray-50 rounded-lg p-8 flex items-center justify-center">
-                      <SketchComponent />
+                    <div className="flex flex-col gap-4">
+                      {'storysetKey' in feature && feature.storysetKey && (
+                        <StorysetIllustration name={feature.storysetKey} className="max-h-48 w-full" />
+                      )}
+                      <div className="bg-gray-50 rounded-lg p-8 flex items-center justify-center">
+                        <SketchComponent />
+                      </div>
                     </div>
                   </div>
                 </div>

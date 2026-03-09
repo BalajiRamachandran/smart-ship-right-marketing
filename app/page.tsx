@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { WarehouseSketch, InventorySketch, PickingSketch, DashboardSketch } from '@/components/Sketches';
+import { StorysetIllustration } from '@/components/StorysetIllustration';
 
 export default function Home() {
   return (
@@ -32,8 +33,11 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            <div className="hidden lg:block">
-              <WarehouseSketch />
+            <div className="relative hidden lg:flex flex-col gap-6">
+              <StorysetIllustration name="hero" priority className="rounded-xl" />
+              <div className="rounded-xl border border-slate-200/80 bg-white/80 p-4 shadow-lg">
+                <WarehouseSketch />
+              </div>
             </div>
           </div>
         </div>
@@ -54,7 +58,8 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Feature 1 */}
             <div className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow">
-              <div className="mb-4">
+              <div className="mb-5 flex flex-col gap-4">
+                <StorysetIllustration name="inventory" className="max-h-36" />
                 <InventorySketch />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Inventory Management</h3>
@@ -65,7 +70,8 @@ export default function Home() {
 
             {/* Feature 2 */}
             <div className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow">
-              <div className="mb-4">
+              <div className="mb-5 flex flex-col gap-4">
+                <StorysetIllustration name="picking" className="max-h-36" />
                 <PickingSketch />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Smart Picking</h3>
@@ -76,7 +82,8 @@ export default function Home() {
 
             {/* Feature 3 */}
             <div className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow">
-              <div className="mb-4">
+              <div className="mb-5 flex flex-col gap-4">
+                <StorysetIllustration name="dashboard" className="max-h-36" />
                 <DashboardSketch />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Real-time Dashboard</h3>
@@ -119,7 +126,7 @@ export default function Home() {
             Ready to Transform Your Warehouse?
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            Join forward-thinking companies using Ship-Right to streamline their operations
+            Join forward-thinking companies using Smart Ship Right to streamline their operations
           </p>
           <Link
             href="/contact"

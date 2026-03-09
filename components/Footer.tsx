@@ -10,7 +10,7 @@ export default function Footer() {
               <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-lg">SR</span>
               </div>
-              <span className="text-xl font-bold text-white">Ship-Right</span>
+              <span className="text-xl font-bold text-white">Smart Ship Right</span>
             </div>
             <p className="text-gray-400 mb-4 max-w-md">
               Modern warehouse management system built for efficiency, scalability, and reliability. 
@@ -62,7 +62,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Ship-Right. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Smart Ship Right. All rights reserved.</p>
         </div>
       </div>
     </footer>
