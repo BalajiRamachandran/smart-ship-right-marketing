@@ -1,5 +1,7 @@
-import { WarehouseSketch, IntegrationSketch } from '@/components/Sketches';
+import { WarehouseSketch } from '@/components/Sketches';
 import { StorysetIllustration } from '@/components/StorysetIllustration';
+import { PageHeader } from '@/components/ui/PageHeader';
+import { Section } from '@/components/ui/Section';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -10,55 +12,48 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="bg-white">
-      {/* Header */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            About Smart Ship Right
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Modern warehouse management built for the future
-          </p>
-        </div>
-      </section>
+      <PageHeader
+        title="About Smart Ship Right"
+        description="Built for warehouse teams that need real-time visibility and reliable fulfillment execution."
+      />
 
       {/* Mission Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Section>
+        <div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Mission</h2>
-              <p className="text-lg text-gray-600 mb-4">
+              <h2 className="font-display text-3xl font-bold text-slate-900 mb-6">Our Mission</h2>
+              <p className="text-lg text-slate-600 mb-4">
                 Smart Ship Right was created to provide a comprehensive, modern warehouse management system 
                 that combines the power of enterprise-grade solutions with the flexibility and 
                 accessibility of open-source software.
               </p>
-              <p className="text-lg text-gray-600 mb-4">
+              <p className="text-lg text-slate-600 mb-4">
                 We believe that warehouse operations should be streamlined, efficient, and scalable. 
                 Our platform is designed to help businesses of all sizes optimize their inventory 
                 management, order processing, and fulfillment workflows.
               </p>
-              <p className="text-lg text-gray-600">
+              <p className="text-lg text-slate-600">
                 Built with industry best practices and modern technologies, Smart Ship Right delivers 
                 the reliability and performance your warehouse operations demand.
               </p>
             </div>
             <div className="flex flex-col gap-4">
               <StorysetIllustration name="warehouse" className="max-h-52" />
-              <div className="bg-gray-50 rounded-lg p-8">
+              <div className="rounded-xl border border-slate-200 bg-slate-50 p-8">
                 <WarehouseSketch />
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </Section>
 
       {/* Technology Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Section alt>
+        <div>
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Built with Modern Technology</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="font-display text-3xl font-bold text-slate-900 mb-4">Built with Modern Technology</h2>
+            <p className="mx-auto max-w-3xl text-lg text-slate-600">
               Leveraging the best tools and frameworks for maximum performance and developer experience
             </p>
           </div>
@@ -73,20 +68,20 @@ export default function AboutPage() {
               { name: 'JWT Auth', desc: 'Secure authentication' },
               { name: 'SQLAlchemy', desc: 'Python ORM' },
             ].map((tech) => (
-              <div key={tech.name} className="bg-white rounded-lg p-6 shadow-sm text-center">
-                <h3 className="font-semibold text-gray-900 mb-2">{tech.name}</h3>
-                <p className="text-sm text-gray-600">{tech.desc}</p>
+              <div key={tech.name} className="card-hover rounded-xl border border-slate-200 bg-white p-6 text-center">
+                <h3 className="font-semibold text-slate-900 mb-2">{tech.name}</h3>
+                <p className="text-sm text-slate-600">{tech.desc}</p>
               </div>
             ))}
           </div>
         </div>
-      </section>
+      </Section>
 
       {/* Values Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Section>
+        <div>
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Values</h2>
+            <h2 className="font-display text-3xl font-bold text-slate-900 mb-4">Our Values</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
@@ -95,8 +90,8 @@ export default function AboutPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Performance</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold text-slate-900 mb-2">Performance</h3>
+              <p className="text-slate-600">
                 Optimized for speed and efficiency. Handle thousands of orders and SKUs with ease.
               </p>
             </div>
@@ -106,8 +101,8 @@ export default function AboutPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Reliability</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold text-slate-900 mb-2">Reliability</h3>
+              <p className="text-slate-600">
                 Built with enterprise-grade technologies for maximum uptime and data integrity.
               </p>
             </div>
@@ -117,14 +112,14 @@ export default function AboutPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Scalability</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold text-slate-900 mb-2">Scalability</h3>
+              <p className="text-slate-600">
                 Designed to grow with your business. From startup to enterprise scale.
               </p>
             </div>
           </div>
         </div>
-      </section>
+      </Section>
 
       {/* Stats Section */}
       <section className="py-20 bg-blue-600 text-white">

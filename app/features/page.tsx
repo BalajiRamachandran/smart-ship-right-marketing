@@ -1,10 +1,13 @@
 import { WarehouseSketch, InventorySketch, PickingSketch, OrderSketch, DashboardSketch, IntegrationSketch } from '@/components/Sketches';
 import { StorysetIllustration, type StorysetKey } from '@/components/StorysetIllustration';
+import { PageHeader } from '@/components/ui/PageHeader';
+import { Section } from '@/components/ui/Section';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Features | Smart Ship Right WMS',
-  description: 'Comprehensive features for modern warehouse management including detailed batch picking processes (single-item and multi-item), ShipStation shipping integration, inventory tracking, order processing, and real-time analytics.',
+  description:
+    'Comprehensive features for modern warehouse management: inventory, orders, SIB/MIB picking, packing and shipping, Shopify and ShipStation integration, purchase orders and receiving, hospital and quality, automation rules, and mobile app workflows.',
 };
 
 export default function FeaturesPage() {
@@ -15,12 +18,12 @@ export default function FeaturesPage() {
       sketch: InventorySketch,
       storysetKey: 'inventory' as StorysetKey,
       details: [
-        'Real-time inventory tracking',
-        'Multi-location inventory support',
-        'Reserved quantity management',
-        'Automatic capacity validation',
-        'Stock movement audit trail',
-        '10,868+ SKUs supported',
+        'Real-time inventory tracking by SKU and location',
+        'Multi-location inventory with reserved quantity management',
+        'Capacity and utilization tracking',
+        'Stock movement audit trail and history',
+        'CSV import for bulk updates',
+        'Inventory variance checks with Shopify',
       ],
     },
     {
@@ -29,12 +32,12 @@ export default function FeaturesPage() {
       sketch: OrderSketch,
       storysetKey: 'order' as StorysetKey,
       details: [
-        'Complete order lifecycle',
-        'Status tracking (pending → shipped)',
-        'Priority handling (normal, high, urgent)',
-        'Customer information management',
-        'Order filtering and search',
-        'Real-time order updates',
+        'Complete order lifecycle from import to shipped',
+        'Status tracking with holds (payment, fraud, review, address, operator)',
+        'Reserve and unreserve inventory per order',
+        'Shopify order import and fulfillment sync',
+        'Order filtering, search, and dashboard stats',
+        'Real-time updates via WebSocket',
       ],
     },
     {
@@ -135,12 +138,41 @@ export default function FeaturesPage() {
       description: '3D warehouse visualization with location management. Track capacity, utilization, and optimize space allocation.',
       sketch: WarehouseSketch,
       details: [
-        '3D warehouse mapping',
-        'Location format: {Zone}{X}-L{Y}',
-        '5 zones (A-E), 4 levels (L1-L4)',
-        'Location types (shelf, floor, staging)',
-        'Capacity tracking',
-        'Utilization analytics',
+        'Warehouse map and location management',
+        'Zones, locations, SKUs, and totes',
+        'Location barcode pages for scanning',
+        'Capacity and utilization analytics',
+        'Tote management and barcode support',
+        'Warehouse address and settings',
+      ],
+    },
+    {
+      title: 'Packing & Shipping',
+      description: 'Packing hub with batch and order-based flows. Scan totes, pack orders, print labels and packing slips. Direct-to-packing for orders without a picking batch. ShipStation powers labels, rates, carriers, and manifests.',
+      sketch: OrderSketch,
+      storysetKey: 'order' as StorysetKey,
+      details: [
+        'Packing hub by batch or by order',
+        'Direct-to-packing (skip picking batch)',
+        'Scan tote and SKU for validation',
+        'Pack and pack-and-print workflows',
+        'Shipping methods, boxes, and manifests',
+        'Bulk ship and packing slip generation',
+      ],
+    },
+    {
+      title: 'Mobile Operations App',
+      description:
+        'Smart Ship Right mobile app for on-the-floor execution. Configure API endpoint on device, authenticate, scan with camera, run picking flows, move SKU between locations, and adjust inventory with reasons.',
+      sketch: DashboardSketch,
+      storysetKey: 'dashboard' as StorysetKey,
+      details: [
+        'Auth-gated mobile workflow with persisted sessions',
+        'On-device API endpoint configuration and environment switching',
+        'Camera barcode scanning for picking and inventory tasks',
+        'Batch picking execution: tote assignment, item scan, skip order, complete',
+        'Move SKU workflow with in-flow state persistence',
+        'Inventory adjustment with reason and Shopify sync messaging',
       ],
     },
     {
@@ -149,31 +181,31 @@ export default function FeaturesPage() {
       sketch: DashboardSketch,
       storysetKey: 'dashboard' as StorysetKey,
       details: [
-        'Real-time metrics display',
-        'Key performance indicators',
-        'Recent orders tracking',
-        'Low stock alerts',
-        'WebSocket integration',
-        'Role-based dashboards',
+        'Orders to ship, late orders, and holds',
+        'Purchase orders and inventory changes',
+        'Hospital stats and packer metrics',
+        'Today/yesterday orders received and shipped',
+        'WebSocket real-time updates',
+        'Role-based access',
       ],
     },
     {
-      title: 'E-commerce Integration',
-      description: 'Seamless integration with Shopify and other e-commerce platforms. Automatic product sync, order import, and fulfillment updates.',
+      title: 'Shopify Integration',
+      description: 'Full Shopify integration: products, orders, inventory levels, fulfillment, and locations. Webhooks for orders, products, inventory, locations, refunds, and risk—so your warehouse stays in sync in real time.',
       sketch: IntegrationSketch,
       storysetKey: 'integration' as StorysetKey,
       details: [
-        'Shopify integration',
-        'Product synchronization',
-        'Order import automation',
-        'Inventory variance checking',
-        'Fulfillment management',
-        'Webhook support',
+        'Product and order sync',
+        'Inventory levels and variance checking',
+        'Fulfillment updates back to Shopify',
+        'Webhooks (orders, products, inventory, locations)',
+        'Sync settings and connection testing',
+        'Customers and Shopify location management',
       ],
     },
     {
       title: 'ShipStation Integration',
-      description: 'Seamless shipping and tracking integration with ShipStation. Automate label creation, carrier selection, and real-time tracking updates across your entire fulfillment workflow.',
+      description: 'ShipStation powers labels, rate shopping, carriers, and manifests. Generate labels from Smart Ship Right, capture tracking numbers, and sync status back. Create, list, and download carrier manifests.',
       sketch: IntegrationSketch,
       storysetKey: 'integration' as StorysetKey,
       details: [
@@ -211,7 +243,7 @@ export default function FeaturesPage() {
             },
             {
               step: '6. Customer Notification',
-              detail: 'Tracking numbers are automatically synced back to your e-commerce platform (Shopify, WooCommerce, etc.) for customer notifications. Customers receive shipping confirmations with tracking links.',
+              detail: 'Tracking numbers are synced back to Shopify for customer notifications. Customers receive shipping confirmations with tracking links.',
             },
           ],
           benefits: [
@@ -254,37 +286,68 @@ export default function FeaturesPage() {
         integrationDetails: {
           title: 'Integration Capabilities',
           features: [
-            'RESTful API integration with ShipStation',
-            'Bi-directional data synchronization',
-            'Webhook support for real-time updates',
-            'Bulk shipping operations',
-            'Custom shipping rules and automation',
-            'Multi-warehouse shipping support',
-            'International shipping support',
-            'Insurance and signature options',
+            'Labels, rate shopping, and multi-carrier support',
+            'Carrier manifests (create, list, download)',
+            'Tracking capture and status sync',
+            'Address validation and box management',
+            'Bulk shipping and packing slip generation',
+            'Direct printing (ZPL) support',
           ],
         },
       },
+    },
+    {
+      title: 'Purchase Orders & Receiving',
+      description: 'Create and manage purchase orders, send to vendors, and receive inventory with scan-based receiving sessions. Print barcodes, track PO timeline, and manage attachments.',
+      sketch: InventorySketch,
+      storysetKey: 'inventory' as StorysetKey,
+      details: [
+        'Purchase order CRUD and items',
+        'Send and cancel POs; mark sent/received',
+        'Receiving sessions with scan-item validation',
+        'Receive or reject items; complete session',
+        'Vendor management',
+        'PO reports and timeline',
+      ],
+    },
+    {
+      title: 'Hospital & Quality',
+      description: 'Quarantine SKUs or locations when issues are found. Report issues from picking; resolve from hospital. Automation can apply bulk holds for quality control.',
+      sketch: WarehouseSketch,
+      storysetKey: 'warehouse' as StorysetKey,
+      details: [
+        'SKU and location-level hospital (quarantine)',
+        'Report-issue from picking workflow',
+        'Resolve and release from hospital',
+        'Hospital list and analytics',
+        'Bulk hold via automation rules',
+      ],
+    },
+    {
+      title: 'Automation Rules',
+      description: 'Rule engine with triggers, actions, and conditions. Automate workflows like hospital bulk hold, email notifications (e.g. Unosend), and more. View executions and statistics.',
+      sketch: IntegrationSketch,
+      storysetKey: 'integration' as StorysetKey,
+      details: [
+        'Triggers, actions, and conditions',
+        'Rule categories and enable/disable',
+        'Hospital bulk hold and notifications',
+        'Execution history and statistics',
+        'Manual trigger support',
+      ],
     },
   ];
 
   return (
     <div className="bg-white">
-      {/* Header */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Powerful Features for Modern Warehouses
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Everything you need to streamline operations, boost productivity, and scale your warehouse management
-          </p>
-        </div>
-      </section>
+      <PageHeader
+        title="Powerful features for modern warehouses"
+        description="Everything you need to streamline operations, boost productivity, and scale warehouse execution."
+      />
 
       {/* Features Grid */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Section>
+        <div>
           <div className="space-y-24">
             {features.map((feature, index) => {
               const SketchComponent = feature.sketch;
@@ -298,8 +361,8 @@ export default function FeaturesPage() {
                   }`}
                 >
                   <div className={isEven ? '' : 'lg:order-2'}>
-                    <h2 className="text-3xl font-bold text-gray-900 mb-4">{feature.title}</h2>
-                    <p className="text-lg text-gray-600 mb-6">{feature.description}</p>
+                    <h2 className="font-display text-3xl font-bold text-slate-900 mb-4">{feature.title}</h2>
+                    <p className="text-lg text-slate-600 mb-6">{feature.description}</p>
                     <ul className="space-y-3 mb-8">
                       {feature.details.map((detail, idx) => (
                         <li key={idx} className="flex items-start">
@@ -311,7 +374,7 @@ export default function FeaturesPage() {
                           >
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                           </svg>
-                          <span className="text-gray-700">{detail}</span>
+                          <span className="text-slate-700">{detail}</span>
                         </li>
                       ))}
                     </ul>
@@ -319,14 +382,14 @@ export default function FeaturesPage() {
                     {/* Expanded Content for Picking Operations */}
                     {feature.expandedContent?.singleItemBatch && (
                       <div className="mt-8 space-y-8">
-                        <div className="bg-blue-50 rounded-lg p-6 border border-blue-200">
-                          <h3 className="text-2xl font-bold text-gray-900 mb-3">{feature.expandedContent.singleItemBatch.title}</h3>
-                          <p className="text-gray-700 mb-6">{feature.expandedContent.singleItemBatch.description}</p>
+                        <div className="rounded-xl border border-blue-200 bg-blue-50 p-6">
+                          <h3 className="font-display text-2xl font-bold text-slate-900 mb-3">{feature.expandedContent.singleItemBatch.title}</h3>
+                          <p className="text-slate-700 mb-6">{feature.expandedContent.singleItemBatch.description}</p>
                           <div className="space-y-4 mb-6">
                             {feature.expandedContent.singleItemBatch.steps.map((stepItem, stepIdx) => (
-                              <div key={stepIdx} className="bg-white rounded-lg p-4 border-l-4 border-blue-500">
-                                <h4 className="font-semibold text-gray-900 mb-2">{stepItem.step}</h4>
-                                <p className="text-gray-600 text-sm">{stepItem.detail}</p>
+                              <div key={stepIdx} className="rounded-lg border-l-4 border-blue-500 bg-white p-4">
+                                <h4 className="font-semibold text-slate-900 mb-2">{stepItem.step}</h4>
+                                <p className="text-sm text-slate-600">{stepItem.detail}</p>
                               </div>
                             ))}
                           </div>
@@ -336,20 +399,20 @@ export default function FeaturesPage() {
                                 <svg className="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
-                                <span className="text-sm text-gray-700">{benefit}</span>
+                                <span className="text-sm text-slate-700">{benefit}</span>
                               </div>
                             ))}
                           </div>
                         </div>
 
-                        <div className="bg-green-50 rounded-lg p-6 border border-green-200">
-                          <h3 className="text-2xl font-bold text-gray-900 mb-3">{feature.expandedContent.multiItemBatch.title}</h3>
-                          <p className="text-gray-700 mb-6">{feature.expandedContent.multiItemBatch.description}</p>
+                        <div className="rounded-xl border border-green-200 bg-green-50 p-6">
+                          <h3 className="font-display text-2xl font-bold text-slate-900 mb-3">{feature.expandedContent.multiItemBatch.title}</h3>
+                          <p className="text-slate-700 mb-6">{feature.expandedContent.multiItemBatch.description}</p>
                           <div className="space-y-4 mb-6">
                             {feature.expandedContent.multiItemBatch.steps.map((stepItem, stepIdx) => (
-                              <div key={stepIdx} className="bg-white rounded-lg p-4 border-l-4 border-green-500">
-                                <h4 className="font-semibold text-gray-900 mb-2">{stepItem.step}</h4>
-                                <p className="text-gray-600 text-sm">{stepItem.detail}</p>
+                              <div key={stepIdx} className="rounded-lg border-l-4 border-green-500 bg-white p-4">
+                                <h4 className="font-semibold text-slate-900 mb-2">{stepItem.step}</h4>
+                                <p className="text-sm text-slate-600">{stepItem.detail}</p>
                               </div>
                             ))}
                           </div>
@@ -359,7 +422,7 @@ export default function FeaturesPage() {
                                 <svg className="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
-                                <span className="text-sm text-gray-700">{benefit}</span>
+                                <span className="text-sm text-slate-700">{benefit}</span>
                               </div>
                             ))}
                           </div>
@@ -370,14 +433,14 @@ export default function FeaturesPage() {
                     {/* Expanded Content for ShipStation Integration */}
                     {feature.expandedContent?.shipping && (
                       <div className="mt-8 space-y-8">
-                        <div className="bg-purple-50 rounded-lg p-6 border border-purple-200">
-                          <h3 className="text-2xl font-bold text-gray-900 mb-3">{feature.expandedContent.shipping.title}</h3>
-                          <p className="text-gray-700 mb-6">{feature.expandedContent.shipping.description}</p>
+                        <div className="rounded-xl border border-purple-200 bg-purple-50 p-6">
+                          <h3 className="font-display text-2xl font-bold text-slate-900 mb-3">{feature.expandedContent.shipping.title}</h3>
+                          <p className="text-slate-700 mb-6">{feature.expandedContent.shipping.description}</p>
                           <div className="space-y-4 mb-6">
                             {feature.expandedContent.shipping.steps.map((stepItem, stepIdx) => (
-                              <div key={stepIdx} className="bg-white rounded-lg p-4 border-l-4 border-purple-500">
-                                <h4 className="font-semibold text-gray-900 mb-2">{stepItem.step}</h4>
-                                <p className="text-gray-600 text-sm">{stepItem.detail}</p>
+                              <div key={stepIdx} className="rounded-lg border-l-4 border-purple-500 bg-white p-4">
+                                <h4 className="font-semibold text-slate-900 mb-2">{stepItem.step}</h4>
+                                <p className="text-sm text-slate-600">{stepItem.detail}</p>
                               </div>
                             ))}
                           </div>
@@ -387,34 +450,34 @@ export default function FeaturesPage() {
                                 <svg className="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
-                                <span className="text-sm text-gray-700">{benefit}</span>
+                                <span className="text-sm text-slate-700">{benefit}</span>
                               </div>
                             ))}
                           </div>
                         </div>
 
-                        <div className="bg-indigo-50 rounded-lg p-6 border border-indigo-200">
-                          <h3 className="text-2xl font-bold text-gray-900 mb-3">{feature.expandedContent.tracking.title}</h3>
-                          <p className="text-gray-700 mb-6">{feature.expandedContent.tracking.description}</p>
+                        <div className="rounded-xl border border-indigo-200 bg-indigo-50 p-6">
+                          <h3 className="font-display text-2xl font-bold text-slate-900 mb-3">{feature.expandedContent.tracking.title}</h3>
+                          <p className="text-slate-700 mb-6">{feature.expandedContent.tracking.description}</p>
                           <div className="space-y-4">
                             {feature.expandedContent.tracking.features.map((featureItem, featureIdx) => (
-                              <div key={featureIdx} className="bg-white rounded-lg p-4 border-l-4 border-indigo-500">
-                                <h4 className="font-semibold text-gray-900 mb-2">{featureItem.feature}</h4>
-                                <p className="text-gray-600 text-sm">{featureItem.detail}</p>
+                              <div key={featureIdx} className="rounded-lg border-l-4 border-indigo-500 bg-white p-4">
+                                <h4 className="font-semibold text-slate-900 mb-2">{featureItem.feature}</h4>
+                                <p className="text-sm text-slate-600">{featureItem.detail}</p>
                               </div>
                             ))}
                           </div>
                         </div>
 
-                        <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
-                          <h3 className="text-2xl font-bold text-gray-900 mb-4">{feature.expandedContent.integrationDetails.title}</h3>
+                        <div className="rounded-xl border border-slate-200 bg-slate-50 p-6">
+                          <h3 className="font-display text-2xl font-bold text-slate-900 mb-4">{feature.expandedContent.integrationDetails.title}</h3>
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                             {feature.expandedContent.integrationDetails.features.map((integrationFeature, idx) => (
                               <div key={idx} className="flex items-start">
                                 <svg className="w-5 h-5 text-blue-500 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                 </svg>
-                                <span className="text-sm text-gray-700">{integrationFeature}</span>
+                                <span className="text-sm text-slate-700">{integrationFeature}</span>
                               </div>
                             ))}
                           </div>
@@ -427,7 +490,7 @@ export default function FeaturesPage() {
                       {'storysetKey' in feature && feature.storysetKey && (
                         <StorysetIllustration name={feature.storysetKey} className="max-h-48 w-full" />
                       )}
-                      <div className="bg-gray-50 rounded-lg p-8 flex items-center justify-center">
+                      <div className="rounded-xl border border-slate-200 bg-slate-50 p-8 flex items-center justify-center">
                         <SketchComponent />
                       </div>
                     </div>
@@ -437,28 +500,32 @@ export default function FeaturesPage() {
             })}
           </div>
         </div>
-      </section>
+      </Section>
 
       {/* Additional Features List */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Additional Capabilities</h2>
+      <Section alt>
+        <div>
+          <h2 className="font-display text-3xl font-bold text-slate-900 mb-12 text-center">Additional Capabilities</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               'Purchase Order Management',
               'Vendor Management',
               'Receiving Workflows',
-              'Shipping Integration',
-              'Bluetooth Scanner Support',
+              'Shipping & Manifests (ShipStation)',
+              'Camera Barcode Scanner',
               'WebSocket Real-time Updates',
               'JWT Authentication',
               'Role-based Access Control',
-              'Multi-warehouse Support',
-              'Batch Automation',
+              'Hospital & Quarantine',
+              'Automation Rules Engine',
+              'Picking Batches (SIB / MIB)',
+              'Mobile App (Picking, Move SKU, Adjust)',
               'Tote Management',
               'Alert System',
+              'CSV Import',
+              'Notes & History',
             ].map((capability) => (
-              <div key={capability} className="bg-white rounded-lg p-4 shadow-sm">
+              <div key={capability} className="card-hover rounded-xl border border-slate-200 bg-white p-4">
                 <div className="flex items-center">
                   <svg
                     className="w-5 h-5 text-blue-600 mr-3"
@@ -468,13 +535,13 @@ export default function FeaturesPage() {
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  <span className="text-gray-700 font-medium">{capability}</span>
+                  <span className="font-medium text-slate-700">{capability}</span>
                 </div>
               </div>
             ))}
           </div>
         </div>
-      </section>
+      </Section>
     </div>
   );
 }

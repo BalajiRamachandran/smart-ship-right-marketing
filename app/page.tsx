@@ -1,36 +1,38 @@
-import Link from 'next/link';
 import { WarehouseSketch, InventorySketch, PickingSketch, DashboardSketch } from '@/components/Sketches';
 import { StorysetIllustration } from '@/components/StorysetIllustration';
+import { Button } from '@/components/ui/Button';
+import { Container } from '@/components/ui/Container';
+import { Section } from '@/components/ui/Section';
 
 export default function Home() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-100 py-20 lg:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/70 to-indigo-50/70 py-20 lg:py-28">
+        <Container>
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-                Modern Warehouse
-                <span className="text-blue-600"> Management</span>
-              </h1>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Streamline your warehouse operations with our comprehensive WMS solution. 
-                Built for efficiency, scalability, and reliability.
+              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-blue-700">
+                Order-to-delivery execution
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/contact"
-                  className="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors text-center"
-                >
+              <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
+                Smart Ship Right for
+                <span className="text-blue-600"> fast warehouse flow</span>
+              </h1>
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-600">
+                Run inventory, orders, SIB/MIB picking, packing, and shipping in one platform. Connected with Shopify,
+                ShipStation, and real-time warehouse workflows across web and mobile.
+              </p>
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+                <Button href="/contact" size="lg">
                   Get Started
-                </Link>
-                <Link
-                  href="/features"
-                  className="bg-white text-blue-600 px-8 py-3 rounded-lg text-lg font-semibold border-2 border-blue-600 hover:bg-blue-50 transition-colors text-center"
-                >
+                </Button>
+                <Button href="/features" variant="outline" size="lg">
                   Learn More
-                </Link>
+                </Button>
+                <Button href="/mobile" variant="outline" size="lg">
+                  Mobile App
+                </Button>
               </div>
             </div>
             <div className="relative hidden lg:flex flex-col gap-6">
@@ -40,64 +42,81 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Features Overview */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Section>
+        <Container>
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
               Everything You Need to Manage Your Warehouse
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Powerful features designed to optimize your operations and boost productivity
+            <p className="mx-auto mt-4 max-w-3xl text-lg text-slate-600">
+              Inventory, orders, SIB/MIB picking, packing and shipping, Shopify and ShipStation integration, purchase
+              orders and receiving, hospital, automation rules, and mobile warehouse operations.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {/* Feature 1 */}
-            <div className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow">
+            <div className="card-hover rounded-xl border border-slate-200 bg-white p-6">
               <div className="mb-5 flex flex-col gap-4">
                 <StorysetIllustration name="inventory" className="max-h-36" />
                 <InventorySketch />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Inventory Management</h3>
-              <p className="text-gray-600">
-                Real-time tracking with location-based storage. Manage 10,000+ SKUs across multiple warehouse locations.
+              <h3 className="font-display text-xl font-semibold text-slate-900">Inventory Management</h3>
+              <p className="mt-2 text-slate-600">
+                Real-time inventory by SKU and location, reservations, CSV import, and Shopify variance checks.
               </p>
             </div>
 
             {/* Feature 2 */}
-            <div className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow">
+            <div className="card-hover rounded-xl border border-slate-200 bg-white p-6">
               <div className="mb-5 flex flex-col gap-4">
                 <StorysetIllustration name="picking" className="max-h-36" />
                 <PickingSketch />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Smart Picking</h3>
-              <p className="text-gray-600">
-                Optimized picking routes with single-item and multi-item batch workflows. Increase picker efficiency by 40%.
+              <h3 className="font-display text-xl font-semibold text-slate-900">Smart Picking</h3>
+              <p className="mt-2 text-slate-600">
+                Single-item (SIB) and multi-item (MIB) batch picking with tote scan, location-optimized pick lists, and barcode validation.
               </p>
             </div>
 
             {/* Feature 3 */}
-            <div className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow">
+            <div className="card-hover rounded-xl border border-slate-200 bg-white p-6">
               <div className="mb-5 flex flex-col gap-4">
                 <StorysetIllustration name="dashboard" className="max-h-36" />
                 <DashboardSketch />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Real-time Dashboard</h3>
-              <p className="text-gray-600">
-                Comprehensive analytics and monitoring. Track orders, inventory, and warehouse utilization in real-time.
+              <h3 className="font-display text-xl font-semibold text-slate-900">Real-time Dashboard</h3>
+              <p className="mt-2 text-slate-600">
+                Dashboard with orders to ship, late orders, holds, POs, hospital stats, and real-time WebSocket updates.
               </p>
             </div>
           </div>
+        </Container>
+      </Section>
+
+      <Section alt>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {[
+            ['Inventory & Orders', 'Real-time stock, reservations, holds, and order lifecycle control.'],
+            ['Picking & Packing', 'SIB/MIB picking, tote scans, direct-to-packing, and pack-and-print.'],
+            ['Shipping & Carriers', 'ShipStation labels, manifests, shipping methods, and tracking sync.'],
+            ['Mobile App', 'Camera barcode scanning, mobile picking, move SKU, and inventory adjustment flows.'],
+          ].map(([title, desc]) => (
+            <article key={title} className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+              <h3 className="font-display text-base font-semibold text-slate-900">{title}</h3>
+              <p className="mt-2 text-sm text-slate-600">{desc}</p>
+            </article>
+          ))}
         </div>
-      </section>
+      </Section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-blue-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-blue-600 py-16 text-white lg:py-20">
+        <Container>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
               <div className="text-4xl md:text-5xl font-bold mb-2">10,868</div>
@@ -116,26 +135,25 @@ export default function Home() {
               <div className="text-blue-100">Inventory Units</div>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+      <Section alt>
+        <div className="mx-auto max-w-4xl text-center">
+          <h2 className="font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
             Ready to Transform Your Warehouse?
           </h2>
-          <p className="text-xl text-gray-600 mb-8">
+          <p className="mt-4 text-lg text-slate-600">
             Join forward-thinking companies using Smart Ship Right to streamline their operations
           </p>
-          <Link
-            href="/contact"
-            className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors"
-          >
+          <div className="mt-8">
+            <Button href="/contact" size="lg">
             Get Started Today
-          </Link>
+            </Button>
+          </div>
         </div>
-      </section>
+      </Section>
     </div>
   );
 }
