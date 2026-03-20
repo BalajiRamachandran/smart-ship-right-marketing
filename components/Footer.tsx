@@ -1,23 +1,21 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { Container } from './ui/Container';
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-900 text-slate-300">
+    <footer className="bg-gray-800 text-gray-300">
       <Container className="py-12">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">SR</span>
-              </div>
-              <span className="font-display text-lg font-bold text-white">Smart Ship Right</span>
+            <div className="mb-4">
+              <Image src="/logo.svg" alt="Smart Ship Right" width={182} height={40} className="h-10 w-auto" />
             </div>
-            <p className="mb-4 max-w-md text-slate-400">
+            <p className="mb-4 max-w-md text-gray-400">
               From order import to shipment, Smart Ship Right helps operations teams run inventory, picking, packing,
               and shipping in one workflow.
             </p>
-            <p className="text-sm text-slate-500">Illustrations by unDraw</p>
+            <p className="text-sm text-gray-500">Illustrations by unDraw</p>
           </div>
 
           <div>
@@ -71,7 +69,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 border-t border-slate-800 pt-8 text-center text-sm text-slate-400">
+        <div className="mt-8 border-t border-gray-700 pt-8 text-center text-sm text-gray-400">
           <p>&copy; {new Date().getFullYear()} Smart Ship Right. All rights reserved.</p>
         </div>
       </Container>

@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -27,18 +28,15 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`sticky top-0 z-50 border-b border-slate-200/70 transition-all ${
-        scrolled ? 'bg-white/95 shadow-sm backdrop-blur-md' : 'bg-white'
+      className={`sticky top-0 z-50 border-b border-gray-700 transition-all ${
+        scrolled ? 'bg-gray-800/95 shadow-lg backdrop-blur-md' : 'bg-gray-800'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <Link href="/" className="flex items-center space-x-2.5">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">SR</span>
-              </div>
-              <span className="font-display text-lg font-bold text-slate-900">Smart Ship Right</span>
+            <Link href="/" className="flex items-center">
+              <Image src="/logo.svg" alt="Smart Ship Right" width={182} height={40} priority className="h-10 w-auto" />
             </Link>
           </div>
 
@@ -51,7 +49,7 @@ export default function Navigation() {
                   key={link.href}
                   href={link.href}
                   className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
-                    active ? 'bg-blue-50 text-blue-700' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+                    active ? 'bg-blue-600 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'
                   }`}
                 >
                   {link.label}
@@ -70,7 +68,7 @@ export default function Navigation() {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-blue-600 focus:outline-none"
+              className="text-gray-300 hover:text-white focus:outline-none"
               aria-label="Toggle menu"
             >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -94,7 +92,7 @@ export default function Navigation() {
                   key={link.href}
                   href={link.href}
                   className={`block rounded-lg px-3 py-2 text-sm font-medium ${
-                    active ? 'bg-blue-50 text-blue-700' : 'text-slate-700 hover:bg-slate-100'
+                    active ? 'bg-blue-600 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'
                   }`}
                   onClick={() => setIsOpen(false)}
                 >
