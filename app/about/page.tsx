@@ -129,9 +129,9 @@ export default function AboutPage() {
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             {[
-              { value: '1,000+', label: 'Orders / Day Capacity', sub: 'Tested and optimized for high volume' },
+              { value: '200+', label: 'API Endpoints', sub: '25+ routers, 40+ models, full OpenAPI docs' },
               { value: '<100ms', label: 'Average API Response', sub: 'Fast enough for real-time warehouse ops' },
-              { value: '50+', label: 'Concurrent Pickers', sub: 'Multi-user picking without conflicts' },
+              { value: '50+', label: 'Frontend Pages', sub: '100+ components, 15+ API clients' },
             ].map((stat) => (
               <div key={stat.label}>
                 <div className="text-4xl font-bold mb-1">{stat.value}</div>

@@ -64,7 +64,7 @@ export default function ProductsPage() {
                     </ul>
                   </div>
                   <div className="rounded-lg bg-slate-50 p-4 text-sm text-slate-600">
-                    <strong>Performance:</strong> 1,000+ orders/day · 50+ concurrent pickers · &lt;100ms API response
+                    <strong>Scale:</strong> 25+ routers · 200+ endpoints · 40+ models · 15+ Shopify webhooks · 3 integrations · 30+ test scripts
                   </div>
                 </div>
               </div>
@@ -110,7 +110,7 @@ export default function ProductsPage() {
                     </ul>
                   </div>
                   <div className="rounded-lg bg-slate-50 p-4 text-sm text-slate-600">
-                    <strong>Performance:</strong> 1,000+ items per table · &lt;1s real-time latency · Responsive design
+                    <strong>Scale:</strong> 50+ pages · 100+ components · 15+ API clients · 10+ hooks
                   </div>
                 </div>
               </div>
@@ -120,23 +120,23 @@ export default function ProductsPage() {
           {/* Mobile App */}
           <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm mb-16">
             <div className="bg-gradient-to-r from-purple-500 to-violet-600 p-6">
-              <h2 className="font-display text-2xl font-bold text-white">Mobile Warehouse App</h2>
-              <p className="mt-1 text-purple-50">Expo · React Native · Camera Barcode Scanning</p>
+              <h2 className="font-display text-2xl font-bold text-white">Mobile-Ready Web App</h2>
+              <p className="mt-1 text-purple-50">Responsive · Camera Barcode Scanning · Works on Any Device</p>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-6">
               <div>
-                <ScreenshotPlaceholder alt="Mobile app — picking, scanning, and inventory on the floor" aspect="aspect-[3/2]" />
+                <ScreenshotPlaceholder alt="Responsive web app — picking and scanning on tablet" aspect="aspect-[3/2]" />
               </div>
               <div className="space-y-4">
-                <h3 className="font-semibold text-slate-900">Mobile capabilities</h3>
+                <h3 className="font-semibold text-slate-900">Mobile capabilities (web-based)</h3>
                 <ul className="space-y-2 text-sm text-slate-600">
                   {[
-                    'Authenticated app flow with persisted session',
-                    'Camera barcode scanner with reusable scan screen',
-                    'Mobile batch picking: create batch, scan items, complete',
-                    'Move SKU workflow (source → destination → quantity)',
-                    'Inventory adjustment with reason codes and sync feedback',
-                    'On-device API endpoint configuration',
+                    'Responsive web app works on tablets and phones',
+                    'Camera barcode scanning (Code128 & QR) via browser',
+                    'Batch picking with tote and item scan on mobile',
+                    'Inventory adjustments with reason codes',
+                    'Barcode pages for locations, totes, and SKUs',
+                    'Bluetooth barcode scanner support',
                   ].map((item) => (
                     <li key={item} className="flex items-start">
                       <svg className="mr-2 mt-0.5 h-4 w-4 text-purple-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -147,7 +147,7 @@ export default function ProductsPage() {
                   ))}
                 </ul>
                 <div className="rounded-lg bg-slate-50 p-4 text-sm text-slate-600">
-                  <strong>Note:</strong> Same backend APIs power web and mobile. Role-based auth and bearer token access across both platforms.
+                  <strong>Note:</strong> The web app is fully responsive and works on mobile browsers today. A dedicated native Expo mobile app with offline support is on the roadmap.
                 </div>
               </div>
             </div>
@@ -203,7 +203,7 @@ export default function ProductsPage() {
                 { title: 'Frontend', desc: 'Next.js web app with TypeScript and real-time WebSocket updates', color: 'blue' },
                 { title: 'Backend API', desc: 'FastAPI REST endpoints with WebSocket support and JWT auth', color: 'emerald' },
                 { title: 'Database', desc: 'PostgreSQL with SQLAlchemy ORM for reliable data persistence', color: 'purple' },
-                { title: 'Integrations', desc: 'Shopify, ShipStation, Stripe, and Supabase connected via APIs', color: 'amber' },
+                { title: 'Integrations', desc: 'Shopify (OAuth + 15 webhooks), ShipStation, Google Cloud (Tasks, Storage), Stripe', color: 'amber' },
               ].map((item) => (
                 <div key={item.title} className="rounded-xl border border-slate-200 bg-white p-5 text-center">
                   <h3 className="font-semibold text-slate-900 mb-2">{item.title}</h3>

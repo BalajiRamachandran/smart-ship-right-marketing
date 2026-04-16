@@ -92,7 +92,7 @@ export default function MobilePage() {
     <div className="bg-white">
       <PageHeader
         title="Mobile warehouse app"
-        description="Take Smart Ship Right to the warehouse floor. Camera barcode scanning, mobile picking, SKU moves, and inventory adjustments."
+        description="Take Smart Ship Right to the warehouse floor. The web app works on mobile browsers with camera barcode scanning. A dedicated native mobile app is on the roadmap."
       />
 
       {/* Hero capabilities */}
@@ -101,14 +101,17 @@ export default function MobilePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="font-display text-3xl font-bold text-slate-900 mb-6">Built for the floor</h2>
-              <ul className="space-y-4">
+            <p className="text-slate-600 mb-4">
+              The Smart Ship Right web frontend is responsive and works on tablets and phones. Camera barcode scanning is built into the web app for picking, inventory, and receiving workflows.
+            </p>
+            <ul className="space-y-4">
                 {[
-                  'Auth-gated app flow with persisted session and token',
-                  'Camera barcode scanner with reusable scan screen',
-                  'Mobile batch picking with tote and item scan',
-                  'Move SKU workflow between warehouse locations',
-                  'Inventory adjustment with reason codes and sync feedback',
-                  'On-device API endpoint configuration and environment switching',
+                  'Camera barcode scanning (Code128 & QR) via web browser',
+                  'Responsive web app works on tablets and phones',
+                  'Batch picking with tote and item scan',
+                  'Inventory adjustments with reason codes',
+                  'Barcode pages for locations and totes',
+                  'Dedicated native Expo mobile app on the roadmap',
                 ].map((item) => (
                   <li key={item} className="flex items-start">
                     <svg className="mr-3 mt-0.5 h-5 w-5 text-blue-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -196,7 +199,7 @@ export default function MobilePage() {
           <div className="mx-auto max-w-3xl rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-sm">
             <h2 className="font-display text-2xl font-bold text-slate-900">Ready to go mobile?</h2>
             <p className="mt-3 text-slate-600">
-              The mobile app is included in Professional and Enterprise plans. Start your free trial to try it out.
+              The responsive web app with camera barcode scanning works on any device today. A dedicated native mobile app with offline support is on the roadmap.
             </p>
             <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
               <Button href="/contact" size="lg">Start Free Trial</Button>

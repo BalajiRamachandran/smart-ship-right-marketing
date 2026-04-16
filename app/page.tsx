@@ -23,8 +23,9 @@ export default function Home() {
                 <span className="gradient-text"> zero errors</span>
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-600">
-                Smart Ship Right helps e-commerce teams run inventory, batch picking, packing, and shipping in one platform.
-                Integrated with Shopify and ShipStation. Plus built-in contract management for your vendor agreements.
+                Smart Ship Right is a production-ready WMS for e-commerce teams. Inventory control, SIB/MIB batch picking,
+                packing slips, ShipStation labels, backorder tracking, and automation rules — connected to Shopify with
+                bidirectional sync and 15+ webhooks. Plus built-in AI contract management.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Button href="/contact" size="lg">
@@ -62,7 +63,7 @@ export default function Home() {
             Integrated with the tools you already use
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-4">
-            {['Shopify', 'ShipStation', 'Stripe', 'PostgreSQL', 'Supabase'].map((name) => (
+            {['Shopify', 'ShipStation', 'Google Cloud', 'PostgreSQL', 'Stripe', 'Supabase'].map((name) => (
               <span key={name} className="text-lg font-semibold text-slate-300 transition-colors hover:text-slate-500">
                 {name}
               </span>
@@ -110,10 +111,10 @@ export default function Home() {
                 <h3 className="font-display text-2xl font-bold text-slate-900">Real-time inventory control</h3>
                 <p className="mt-3 text-slate-600 leading-relaxed">
                   Track stock by SKU and location in real time. Manage reservations, capacity constraints, and multi-location inventory.
-                  CSV import for bulk updates and automatic Shopify variance checks keep everything in sync.
+                  CSV import for bulk updates, automatic Shopify variance checks, and granular per-action sync controls keep everything accurate.
                 </p>
                 <ul className="mt-5 space-y-2">
-                  {['Multi-location stock tracking', 'Reserved quantity management', 'Shopify inventory sync', 'CSV bulk import'].map((item) => (
+                  {['Multi-location stock tracking', 'Reserved quantity management', 'Backorder detection & tracking', 'Shopify sync with per-action toggles', 'CSV bulk import & reconciliation'].map((item) => (
                     <li key={item} className="flex items-center text-sm text-slate-700">
                       <svg className="mr-2 h-4 w-4 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                       {item}
@@ -144,10 +145,10 @@ export default function Home() {
                 <h3 className="font-display text-2xl font-bold text-slate-900">Pick with 100% accuracy</h3>
                 <p className="mt-3 text-slate-600 leading-relaxed">
                   Single-item batch (SIB) and multi-item batch (MIB) picking with location-optimized routes.
-                  Barcode scanning validates every pick. Tote assignment prevents mix-ups.
+                  Barcode scanning validates every pick. Tote assignment prevents mix-ups. Flag problem locations to hospital directly from the picking flow.
                 </p>
                 <ul className="mt-5 space-y-2">
-                  {['SIB & MIB batch workflows', 'Location-optimized pick lists', 'Barcode scan validation', 'Tote assignment & tracking'].map((item) => (
+                  {['SIB & MIB batch workflows', 'Location-optimized pick lists', 'Barcode scan validation', 'Tote assignment & tracking', 'Hospital flag from picking flow'].map((item) => (
                     <li key={item} className="flex items-center text-sm text-slate-700">
                       <svg className="mr-2 h-4 w-4 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                       {item}
@@ -165,11 +166,11 @@ export default function Home() {
                 </div>
                 <h3 className="font-display text-2xl font-bold text-slate-900">Ship faster with ShipStation</h3>
                 <p className="mt-3 text-slate-600 leading-relaxed">
-                  Compare rates across carriers, generate labels, and create manifests — all from Smart Ship Right.
+                  Compare rates across carriers, generate labels, print packing slips (PDF/HTML, Letter/A4/Thermal), and create EOD manifests — all from Smart Ship Right.
                   Tracking numbers sync back to Shopify automatically so customers stay informed.
                 </p>
                 <ul className="mt-5 space-y-2">
-                  {['Multi-carrier rate comparison', 'One-click label generation', 'Automatic tracking sync', 'Bulk ship & manifests'].map((item) => (
+                  {['Multi-carrier rate comparison', 'One-click label generation', 'Packing slips (PDF, HTML, Thermal)', 'EOD manifests & SCAN forms', 'Automatic tracking sync to Shopify'].map((item) => (
                     <li key={item} className="flex items-center text-sm text-slate-700">
                       <svg className="mr-2 h-4 w-4 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                       {item}
@@ -234,8 +235,8 @@ export default function Home() {
                 icon: (
                   <svg className="w-7 h-7 text-rose-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
                 ),
-                title: 'Mobile warehouse app',
-                desc: 'Camera barcode scanning, mobile picking, SKU moves, and inventory adjustments — all from a phone or tablet on the warehouse floor.',
+                title: 'Backorder tracking built in',
+                desc: 'Automatically detect when reserved quantity exceeds on-hand stock. Backordered SKUs are flagged on orders, excluded from picking, and auto-populate purchase orders.',
               },
               {
                 icon: (
@@ -262,9 +263,9 @@ export default function Home() {
         <Container>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { value: '10,868', label: 'SKUs Supported' },
-              { value: '6,654', label: 'Warehouse Locations' },
-              { value: '1,000+', label: 'Orders / Day' },
+              { value: '200+', label: 'API Endpoints' },
+              { value: '50+', label: 'Frontend Pages' },
+              { value: '15+', label: 'Shopify Webhooks' },
               { value: '<100ms', label: 'API Response Time' },
             ].map((stat) => (
               <div key={stat.label}>
