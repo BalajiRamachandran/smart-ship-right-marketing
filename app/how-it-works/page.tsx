@@ -1,38 +1,87 @@
 import { PageHeader } from '@/components/ui/PageHeader';
 import { Section } from '@/components/ui/Section';
+import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
+import { ScreenshotPlaceholder } from '@/components/ScreenshotPlaceholder';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'How It Works | Smart Ship Right',
   description:
-    'Business process flow for Smart Ship Right from order intake to picking, packing, shipping, and reporting.',
+    'From order intake to shipped status — see how Smart Ship Right manages your entire warehouse workflow in 6 clear steps.',
 };
 
-const flowSteps = [
+const processSteps = [
   {
-    title: 'Order intake',
-    detail: 'Orders sync from connected channels and enter a controlled processing queue.',
+    step: '01',
+    title: 'Orders sync automatically',
+    detail: 'Connect Shopify and orders flow into Smart Ship Right in real time via webhooks. Manual order creation is also supported. Each order enters a controlled processing queue with hold management for payment, fraud, and address issues.',
+    screenshotAlt: 'Order sync — Shopify orders flowing into Smart Ship Right',
   },
   {
-    title: 'Inventory allocation',
-    detail: 'Available stock is validated by SKU and location before releasing work to the floor.',
+    step: '02',
+    title: 'Inventory is validated',
+    detail: 'Available stock is checked by SKU and location before releasing work to the floor. Reservations prevent overselling. Capacity constraints are validated automatically. Variance checks against Shopify catch discrepancies early.',
+    screenshotAlt: 'Inventory validation — stock levels and reservation checks',
   },
   {
-    title: 'Picking execution',
-    detail: 'Teams run SIB or MIB waves with barcode confirmation and tote-based handling.',
+    step: '03',
+    title: 'Pickers execute batches',
+    detail: 'Teams run SIB (single-item) or MIB (multi-item) batch picking waves. Pick lists are sorted by warehouse location to minimize travel. Barcode scanning confirms every item. Tote assignment ensures orders stay separated.',
+    screenshotAlt: 'Picking execution — barcode scanning and tote assignment',
   },
   {
-    title: 'Packing and QA',
-    detail: 'Picked orders move to pack stations for final verification, boxing, and label readiness.',
+    step: '04',
+    title: 'Orders are packed and verified',
+    detail: 'Picked orders move to the packing hub. Packers scan totes and verify items against the order. Pack-and-print workflows generate packing slips and labels in one step. Direct-to-packing is available for orders that skip batch picking.',
+    screenshotAlt: 'Packing station — scan verification and label printing',
   },
   {
-    title: 'Shipping and manifest',
-    detail: 'Rates, labels, carrier services, and manifests are generated through shipping integrations.',
+    step: '05',
+    title: 'Labels are printed and shipped',
+    detail: 'ShipStation integration compares rates across carriers and generates labels. Tracking numbers are captured automatically and synced back to Shopify. Manifests are created for carrier pickup. Bulk shipping handles high-volume days.',
+    screenshotAlt: 'Shipping — carrier rates, labels, and manifest generation',
   },
   {
-    title: 'Tracking and analytics',
-    detail: 'Shipment updates sync back to channels while dashboards track throughput and bottlenecks.',
+    step: '06',
+    title: 'Dashboard tracks everything',
+    detail: 'Real-time WebSocket dashboard shows orders to ship, late orders, holds, picker performance, and hospital stats. Yesterday vs. today comparisons help spot trends. Role-based access ensures the right people see the right data.',
+    screenshotAlt: 'Dashboard — real-time stats and performance tracking',
+  },
+];
+
+const onboardingSteps = [
+  {
+    step: '1',
+    title: 'Connect your store',
+    detail: 'Link your Shopify store and ShipStation account. Products, orders, and inventory sync automatically within minutes.',
+    icon: (
+      <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
+    ),
+  },
+  {
+    step: '2',
+    title: 'Configure your warehouse',
+    detail: 'Set up locations, zones, and SKU mappings. Import existing inventory via CSV or let Shopify sync handle it. Define totes and barcode formats.',
+    icon: (
+      <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
+    ),
+  },
+  {
+    step: '3',
+    title: 'Train your team',
+    detail: 'The interface is designed for warehouse teams, not IT. Pickers are productive in under 5 minutes. We provide a free onboarding call for Professional and Enterprise plans.',
+    icon: (
+      <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+    ),
+  },
+  {
+    step: '4',
+    title: 'Go live',
+    detail: 'Enable inventory tracking, start picking batches, and ship orders. The real-time dashboard tracks everything from day one. Scale up as your volume grows.',
+    icon: (
+      <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+    ),
   },
 ];
 
@@ -41,45 +90,82 @@ export default function HowItWorksPage() {
     <div className="bg-white">
       <PageHeader
         title="How Smart Ship Right works"
-        description="A business-first process flow from order intake to shipped status, with operational visibility at each step."
+        description="From order intake to shipped status — a clear, auditable workflow at every step."
       />
 
+      {/* Process Flow */}
       <Section>
-        <div className="mx-auto max-w-6xl">
-          <h2 className="font-display text-center text-3xl font-bold text-slate-900">Process flow</h2>
-          <p className="mx-auto mt-4 max-w-3xl text-center text-slate-600">
-            This flow shows how warehouse and operations teams move work through Smart Ship Right in a consistent,
-            auditable lifecycle.
-          </p>
-
-          <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {flowSteps.map((step, index) => (
-              <article key={step.title} className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-                <div className="mb-4 flex items-center gap-3">
-                  <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-sm font-semibold text-white">
-                    {index + 1}
-                  </span>
-                  <h3 className="font-display text-xl font-semibold text-slate-900">{step.title}</h3>
-                </div>
-                <p className="text-sm leading-relaxed text-slate-600">{step.detail}</p>
-              </article>
-            ))}
+        <Container>
+          <div className="mx-auto max-w-5xl">
+            <div className="space-y-16">
+              {processSteps.map((item, index) => {
+                const isEven = index % 2 === 0;
+                return (
+                  <div
+                    key={item.step}
+                    className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center"
+                  >
+                    <div className={isEven ? '' : 'lg:order-2'}>
+                      <div className="flex items-center gap-4 mb-4">
+                        <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">
+                          {item.step}
+                        </span>
+                        <h3 className="font-display text-2xl font-bold text-slate-900">{item.title}</h3>
+                      </div>
+                      <p className="text-slate-600 leading-relaxed">{item.detail}</p>
+                    </div>
+                    <div className={isEven ? '' : 'lg:order-1'}>
+                      <ScreenshotPlaceholder alt={item.screenshotAlt} aspect="aspect-[4/3]" />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
-        </div>
+        </Container>
       </Section>
 
+      {/* Onboarding Steps (SKULabs-style) */}
       <Section alt>
-        <div className="mx-auto max-w-3xl rounded-xl border border-slate-200 bg-white p-6 text-center shadow-sm">
-          <h2 className="font-display text-2xl font-bold text-slate-900">Align process with your warehouse setup</h2>
-          <p className="mt-3 text-slate-600">
-            We can map this flow to your exact SKU profile, team structure, picking strategy, and shipping carriers.
-          </p>
-          <div className="mt-6">
-            <Button href="/contact" size="lg">
-              Discuss your process
-            </Button>
+        <Container>
+          <div className="text-center mb-12">
+            <h2 className="font-display text-3xl font-bold text-slate-900">
+              Get started in 4 simple steps
+            </h2>
+            <p className="mt-4 text-lg text-slate-600">
+              Onboarding is free. Most teams are live within a day.
+            </p>
           </div>
-        </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {onboardingSteps.map((item) => (
+              <div key={item.step} className="rounded-xl border border-slate-200 bg-white p-6 text-center">
+                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-blue-50">
+                  {item.icon}
+                </div>
+                <h3 className="font-display text-lg font-semibold text-slate-900 mb-2">{item.title}</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">{item.detail}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* CTA */}
+      <Section>
+        <Container>
+          <div className="mx-auto max-w-3xl rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-blue-50/50 p-8 md:p-12 text-center">
+            <h2 className="font-display text-2xl font-bold text-slate-900">
+              Ready to align this process with your warehouse?
+            </h2>
+            <p className="mt-3 text-slate-600">
+              We can map this workflow to your exact SKU profile, team structure, picking strategy, and shipping carriers.
+            </p>
+            <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
+              <Button href="/contact" size="lg">Book a Demo</Button>
+              <Button href="/pricing" variant="outline" size="lg">View Pricing</Button>
+            </div>
+          </div>
+        </Container>
       </Section>
     </div>
   );

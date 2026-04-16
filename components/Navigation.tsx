@@ -13,8 +13,8 @@ export default function Navigation() {
   const links = [
     { href: '/', label: 'Home' },
     { href: '/features', label: 'Features' },
-    { href: '/how-it-works', label: 'How it works' },
-    { href: '/mobile', label: 'Mobile' },
+    { href: '/how-it-works', label: 'How It Works' },
+    { href: '/pricing', label: 'Pricing' },
     { href: '/products', label: 'Products' },
     { href: '/about', label: 'About' },
     { href: '/contact', label: 'Contact' },
@@ -28,20 +28,22 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`sticky top-0 z-50 border-b border-gray-700 transition-all ${
-        scrolled ? 'bg-gray-800/95 shadow-lg backdrop-blur-md' : 'bg-gray-800'
+      className={`sticky top-0 z-50 border-b transition-all ${
+        scrolled
+          ? 'border-gray-200 bg-white/95 shadow-lg backdrop-blur-md'
+          : 'border-transparent bg-white'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <Link href="/" className="flex items-center">
-              <Image src="/logo.svg" alt="Smart Ship Right" width={182} height={40} priority className="h-10 w-auto" />
+            <Link href="/" className="flex items-center gap-2">
+              <Image src="/logo.svg" alt="Smart Ship Right" width={182} height={40} priority className="h-9 w-auto" />
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-1">
             {links.map((link) => {
               const active = pathname === link.href;
               return (
@@ -49,7 +51,9 @@ export default function Navigation() {
                   key={link.href}
                   href={link.href}
                   className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
-                    active ? 'bg-blue-600 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                    active
+                      ? 'bg-blue-50 text-blue-700'
+                      : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
                   }`}
                 >
                   {link.label}
@@ -58,18 +62,19 @@ export default function Navigation() {
             })}
             <Link
               href="/contact"
-              className="ml-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
+              className="ml-3 rounded-lg bg-blue-600 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-blue-700 shadow-sm"
             >
-              Get Started
+              Get Started Free
             </Link>
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-300 hover:text-white focus:outline-none"
+              className="text-slate-600 hover:text-slate-900 focus:outline-none p-2"
               aria-label="Toggle menu"
+              aria-expanded={isOpen}
             >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 {isOpen ? (
@@ -84,15 +89,17 @@ export default function Navigation() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden py-4 space-y-2">
+          <div className="lg:hidden py-4 space-y-1 border-t border-slate-100">
             {links.map((link) => {
               const active = pathname === link.href;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`block rounded-lg px-3 py-2 text-sm font-medium ${
-                    active ? 'bg-blue-600 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                  className={`block rounded-lg px-3 py-2.5 text-sm font-medium ${
+                    active
+                      ? 'bg-blue-50 text-blue-700'
+                      : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
                   }`}
                   onClick={() => setIsOpen(false)}
                 >
@@ -102,10 +109,10 @@ export default function Navigation() {
             })}
             <Link
               href="/contact"
-              className="mt-2 block rounded-lg bg-blue-600 px-4 py-2 text-center text-sm font-semibold text-white hover:bg-blue-700"
+              className="mt-2 block rounded-lg bg-blue-600 px-4 py-2.5 text-center text-sm font-semibold text-white hover:bg-blue-700"
               onClick={() => setIsOpen(false)}
             >
-              Get Started
+              Get Started Free
             </Link>
           </div>
         )}
@@ -113,4 +120,3 @@ export default function Navigation() {
     </nav>
   );
 }
-

@@ -1,239 +1,223 @@
-import { IntegrationSketch, WarehouseSketch, DashboardSketch } from '@/components/Sketches';
-import { StorysetIllustration } from '@/components/StorysetIllustration';
+import { IntegrationSketch, DashboardSketch } from '@/components/Sketches';
+import { ScreenshotPlaceholder } from '@/components/ScreenshotPlaceholder';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { Section } from '@/components/ui/Section';
+import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Products | Smart Ship Right WMS',
+  title: 'Products | Smart Ship Right',
   description:
-    'Explore Smart Ship Right products: FastAPI backend, Next.js web frontend, and Expo mobile app for warehouse floor operations.',
+    'Explore Smart Ship Right products: WMS backend, web frontend, mobile app, and Mudra contract management.',
 };
 
 export default function ProductsPage() {
   return (
     <div className="bg-white">
       <PageHeader
-        title="Complete warehouse management solution"
-        description="A production-focused FastAPI backend, Next.js web frontend, and Expo mobile app for inventory, picking, packing, and shipping operations."
+        title="The Smart Ship Right platform"
+        description="A complete warehouse management system with a FastAPI backend, Next.js web app, Expo mobile app, and built-in contract management."
       />
 
-      {/* Products */}
+      {/* Product Cards */}
       <Section>
-        <div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
-            {/* Backend Product */}
-            <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
-              <div className="bg-gradient-to-r from-green-500 to-teal-600 p-6">
-                <h2 className="font-display text-3xl font-bold text-white mb-2">FastAPI Backend</h2>
-                <p className="text-green-50">Robust REST API for warehouse operations</p>
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+            {/* WMS Backend */}
+            <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+              <div className="bg-gradient-to-r from-emerald-500 to-teal-600 p-6">
+                <h2 className="font-display text-2xl font-bold text-white">WMS Backend</h2>
+                <p className="mt-1 text-emerald-50">FastAPI · PostgreSQL · WebSocket</p>
               </div>
-              <div className="p-8">
-                <div className="mb-6 flex flex-col gap-4">
-                  <StorysetIllustration name="integration" className="max-h-40" />
-                  <IntegrationSketch />
-                </div>
-                <div className="space-y-4 mb-6">
+              <div className="p-6">
+                <ScreenshotPlaceholder alt="Backend API — endpoints, WebSocket, and database" aspect="aspect-[3/2]" className="mb-6" />
+                <div className="space-y-4">
                   <div>
-                    <h3 className="font-semibold text-slate-900 mb-2">Core Technologies</h3>
-                    <ul className="space-y-2 text-slate-600">
-                      <li className="flex items-center">
-                        <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
-                        FastAPI (Python 3.8+)
-                      </li>
-                      <li className="flex items-center">
-                        <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
-                        PostgreSQL 12+ / SQLite
-                      </li>
-                      <li className="flex items-center">
-                        <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
-                        SQLAlchemy 2.0 ORM
-                      </li>
-                      <li className="flex items-center">
-                        <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
-                        JWT Authentication
-                      </li>
-                      <li className="flex items-center">
-                        <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
-                        WebSocket Support
-                      </li>
-                    </ul>
+                    <h3 className="font-semibold text-slate-900 mb-2">Core stack</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {['FastAPI', 'Python 3.8+', 'PostgreSQL', 'SQLAlchemy 2.0', 'JWT Auth', 'WebSocket'].map((tech) => (
+                        <span key={tech} className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700 border border-emerald-200">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-slate-900 mb-2">Key Features</h3>
-                    <ul className="space-y-2 text-slate-600">
-                      <li>• RESTful API with OpenAPI docs</li>
-                      <li>• Real-time WebSocket updates</li>
-                      <li>• Role-based access control</li>
-                      <li>• Comprehensive error handling</li>
-                      <li>• Database migration support</li>
-                      <li>• Health check endpoints</li>
+                    <h3 className="font-semibold text-slate-900 mb-2">API coverage</h3>
+                    <ul className="grid grid-cols-2 gap-1 text-sm text-slate-600">
+                      {[
+                        'Inventory & locations',
+                        'Orders & fulfillment',
+                        'Picking (SIB/MIB)',
+                        'Packing & shipping',
+                        'Purchase orders',
+                        'Warehouse analytics',
+                        'Hospital & quarantine',
+                        'Automation rules',
+                      ].map((item) => (
+                        <li key={item} className="flex items-center">
+                          <span className="mr-2 h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                          {item}
+                        </li>
+                      ))}
                     </ul>
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-slate-900 mb-2">API Capabilities</h3>
-                    <ul className="space-y-2 text-slate-600">
-                      <li>• Inventory, orders, picking (SIB/MIB), packing, shipping</li>
-                      <li>• Warehouse (locations, zones, SKUs, totes, map, analytics)</li>
-                      <li>• Purchase orders, receiving, vendors</li>
-                      <li>• Hospital (quarantine), automation rules</li>
-                      <li>• Shopify and ShipStation (labels, manifests, shipping methods)</li>
-                      <li>• Dashboard, history, notes, permissions, CSV import, alerts</li>
-                    </ul>
+                  <div className="rounded-lg bg-slate-50 p-4 text-sm text-slate-600">
+                    <strong>Performance:</strong> 1,000+ orders/day · 50+ concurrent pickers · &lt;100ms API response
                   </div>
-                </div>
-                <div className="rounded-lg bg-slate-50 p-4">
-                  <p className="text-sm text-slate-600">
-                    <strong>Performance:</strong> Handles 1,000+ orders/day, 50+ concurrent pickers, 
-                    &lt;100ms average API response time
-                  </p>
                 </div>
               </div>
             </div>
 
-            {/* Frontend Product */}
-            <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+            {/* Web Frontend */}
+            <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
               <div className="bg-gradient-to-r from-blue-500 to-indigo-600 p-6">
-                <h2 className="font-display text-3xl font-bold text-white mb-2">Next.js Frontend</h2>
-                <p className="text-blue-50">Modern, responsive web application</p>
+                <h2 className="font-display text-2xl font-bold text-white">Web Frontend</h2>
+                <p className="mt-1 text-blue-50">Next.js · TypeScript · Tailwind CSS</p>
               </div>
-              <div className="p-8">
-                <div className="mb-6 flex flex-col gap-4">
-                  <StorysetIllustration name="dashboard" className="max-h-40" />
-                  <DashboardSketch />
-                </div>
-                <div className="space-y-4 mb-6">
+              <div className="p-6">
+                <ScreenshotPlaceholder alt="Web frontend — dashboard, picking, packing, and shipping" aspect="aspect-[3/2]" className="mb-6" />
+                <div className="space-y-4">
                   <div>
-                    <h3 className="font-semibold text-slate-900 mb-2">Core Technologies</h3>
-                    <ul className="space-y-2 text-slate-600">
-                      <li className="flex items-center">
-                        <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-                        Next.js (App Router)
-                      </li>
-                      <li className="flex items-center">
-                        <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-                        TypeScript
-                      </li>
-                      <li className="flex items-center">
-                        <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-                        Tailwind CSS
-                      </li>
-                      <li className="flex items-center">
-                        <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-                        React 18
-                      </li>
-                      <li className="flex items-center">
-                        <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-                        WebSocket Client
-                      </li>
-                    </ul>
+                    <h3 className="font-semibold text-slate-900 mb-2">Core stack</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {['Next.js 15', 'React 19', 'TypeScript', 'Tailwind CSS', 'WebSocket Client', 'Recharts'].map((tech) => (
+                        <span key={tech} className="rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700 border border-blue-200">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-slate-900 mb-2">Key Features</h3>
-                    <ul className="space-y-2 text-slate-600">
-                      <li>• Real-time updates via WebSocket</li>
-                      <li>• Camera barcode scanner and barcode pages</li>
-                      <li>• Responsive design (tablet-optimized)</li>
-                      <li>• Role-based UI and permissions</li>
-                      <li>• Type-safe API integration</li>
-                      <li>• Packing hub, shipping, manifests, boxes</li>
+                    <h3 className="font-semibold text-slate-900 mb-2">Pages & modules</h3>
+                    <ul className="grid grid-cols-2 gap-1 text-sm text-slate-600">
+                      {[
+                        'Dashboard & analytics',
+                        'Orders & picking',
+                        'Packing hub',
+                        'Shipping & labels',
+                        'Inventory management',
+                        'Warehouse map',
+                        'Purchase orders',
+                        'Settings & users',
+                      ].map((item) => (
+                        <li key={item} className="flex items-center">
+                          <span className="mr-2 h-1.5 w-1.5 rounded-full bg-blue-500" />
+                          {item}
+                        </li>
+                      ))}
                     </ul>
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-slate-900 mb-2">Pages & Modules</h3>
-                    <ul className="space-y-2 text-slate-600">
-                      <li>• Dashboard, orders, picking (SIB/MIB), packing, shipping</li>
-                      <li>• Warehouse (locations, SKUs, totes, hospital, map, analytics)</li>
-                      <li>• Inventory, purchase orders, receiving, products, vendors</li>
-                      <li>• Automation rules, alerts, settings, users</li>
-                    </ul>
+                  <div className="rounded-lg bg-slate-50 p-4 text-sm text-slate-600">
+                    <strong>Performance:</strong> 1,000+ items per table · &lt;1s real-time latency · Responsive design
                   </div>
-                </div>
-                <div className="rounded-lg bg-slate-50 p-4">
-                  <p className="text-sm text-slate-600">
-                    <strong>Performance:</strong> Supports 1000+ items per table, &lt;1s real-time latency, 
-                    5 concurrent WebSocket connections
-                  </p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Architecture Overview */}
-          <div className="rounded-xl border border-slate-200 bg-gradient-to-br from-slate-50 to-slate-100 p-8">
-            <h2 className="font-display text-2xl font-bold text-slate-900 mb-6 text-center">System Architecture</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="mb-4 flex flex-col items-center gap-4 rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-                  <StorysetIllustration name="warehouse" className="max-h-36" />
-                  <WarehouseSketch />
-                </div>
-                <h3 className="font-semibold text-slate-900 mb-2">Backend API</h3>
-                <p className="text-sm text-slate-600">
-                  FastAPI REST endpoints with WebSocket support for real-time communication
-                </p>
+          {/* Mobile App */}
+          <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm mb-16">
+            <div className="bg-gradient-to-r from-purple-500 to-violet-600 p-6">
+              <h2 className="font-display text-2xl font-bold text-white">Mobile Warehouse App</h2>
+              <p className="mt-1 text-purple-50">Expo · React Native · Camera Barcode Scanning</p>
+            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-6">
+              <div>
+                <ScreenshotPlaceholder alt="Mobile app — picking, scanning, and inventory on the floor" aspect="aspect-[3/2]" />
               </div>
-              <div className="text-center">
-                <div className="mb-4 flex flex-col items-center gap-4 rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-                  <StorysetIllustration name="integration" className="max-h-36" />
-                  <IntegrationSketch />
+              <div className="space-y-4">
+                <h3 className="font-semibold text-slate-900">Mobile capabilities</h3>
+                <ul className="space-y-2 text-sm text-slate-600">
+                  {[
+                    'Authenticated app flow with persisted session',
+                    'Camera barcode scanner with reusable scan screen',
+                    'Mobile batch picking: create batch, scan items, complete',
+                    'Move SKU workflow (source → destination → quantity)',
+                    'Inventory adjustment with reason codes and sync feedback',
+                    'On-device API endpoint configuration',
+                  ].map((item) => (
+                    <li key={item} className="flex items-start">
+                      <svg className="mr-2 mt-0.5 h-4 w-4 text-purple-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <div className="rounded-lg bg-slate-50 p-4 text-sm text-slate-600">
+                  <strong>Note:</strong> Same backend APIs power web and mobile. Role-based auth and bearer token access across both platforms.
                 </div>
-                <h3 className="font-semibold text-slate-900 mb-2">Database</h3>
-                <p className="text-sm text-slate-600">
-                  PostgreSQL with SQLAlchemy ORM for reliable data persistence
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="mb-4 flex flex-col items-center gap-4 rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-                  <StorysetIllustration name="dashboard" className="max-h-36" />
-                  <DashboardSketch />
-                </div>
-                <h3 className="font-semibold text-slate-900 mb-2">Frontend</h3>
-                <p className="text-sm text-slate-600">
-                  Next.js application with TypeScript for type-safe development
-                </p>
               </div>
             </div>
           </div>
+
+          {/* Mudra Contract Management */}
+          <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm mb-16">
+            <div className="bg-gradient-to-r from-amber-500 to-orange-600 p-6">
+              <h2 className="font-display text-2xl font-bold text-white">Mudra — Contract Management</h2>
+              <p className="mt-1 text-amber-50">AI-Powered · E-Signatures · Audit Trail</p>
+            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-6">
+              <div className="space-y-4">
+                <h3 className="font-semibold text-slate-900">AI-powered contract operations</h3>
+                <ul className="space-y-2 text-sm text-slate-600">
+                  {[
+                    'Generate professional contracts from plain-text descriptions',
+                    'Automated risk analysis with severity levels and missing sections',
+                    'Plain language summaries for non-lawyers',
+                    'Clause library with suggestions and rewriting',
+                    'Multi-signer e-signature workflow with signing order',
+                    'Template management with dynamic field extraction',
+                    'Append-only audit logs with IP and user agent tracking',
+                    'Contract chat — ask questions about any agreement',
+                  ].map((item) => (
+                    <li key={item} className="flex items-start">
+                      <svg className="mr-2 mt-0.5 h-4 w-4 text-amber-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <div className="flex flex-wrap gap-2 pt-2">
+                  {['Google Gemini AI', 'Supabase', 'Stripe', 'Resend Email', 'Cloudflare R2'].map((tech) => (
+                    <span key={tech} className="rounded-full bg-amber-50 px-3 py-1 text-xs font-medium text-amber-700 border border-amber-200">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <ScreenshotPlaceholder alt="Mudra contract management — AI review, templates, and e-signatures" aspect="aspect-[3/2]" />
+              </div>
+            </div>
+          </div>
+
+          {/* Architecture */}
+          <div className="rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-blue-50/30 p-8">
+            <h2 className="font-display text-2xl font-bold text-slate-900 mb-8 text-center">System architecture</h2>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              {[
+                { title: 'Frontend', desc: 'Next.js web app with TypeScript and real-time WebSocket updates', color: 'blue' },
+                { title: 'Backend API', desc: 'FastAPI REST endpoints with WebSocket support and JWT auth', color: 'emerald' },
+                { title: 'Database', desc: 'PostgreSQL with SQLAlchemy ORM for reliable data persistence', color: 'purple' },
+                { title: 'Integrations', desc: 'Shopify, ShipStation, Stripe, and Supabase connected via APIs', color: 'amber' },
+              ].map((item) => (
+                <div key={item.title} className="rounded-xl border border-slate-200 bg-white p-5 text-center">
+                  <h3 className="font-semibold text-slate-900 mb-2">{item.title}</h3>
+                  <p className="text-sm text-slate-600">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <div className="mt-10 text-center">
             <Button href="/contact" size="lg">Talk to the team</Button>
           </div>
-
-          <div className="mt-12 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
-            <div className="bg-gradient-to-r from-purple-500 to-violet-600 p-6">
-              <h2 className="font-display text-3xl font-bold text-white mb-2">Expo Mobile App</h2>
-              <p className="text-purple-50">Operational workflows on the warehouse floor</p>
-            </div>
-            <div className="grid grid-cols-1 gap-8 p-8 lg:grid-cols-2">
-              <div className="space-y-4">
-                <h3 className="font-semibold text-slate-900">Confirmed Mobile Capabilities</h3>
-                <ul className="space-y-2 text-slate-600">
-                  <li>• Authenticated app flow with persisted token/session</li>
-                  <li>• On-device API URL configuration and settings-based changes</li>
-                  <li>• Camera barcode scanner with reusable scan screen</li>
-                  <li>• Mobile picking: create/select batch, scan item, skip order, complete</li>
-                  <li>• Move SKU flow (SKU, source, destination, quantity)</li>
-                  <li>• Inventory adjustment with reason and sync feedback</li>
-                </ul>
-              </div>
-              <div className="space-y-4">
-                <h3 className="font-semibold text-slate-900">Cross-Platform Alignment</h3>
-                <ul className="space-y-2 text-slate-600">
-                  <li>• Same backend APIs power web and mobile operations</li>
-                  <li>• Shared workflows for picking, inventory moves, and adjustments</li>
-                  <li>• Role-based authentication and bearer token access</li>
-                </ul>
-                <div className="rounded-lg bg-slate-50 p-4 text-sm text-slate-600">
-                  <strong>Note:</strong> current mobile implementation is camera-based scanning. Offline sync and push
-                  notifications are not advertised because they are not currently implemented.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        </Container>
       </Section>
     </div>
   );
 }
-
