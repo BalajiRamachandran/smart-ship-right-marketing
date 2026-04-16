@@ -17,7 +17,7 @@ const plusJakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: "Smart Ship Right | Pick, Pack & Ship with Accuracy",
   description:
-    "Smart Ship Right is a warehouse management system that helps e-commerce teams pick, pack, and ship orders with accuracy. Real-time inventory, Shopify and ShipStation integration, SIB/MIB batch picking, mobile barcode scanning, and contract management.",
+    "Smart Ship Right is a warehouse management system that helps e-commerce teams pick, pack, and ship orders with accuracy. Real-time inventory, Shopify and ShipStation integration, single and multi batch picking, mobile barcode scanning, and contract management.",
   keywords: [
     "warehouse management system",
     "WMS",

@@ -27,7 +27,7 @@ const processSteps = [
   {
     step: '03',
     title: 'Pickers execute batches',
-    detail: 'Teams run SIB (single-item) or MIB (multi-item) batch picking waves. Pick lists are sorted by warehouse location to minimize travel. Barcode scanning confirms every item. Tote assignment ensures orders stay separated.',
+    detail: 'Teams run single-batch or multi-batch picking waves. Pick lists are sorted by warehouse location to minimize travel. Barcode scanning confirms every item. Tote assignment ensures orders stay separated.',
     screenshotAlt: 'Picking execution — barcode scanning and tote assignment',
   },
   {

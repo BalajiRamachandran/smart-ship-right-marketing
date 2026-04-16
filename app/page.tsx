@@ -23,7 +23,7 @@ export default function Home() {
                 <span className="gradient-text"> zero errors</span>
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-600">
-                Smart Ship Right is a production-ready WMS for e-commerce teams. Inventory control, SIB/MIB batch picking,
+                Smart Ship Right is a production-ready WMS for e-commerce teams. Inventory control, single and multi batch picking,
                 packing slips, ShipStation labels, backorder tracking, and automation rules — connected to Shopify with
                 bidirectional sync and 15+ webhooks. Plus built-in AI contract management.
               </p>
@@ -133,7 +133,7 @@ export default function Home() {
             {/* Feature 2 — Picking (reversed) */}
             <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2">
               <div className="order-2 lg:order-1 flex flex-col gap-4">
-                <ScreenshotPlaceholder alt="Batch picking interface with SIB and MIB workflows" />
+                <ScreenshotPlaceholder alt="Batch picking interface with single and multi batch workflows" />
                 <div className="rounded-xl border border-slate-200 bg-slate-50 p-6">
                   <PickingSketch />
                 </div>
@@ -144,11 +144,11 @@ export default function Home() {
                 </div>
                 <h3 className="font-display text-2xl font-bold text-slate-900">Pick with 100% accuracy</h3>
                 <p className="mt-3 text-slate-600 leading-relaxed">
-                  Single-item batch (SIB) and multi-item batch (MIB) picking with location-optimized routes.
+                  Single-batch and multi-batch picking with location-optimized routes.
                   Barcode scanning validates every pick. Tote assignment prevents mix-ups. Flag problem locations to hospital directly from the picking flow.
                 </p>
                 <ul className="mt-5 space-y-2">
-                  {['SIB & MIB batch workflows', 'Location-optimized pick lists', 'Barcode scan validation', 'Tote assignment & tracking', 'Hospital flag from picking flow'].map((item) => (
+                  {['Single & multi batch workflows', 'Location-optimized pick lists', 'Barcode scan validation', 'Tote assignment & tracking', 'Hospital flag from picking flow'].map((item) => (
                     <li key={item} className="flex items-center text-sm text-slate-700">
                       <svg className="mr-2 h-4 w-4 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                       {item}
@@ -215,7 +215,7 @@ export default function Home() {
                   <svg className="w-7 h-7 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                 ),
                 title: 'Increase picking speed by 40%',
-                desc: 'Location-optimized pick lists and batch workflows reduce travel time. SIB and MIB modes let pickers handle more orders per hour with fewer steps.',
+                desc: 'Location-optimized pick lists and batch workflows reduce travel time. Single and multi batch modes let pickers handle more orders per hour with fewer steps.',
               },
               {
                 icon: (
@@ -291,7 +291,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { alt: 'Dashboard — orders to ship, late orders, and real-time stats', caption: 'Dashboard' },
-              { alt: 'Picking batches — SIB and MIB batch management', caption: 'Batch Picking' },
+              { alt: 'Picking batches — single and multi batch management', caption: 'Batch Picking' },
               { alt: 'Packing station — scan, verify, and pack orders', caption: 'Packing Hub' },
               { alt: 'Shipping — labels, rates, and carrier selection', caption: 'Shipping' },
               { alt: 'Inventory — SKU levels across all locations', caption: 'Inventory' },
@@ -325,7 +325,7 @@ export default function Home() {
                 company: 'E-commerce Retailer',
               },
               {
-                quote: 'The SIB and MIB picking workflows are a game changer. Our pickers handle 40% more orders per shift, and the location-optimized routes mean less walking and more shipping.',
+                quote: 'The single and multi batch picking workflows are a game changer. Our pickers handle 40% more orders per shift, and the location-optimized routes mean less walking and more shipping.',
                 name: 'Warehouse Supervisor',
                 company: 'Multi-channel Brand',
               },

@@ -9,7 +9,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Features | Smart Ship Right WMS',
   description:
-    'Comprehensive features for modern warehouse management: inventory, orders, SIB/MIB picking, packing, shipping, Shopify and ShipStation integration, mobile app, and contract management.',
+    'Comprehensive features for modern warehouse management: inventory, orders, single and multi batch picking, packing, shipping, Shopify and ShipStation integration, mobile app, and contract management.',
 };
 
 const features = [
@@ -42,21 +42,21 @@ const features = [
     ],
   },
   {
-    title: 'SIB & MIB Batch Picking',
-    description: 'Single-item batch (SIB) and multi-item batch (MIB) picking with location-optimized routes, barcode scanning validation, and tote assignment. Designed for maximum picker efficiency.',
+    title: 'Single & Multi Batch Picking',
+    description: 'Single-batch and multi-batch picking with location-optimized routes, barcode scanning validation, and tote assignment. Designed for maximum picker efficiency.',
     Sketch: PickingSketch,
-    screenshotAlt: 'Batch picking — SIB and MIB workflows with barcode validation',
+    screenshotAlt: 'Batch picking — single and multi batch workflows with barcode validation',
     details: [
-      'Single-item batch (SIB) workflow for high-volume single-SKU orders',
-      'Multi-item batch (MIB) workflow for complex multi-SKU orders',
+      'Single-batch workflow for high-volume single-SKU orders',
+      'Multi-batch workflow for complex multi-SKU orders',
       'Location-optimized pick lists (Zone → X → Level)',
       'Barcode scanning validation at every pick',
       'Tote assignment and tracking',
       'Batch reservation system prevents overselling',
     ],
     expanded: {
-      sib: {
-        title: 'Single-Item Batch (SIB)',
+      singleBatch: {
+        title: 'Single Batch Picking',
         steps: [
           'System groups pending orders with the same SKU into a batch',
           'Pick list sorted by warehouse location to minimize travel',
@@ -65,8 +65,8 @@ const features = [
           'On completion, inventory updates in real time and orders move to packing',
         ],
       },
-      mib: {
-        title: 'Multi-Item Batch (MIB)',
+      multiBatch: {
+        title: 'Multi Batch Picking',
         steps: [
           'System analyzes order characteristics and groups compatible orders',
           'Consolidated pick list shows all items for all orders in the batch',
