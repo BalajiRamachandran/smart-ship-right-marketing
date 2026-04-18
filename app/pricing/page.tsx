@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 const plans = [
   {
     name: 'Starter',
-    price: '$49',
+    price: '$99',
     period: '/month',
     description: 'For small teams getting started with organized fulfillment.',
     highlight: false,
@@ -33,7 +33,7 @@ const plans = [
   },
   {
     name: 'Professional',
-    price: '$149',
+    price: '$249',
     period: '/month',
     description: 'For growing teams that need advanced picking and shipping.',
     highlight: true,

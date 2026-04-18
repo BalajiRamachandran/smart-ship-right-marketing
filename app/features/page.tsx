@@ -1,9 +1,9 @@
 import { WarehouseSketch, InventorySketch, PickingSketch, OrderSketch, DashboardSketch, IntegrationSketch } from '@/components/Sketches';
-import { ScreenshotPlaceholder } from '@/components/ScreenshotPlaceholder';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { Section } from '@/components/ui/Section';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
+import Image from 'next/image';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -17,6 +17,7 @@ const features = [
     title: 'Inventory Management',
     description: 'Real-time tracking with location-based storage. Multi-location inventory support with reserved quantity management and automatic capacity constraint validation.',
     Sketch: InventorySketch,
+    screenshotSrc: '/screenshots/skus.png',
     screenshotAlt: 'Inventory management — SKU levels, locations, and stock movements',
     details: [
       'Real-time inventory tracking by SKU and location',
@@ -31,6 +32,7 @@ const features = [
     title: 'Order Processing',
     description: 'Complete order lifecycle management from import to fulfillment. Support for priority handling, hold management, and real-time status updates via WebSocket.',
     Sketch: OrderSketch,
+    screenshotSrc: '/screenshots/orders.png',
     screenshotAlt: 'Order processing — lifecycle from import to shipped',
     details: [
       'Complete order lifecycle from import to shipped',
@@ -45,6 +47,7 @@ const features = [
     title: 'Single & Multi Batch Picking',
     description: 'Single-batch and multi-batch picking with location-optimized routes, barcode scanning validation, and tote assignment. Designed for maximum picker efficiency.',
     Sketch: PickingSketch,
+    screenshotSrc: '/screenshots/picking.png',
     screenshotAlt: 'Batch picking — single and multi batch workflows with barcode validation',
     details: [
       'Single-batch workflow for high-volume single-SKU orders',
@@ -81,6 +84,7 @@ const features = [
     title: 'Packing & Shipping',
     description: 'Packing hub with batch and order-based flows. Scan totes, verify items, print labels and packing slips. ShipStation powers labels, rate shopping, carriers, and manifests.',
     Sketch: IntegrationSketch,
+    screenshotSrc: '/screenshots/packing.png',
     screenshotAlt: 'Packing and shipping — label generation and carrier selection',
     details: [
       'Packing hub by batch or by order',
@@ -95,6 +99,7 @@ const features = [
     title: 'Warehouse Management',
     description: 'Full warehouse layout management with zones, locations, and capacity tracking. Tote management, barcode pages, and warehouse analytics.',
     Sketch: WarehouseSketch,
+    screenshotSrc: '/screenshots/warehouse-locations.png',
     screenshotAlt: 'Warehouse management — locations, zones, and capacity',
     details: [
       'Warehouse map and location management',
@@ -109,6 +114,7 @@ const features = [
     title: 'Real-time Dashboard',
     description: 'WebSocket-powered dashboard with orders to ship, late orders, holds, POs, hospital stats, and picker performance. Know exactly where every order stands.',
     Sketch: DashboardSketch,
+    screenshotSrc: '/screenshots/dashboard.png',
     screenshotAlt: 'Real-time dashboard — orders, stats, and performance metrics',
     details: [
       'Orders to ship, late orders, and holds',
@@ -123,6 +129,7 @@ const features = [
     title: 'Mobile Warehouse App',
     description: 'Take Smart Ship Right to the warehouse floor. Camera barcode scanning, mobile picking, SKU moves, and inventory adjustments — all from a phone or tablet.',
     Sketch: DashboardSketch,
+    screenshotSrc: '/screenshots/settings.png',
     screenshotAlt: 'Mobile app — barcode scanning and picking on the floor',
     details: [
       'Auth-gated mobile workflow with persisted sessions',
@@ -137,6 +144,7 @@ const features = [
     title: 'Shopify & ShipStation Integration',
     description: 'Full Shopify integration for products, orders, inventory, and fulfillment. ShipStation for labels, tracking, carriers, and manifests. Webhooks keep everything in sync.',
     Sketch: IntegrationSketch,
+    screenshotSrc: '/screenshots/settings.png',
     screenshotAlt: 'Integrations — Shopify and ShipStation connected',
     details: [
       'Shopify product, order, and inventory sync',
@@ -151,6 +159,7 @@ const features = [
     title: 'Contract Management (Mudra)',
     description: 'AI-powered contract generation, review, and e-signatures. Manage vendor agreements, analyze risk, and maintain audit trails — all built into the platform.',
     Sketch: OrderSketch,
+    screenshotSrc: '/screenshots/order-detail.png',
     screenshotAlt: 'Contract management — AI review, e-signatures, and audit trail',
     details: [
       'AI-powered contract generation from descriptions',
@@ -165,6 +174,7 @@ const features = [
     title: 'Backorder Tracking',
     description: 'Automatically detect when reserved quantity exceeds on-hand stock. Backordered SKUs are flagged across orders and SKU pages, excluded from picking batches, and can auto-populate purchase orders.',
     Sketch: InventorySketch,
+    screenshotSrc: '/screenshots/skus.png',
     screenshotAlt: 'Backorder tracking — SKU and order-level backorder indicators',
     details: [
       'Computed at read time — no extra DB columns needed',
@@ -179,6 +189,7 @@ const features = [
     title: 'Shopify Sync Controls',
     description: 'Granular per-action-type inventory sync toggles. Control exactly which operations push inventory changes to Shopify — manual adjustments, PO receiving, bulk updates, hospital actions, and more.',
     Sketch: IntegrationSketch,
+    screenshotSrc: '/screenshots/settings.png',
     screenshotAlt: 'Shopify sync controls — per-action toggle panel',
     details: [
       'Master sync toggle plus 7 per-action toggles',
@@ -247,7 +258,9 @@ export default function FeaturesPage() {
 
                   <div className={isEven ? '' : 'lg:order-1'}>
                     <div className="flex flex-col gap-4">
-                      <ScreenshotPlaceholder alt={feature.screenshotAlt} />
+                      <div className="overflow-hidden rounded-xl border border-slate-200 shadow-lg">
+                        <Image src={feature.screenshotSrc} alt={feature.screenshotAlt} width={800} height={500} className="w-full" />
+                      </div>
                       <div className="rounded-xl border border-slate-200 bg-slate-50 p-6">
                         <feature.Sketch />
                       </div>

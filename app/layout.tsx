@@ -17,28 +17,62 @@ const plusJakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: "Smart Ship Right | Pick, Pack & Ship with Accuracy",
   description:
-    "Smart Ship Right is a warehouse management system that helps e-commerce teams pick, pack, and ship orders with accuracy. Real-time inventory, Shopify and ShipStation integration, single and multi batch picking, mobile barcode scanning, and contract management.",
+    "Smart Ship Right is a warehouse management system for Shopify merchants. Real-time inventory, batch picking, shipping labels, and automation — all synced with your store.",
   keywords: [
     "warehouse management system",
     "WMS",
     "pick pack ship",
-    "inventory management",
-    "order fulfillment",
     "Shopify WMS",
     "ShipStation integration",
+    "inventory management",
+    "order fulfillment",
     "barcode scanning",
     "batch picking",
     "e-commerce fulfillment",
-    "contract management",
+    "shipping labels",
+    "warehouse automation",
   ],
   authors: [{ name: "Smart Ship Right" }],
+  metadataBase: new URL("https://smartshipright.com"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Smart Ship Right | Pick, Pack & Ship with Accuracy",
     description:
-      "Warehouse management system for e-commerce. Real-time inventory, batch picking, shipping labels, and contract management in one platform.",
+      "Warehouse management system for Shopify merchants. Real-time inventory, batch picking, shipping labels, and automation.",
     type: "website",
     siteName: "Smart Ship Right",
+    url: "https://smartshipright.com",
   },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Smart Ship Right",
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Web",
+  description:
+    "Warehouse management system for Shopify merchants. Real-time inventory, batch picking, shipping labels, and automation.",
+  url: "https://smartshipright.com",
+  offers: {
+    "@type": "AggregateOffer",
+    priceCurrency: "USD",
+    lowPrice: "99",
+    highPrice: "249",
+    offerCount: "3",
+  },
+  featureList: [
+    "Real-time inventory management",
+    "Single and multi batch picking",
+    "ShipStation shipping labels",
+    "Shopify bidirectional sync",
+    "Barcode scanning",
+    "Packing slips (PDF, HTML, Thermal)",
+    "Backorder tracking",
+    "Automation rules engine",
+  ],
 };
 
 export default function RootLayout({
@@ -48,6 +82,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className={`${inter.variable} ${plusJakarta.variable} antialiased`}>
         <Navigation />
         <main className="min-h-screen">{children}</main>
