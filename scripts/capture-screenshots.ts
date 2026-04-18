@@ -1,5 +1,9 @@
 /**
- * Capture screenshots of the Ship Right WMS app for the marketing site.
+ * Capture sanitized screenshots of the Ship Right WMS app for the marketing site.
+ * 
+ * IMPORTANT: This does NOT modify any database or API data.
+ * It only replaces text in the browser DOM before taking screenshots.
+ * The live app and database are completely untouched.
  * 
  * Prerequisites:
  *   1. Ship Right frontend running at http://localhost:3000
@@ -7,26 +11,112 @@
  * 
  * Usage:
  *   cd marketing-site
- *   npx playwright install chromium
  *   npx tsx scripts/capture-screenshots.ts
  */
 
-import { chromium } from 'playwright';
+import { chromium, Page } from 'playwright';
 import path from 'path';
 
 const BASE_URL = 'http://localhost:3000';
 const OUTPUT_DIR = path.join(__dirname, '..', 'public', 'screenshots');
 
-// Login credentials — update these
+// Login credentials
 const LOGIN_EMAIL = 'admin';
 const LOGIN_PASSWORD = 'admin123';
+
+/**
+ * Sanitize PII in the browser DOM before taking a screenshot.
+ * This runs entirely in the browser — no database or API changes.
+ */
+async function sanitizePage(page: Page) {
+  await page.evaluate(() => {
+    const body = document.body;
+    if (!body) return;
+
+    // Walk all text nodes and replace PII patterns
+    const walker = document.createTreeWalker(body, NodeFilter.SHOW_TEXT, null);
+    const textNodes: Text[] = [];
+    let node: Text | null;
+    while ((node = walker.nextNode() as Text)) {
+      textNodes.push(node);
+    }
+
+    // Also sanitize input values
+    document.querySelectorAll('input, textarea').forEach((el) => {
+      const input = el as HTMLInputElement;
+      if (input.type === 'email' || input.name?.includes('email')) {
+        input.value = '[email]@example.com';
+      }
+      if (input.name?.includes('phone')) {
+        input.value = '(555) 000-0000';
+      }
+    });
+
+    for (const textNode of textNodes) {
+      let text = textNode.textContent || '';
+
+      // Email addresses
+      text = text.replace(
+        /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g,
+        '[email]@example.com'
+      );
+
+      // Phone numbers (various formats)
+      text = text.replace(
+        /(\+?1[-.\s]?)?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}/g,
+        '(555) 000-0000'
+      );
+
+      // Street addresses (number + street name pattern)
+      text = text.replace(
+        /\d{1,5}\s+[A-Z][a-zA-Z]+(\s+[A-Z][a-zA-Z]+)*\s+(St|Ave|Blvd|Dr|Ln|Rd|Way|Ct|Pl|Cir|Pkwy|Ter)\b\.?/g,
+        '123 Demo Street'
+      );
+
+      // Customer names that look like "First Last" near order/customer context
+      // (conservative — only replace in elements that likely contain customer data)
+      const parent = textNode.parentElement;
+      const parentClass = parent?.className || '';
+      const parentText = parent?.textContent || '';
+      if (
+        parentClass.includes('customer') ||
+        parentText.includes('Customer') ||
+        parentText.includes('Ship to') ||
+        parentText.includes('Bill to')
+      ) {
+        // Replace "First Last" patterns (2-3 capitalized words)
+        text = text.replace(
+          /\b[A-Z][a-z]+\s+[A-Z][a-z]+(\s+[A-Z][a-z]+)?\b/g,
+          'Jane Smith'
+        );
+      }
+
+      // Shopify order names — keep the format but anonymize
+      text = text.replace(/#SVAHA-\d+(-EXC\d+)?/g, (match) => {
+        if (match.includes('EXC')) return '#DEMO-10042-EXC1';
+        return '#DEMO-' + (10000 + Math.floor(Math.random() * 999));
+      });
+
+      // City, State, ZIP patterns
+      text = text.replace(
+        /[A-Z][a-z]+,?\s+[A-Z]{2}\s+\d{5}(-\d{4})?/g,
+        'Anytown, CA 90210'
+      );
+
+      if (text !== textNode.textContent) {
+        textNode.textContent = text;
+      }
+    }
+  });
+}
 
 interface Screenshot {
   name: string;
   path: string;
-  waitFor?: string; // CSS selector to wait for before capturing
-  delay?: number;   // Extra delay in ms after page load
+  waitFor?: string;
+  delay?: number;
   viewport?: { width: number; height: number };
+  clickFirst?: string; // CSS selector — click first match to navigate to a detail page
 }
 
 const screenshots: Screenshot[] = [
@@ -46,10 +136,11 @@ const screenshots: Screenshot[] = [
   },
   {
     name: 'order-detail',
-    path: '/orders/manage', // Will navigate to first order
+    path: '/orders/manage',
     waitFor: 'main',
     delay: 2000,
     viewport: { width: 1440, height: 900 },
+    clickFirst: 'a[href*="/orders/"]', // Click first order link
   },
   {
     name: 'skus',
@@ -57,6 +148,14 @@ const screenshots: Screenshot[] = [
     waitFor: 'table, [class*="DataTable"]',
     delay: 2000,
     viewport: { width: 1440, height: 900 },
+  },
+  {
+    name: 'sku-detail',
+    path: '/warehouse/skus',
+    waitFor: 'main',
+    delay: 2000,
+    viewport: { width: 1440, height: 900 },
+    clickFirst: 'a[href*="/warehouse/skus/"]', // Click first SKU link
   },
   {
     name: 'picking',
@@ -80,10 +179,59 @@ const screenshots: Screenshot[] = [
     viewport: { width: 1440, height: 900 },
   },
   {
+    name: 'warehouse-map',
+    path: '/warehouse/map',
+    waitFor: 'main',
+    delay: 2000,
+    viewport: { width: 1440, height: 900 },
+  },
+  {
+    name: 'automation-rules',
+    path: '/settings/automation',
+    waitFor: 'main',
+    delay: 2000,
+    viewport: { width: 1440, height: 900 },
+  },
+  {
     name: 'settings',
     path: '/settings',
     waitFor: 'main',
     delay: 1500,
+    viewport: { width: 1440, height: 900 },
+  },
+  {
+    name: 'cycle-counts',
+    path: '/warehouse/cycle-counts',
+    waitFor: 'main',
+    delay: 2000,
+    viewport: { width: 1440, height: 900 },
+  },
+  {
+    name: 'hospital',
+    path: '/warehouse/hospital',
+    waitFor: 'main',
+    delay: 2000,
+    viewport: { width: 1440, height: 900 },
+  },
+  {
+    name: 'help-center',
+    path: '/help',
+    waitFor: 'main',
+    delay: 1500,
+    viewport: { width: 1440, height: 900 },
+  },
+  {
+    name: 'sync-log',
+    path: '/settings/sync-log',
+    waitFor: 'main',
+    delay: 2000,
+    viewport: { width: 1440, height: 900 },
+  },
+  {
+    name: 'warehouse-analytics',
+    path: '/warehouse/analytics',
+    waitFor: 'main',
+    delay: 2000,
     viewport: { width: 1440, height: 900 },
   },
 ];
@@ -140,9 +288,25 @@ async function main() {
         }
       }
 
+      // If clickFirst is set, click the first matching element to navigate to a detail page
+      if (shot.clickFirst) {
+        try {
+          await page.waitForSelector(shot.clickFirst, { timeout: 5000 });
+          await page.locator(shot.clickFirst).first().click();
+          await page.waitForLoadState('domcontentloaded');
+          await page.waitForTimeout(2000); // Wait for detail page to render
+        } catch {
+          console.log(`   ⚠️  Could not click "${shot.clickFirst}", capturing list page instead`);
+        }
+      }
+
       if (shot.delay) {
         await page.waitForTimeout(shot.delay);
       }
+
+      // Sanitize PII in the browser DOM (does NOT touch database or API)
+      console.log(`   🔒 Sanitizing PII...`);
+      await sanitizePage(page);
 
       const outputPath = path.join(OUTPUT_DIR, `${shot.name}.png`);
       await page.screenshot({

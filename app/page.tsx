@@ -2,6 +2,7 @@ import { InventorySketch, PickingSketch, IntegrationSketch } from '@/components/
 import { Button } from '@/components/ui/Button';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
+import HeroCarousel from '@/components/HeroCarousel';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -11,48 +12,34 @@ export default function Home() {
       {/* ── Hero ── */}
       <section className="relative overflow-hidden bg-gradient-to-br from-white via-blue-50/60 to-indigo-50/50 pt-16 pb-20 lg:pt-24 lg:pb-28">
         <Container>
-          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-20">
-            <div>
-              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-sm font-medium text-blue-700">
-                <span className="h-2 w-2 rounded-full bg-blue-500" />
-                Warehouse Management for Shopify
-              </div>
-              <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-[3.5rem] lg:leading-[1.1]">
-                Pick, pack &amp; ship with
-                <span className="gradient-text"> zero errors</span>
-              </h1>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-600">
-                Smart Ship Right is the warehouse management system built for Shopify merchants
-                who&apos;ve outgrown spreadsheets but don&apos;t need enterprise complexity. Real-time inventory,
-                batch picking, shipping labels, and automation — all synced with your store.
-              </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Button href="/contact" size="lg">
-                  Start Free Trial
-                </Button>
-                <Button href="/features" variant="outline" size="lg">
-                  See All Features
-                </Button>
-              </div>
-              <p className="mt-4 text-sm text-slate-500">No credit card required · Free onboarding call</p>
+          <div className="text-center mb-12 lg:mb-16">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-sm font-medium text-blue-700">
+              <span className="h-2 w-2 rounded-full bg-blue-500" />
+              Warehouse Management for Shopify
             </div>
+            <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-[3.5rem] lg:leading-[1.1]">
+              Pick, pack &amp; ship with
+              <span className="gradient-text"> zero errors</span>
+            </h1>
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-600">
+              Smart Ship Right is the warehouse management system built for Shopify merchants
+              who&apos;ve outgrown spreadsheets but don&apos;t need enterprise complexity. Real-time inventory,
+              batch picking, shipping labels, and automation — all synced with your store.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row justify-center">
+              <Button href="/contact" size="lg">
+                Start Free Trial
+              </Button>
+              <Button href="/features" variant="outline" size="lg">
+                See All Features
+              </Button>
+            </div>
+            <p className="mt-4 text-sm text-slate-500">No credit card required · Free onboarding call</p>
+          </div>
 
-            <div className="relative hidden lg:block">
-              <div className="rounded-2xl border border-slate-200 bg-white p-2 shadow-2xl">
-                <Image
-                  src="/screenshots/dashboard.png"
-                  alt="Smart Ship Right Dashboard — orders, inventory, and picking at a glance"
-                  width={1200}
-                  height={800}
-                  className="rounded-xl"
-                  priority
-                />
-              </div>
-              <div className="absolute -bottom-6 -left-6 rounded-xl border border-slate-200 bg-white px-5 py-4 shadow-lg">
-                <p className="text-2xl font-bold text-blue-600">99.8%</p>
-                <p className="text-sm text-slate-500">Order accuracy</p>
-              </div>
-            </div>
+          {/* Full-width carousel */}
+          <div className="mx-auto max-w-5xl">
+            <HeroCarousel />
           </div>
         </Container>
       </section>
@@ -72,41 +59,6 @@ export default function Home() {
           </div>
         </Container>
       </section>
-
-      {/* ── Demo / Hero Screenshot ── */}
-      <Section>
-        <Container>
-          <div className="mx-auto max-w-4xl text-center mb-10">
-            <h2 className="font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-              See Smart Ship Right in action
-            </h2>
-            <p className="mt-4 text-lg text-slate-600">
-              From order import to shipped — manage your entire warehouse in one screen.
-            </p>
-          </div>
-          <div className="mx-auto max-w-4xl">
-            <Link href="/contact" className="group relative block">
-              <div className="overflow-hidden rounded-xl border border-slate-200 shadow-xl transition-shadow group-hover:shadow-2xl">
-                <Image
-                  src="/screenshots/orders.png"
-                  alt="Smart Ship Right orders management — full order lifecycle"
-                  width={1200}
-                  height={700}
-                  className="w-full"
-                />
-              </div>
-              <div className="absolute inset-0 flex items-center justify-center rounded-xl bg-slate-900/40 opacity-0 transition-opacity group-hover:opacity-100">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/90 shadow-lg">
-                  <svg className="w-7 h-7 text-blue-600 ml-1" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
-                <span className="ml-4 text-lg font-semibold text-white">Book a Demo</span>
-              </div>
-            </Link>
-          </div>
-        </Container>
-      </Section>
 
       {/* ── Core Features (alternating with real screenshots) ── */}
       <Section alt>
@@ -276,12 +228,12 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { src: '/screenshots/dashboard.png', alt: 'Dashboard — orders to ship, late orders, and real-time stats', caption: 'Dashboard' },
-              { src: '/screenshots/picking.png', alt: 'Picking batches — single and multi batch management', caption: 'Batch Picking' },
-              { src: '/screenshots/packing.png', alt: 'Packing station — scan, verify, and pack orders', caption: 'Packing Hub' },
-              { src: '/screenshots/orders.png', alt: 'Orders — full lifecycle from import to shipped', caption: 'Orders' },
-              { src: '/screenshots/skus.png', alt: 'Inventory — SKU levels across all locations', caption: 'Inventory' },
-              { src: '/screenshots/warehouse-locations.png', alt: 'Warehouse — locations, zones, and capacity', caption: 'Warehouse' },
+              { src: '/screenshots/dashboard.png', alt: 'Smart Ship Right dashboard showing orders to ship, inventory stats, and real-time metrics', caption: 'Dashboard' },
+              { src: '/screenshots/orders.png', alt: 'Order management list with status filters, search, and bulk actions', caption: 'Orders' },
+              { src: '/screenshots/picking.png', alt: 'Picking dashboard with batch management, tote assignment, and progress tracking', caption: 'Batch Picking' },
+              { src: '/screenshots/packing.png', alt: 'Packing hub with scan verification and label generation', caption: 'Packing Hub' },
+              { src: '/screenshots/skus.png', alt: 'SKU inventory list with stock levels, locations, and category filters', caption: 'Inventory' },
+              { src: '/screenshots/sku-detail.png', alt: 'SKU detail page with inventory by location, history audit trail, and images', caption: 'SKU Detail' },
             ].map((item) => (
               <figure key={item.caption}>
                 <div className="overflow-hidden rounded-xl border border-slate-200 shadow-sm transition-shadow hover:shadow-lg">

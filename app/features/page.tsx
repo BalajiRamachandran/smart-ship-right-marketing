@@ -7,9 +7,9 @@ import Image from 'next/image';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Features | Smart Ship Right WMS',
+  title: 'Features | Inventory, Picking, Packing, Shipping & Automation',
   description:
-    'Comprehensive features for modern warehouse management: inventory, orders, single and multi batch picking, packing, shipping, Shopify and ShipStation integration, and mobile app.',
+    'Explore Smart Ship Right features: real-time inventory, single and multi batch picking, barcode scanning, shipping labels, automation rules, dropship support, cycle counting, and Shopify sync.',
 };
 
 const features = [
@@ -195,7 +195,7 @@ export default function FeaturesPage() {
     <div className="bg-white">
       <PageHeader
         title="Powerful features for modern warehouses"
-        description="Everything you need to streamline operations, boost productivity, and scale warehouse execution — plus built-in contract management."
+        description="Everything you need to streamline operations, boost productivity, and scale warehouse execution."
       />
 
       <Section>
