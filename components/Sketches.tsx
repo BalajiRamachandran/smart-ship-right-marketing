@@ -1,376 +1,524 @@
-// Sketch components for visual representations
+// Modern UI-card-style sketch illustrations for Smart Ship Right marketing site
+// Each sketch looks like a mini app screenshot — clean, labeled, self-explanatory
 
 export function WarehouseSketch() {
   return (
-<svg viewBox="0 0 400 300" className="w-full h-auto" aria-label="Warehouse sketch">
-  {/* Floor */}
-  <rect x="0" y="250" width="400" height="50" fill="#f1f5f9" />
-  <line x1="0" y1="250" x2="400" y2="250" stroke="#cbd5e1" strokeWidth="1" />
-  
-  {/* Warehouse building - main structure */}
-  <rect x="50" y="100" width="300" height="150" fill="#ffffff" stroke="#3b82f6" strokeWidth="2.5" />
-  
-  {/* Roof */}
-  <polygon points="50,100 200,60 350,100" fill="#e0e7ff" stroke="#3b82f6" strokeWidth="2.5" />
-  <line x1="200" y1="60" x2="200" y2="100" stroke="#3b82f6" strokeWidth="2" strokeDasharray="4,2" />
-  
-  {/* Center dividing wall */}
-  <line x1="200" y1="100" x2="200" y2="250" stroke="#3b82f6" strokeWidth="2" strokeDasharray="5,3" />
-  
-  {/* Left section shelves */}
-  <g>
-    {/* Shelf unit posts */}
-    <line x1="70" y1="120" x2="70" y2="180" stroke="#3b82f6" strokeWidth="2" />
-    <line x1="180" y1="120" x2="180" y2="180" stroke="#3b82f6" strokeWidth="2" />
-    
-    {/* Shelves */}
-    <rect x="70" y="120" width="110" height="10" fill="#e0e7ff" stroke="#3b82f6" strokeWidth="1.5" />
-    <rect x="70" y="145" width="110" height="10" fill="#e0e7ff" stroke="#3b82f6" strokeWidth="1.5" />
-    <rect x="70" y="170" width="110" height="10" fill="#e0e7ff" stroke="#3b82f6" strokeWidth="1.5" />
-    
-    {/* Boxes on shelves */}
-    <rect x="75" y="108" width="18" height="12" fill="#dbeafe" stroke="#3b82f6" strokeWidth="1" />
-    <rect x="98" y="108" width="18" height="12" fill="#dbeafe" stroke="#3b82f6" strokeWidth="1" />
-    <rect x="121" y="108" width="18" height="12" fill="#dbeafe" stroke="#3b82f6" strokeWidth="1" />
-    <rect x="144" y="108" width="18" height="12" fill="#dbeafe" stroke="#3b82f6" strokeWidth="1" />
-    
-    <rect x="75" y="133" width="18" height="12" fill="#dbeafe" stroke="#3b82f6" strokeWidth="1" />
-    <rect x="98" y="133" width="18" height="12" fill="#dbeafe" stroke="#3b82f6" strokeWidth="1" />
-    <rect x="144" y="133" width="18" height="12" fill="#dbeafe" stroke="#3b82f6" strokeWidth="1" />
-    
-    <rect x="121" y="158" width="18" height="12" fill="#dbeafe" stroke="#3b82f6" strokeWidth="1" />
-    <rect x="144" y="158" width="18" height="12" fill="#dbeafe" stroke="#3b82f6" strokeWidth="1" />
-  </g>
-  
-  {/* Right section shelves */}
-  <g>
-    {/* Shelf unit posts */}
-    <line x1="220" y1="120" x2="220" y2="180" stroke="#3b82f6" strokeWidth="2" />
-    <line x1="330" y1="120" x2="330" y2="180" stroke="#3b82f6" strokeWidth="2" />
-    
-    {/* Shelves */}
-    <rect x="220" y="120" width="110" height="10" fill="#e0e7ff" stroke="#3b82f6" strokeWidth="1.5" />
-    <rect x="220" y="145" width="110" height="10" fill="#e0e7ff" stroke="#3b82f6" strokeWidth="1.5" />
-    <rect x="220" y="170" width="110" height="10" fill="#e0e7ff" stroke="#3b82f6" strokeWidth="1.5" />
-    
-    {/* Boxes on shelves */}
-    <rect x="225" y="108" width="18" height="12" fill="#dbeafe" stroke="#3b82f6" strokeWidth="1" />
-    <rect x="271" y="108" width="18" height="12" fill="#dbeafe" stroke="#3b82f6" strokeWidth="1" />
-    <rect x="294" y="108" width="18" height="12" fill="#dbeafe" stroke="#3b82f6" strokeWidth="1" />
-    
-    <rect x="225" y="133" width="18" height="12" fill="#dbeafe" stroke="#3b82f6" strokeWidth="1" />
-    <rect x="248" y="133" width="18" height="12" fill="#dbeafe" stroke="#3b82f6" strokeWidth="1" />
-    <rect x="271" y="133" width="18" height="12" fill="#dbeafe" stroke="#3b82f6" strokeWidth="1" />
-    <rect x="294" y="133" width="18" height="12" fill="#dbeafe" stroke="#3b82f6" strokeWidth="1" />
-    
-    <rect x="248" y="158" width="18" height="12" fill="#dbeafe" stroke="#3b82f6" strokeWidth="1" />
-    <rect x="271" y="158" width="18" height="12" fill="#dbeafe" stroke="#3b82f6" strokeWidth="1" />
-  </g>
-  
-  {/* Floor boxes/pallets */}
-  <rect x="80" y="220" width="30" height="30" fill="#dbeafe" stroke="#3b82f6" strokeWidth="1.5" />
-  <line x1="80" y1="235" x2="110" y2="235" stroke="#3b82f6" strokeWidth="1" />
-  <line x1="95" y1="220" x2="95" y2="250" stroke="#3b82f6" strokeWidth="1" />
-  
-  <rect x="240" y="215" width="35" height="35" fill="#dbeafe" stroke="#3b82f6" strokeWidth="1.5" />
-  <line x1="240" y1="232.5" x2="275" y2="232.5" stroke="#3b82f6" strokeWidth="1" />
-  <line x1="257.5" y1="215" x2="257.5" y2="250" stroke="#3b82f6" strokeWidth="1" />
-  
-  {/* Door */}
-  <rect x="175" y="200" width="50" height="50" fill="#ffffff" stroke="#3b82f6" strokeWidth="2.5" />
-  <line x1="200" y1="200" x2="200" y2="250" stroke="#3b82f6" strokeWidth="2" />
-  <circle cx="215" cy="225" r="3" fill="none" stroke="#3b82f6" strokeWidth="1.5" />
-  <circle cx="185" cy="225" r="3" fill="none" stroke="#3b82f6" strokeWidth="1.5" />
-  
-  {/* Window */}
-  <rect x="290" y="120" width="40" height="30" fill="#e0f2fe" stroke="#3b82f6" strokeWidth="2" />
-  <line x1="310" y1="120" x2="310" y2="150" stroke="#3b82f6" strokeWidth="1.5" />
-  <line x1="290" y1="135" x2="330" y2="135" stroke="#3b82f6" strokeWidth="1.5" />
-  
-  {/* Labels with backgrounds */}
-  <rect x="65" y="103" width="35" height="14" fill="#ffffff" stroke="#3b82f6" strokeWidth="1" rx="2" />
-  <text x="82.5" y="113" fontSize="10" fill="#3b82f6" fontFamily="monospace" textAnchor="middle" fontWeight="600">A01</text>
-  
-  <rect x="215" y="103" width="35" height="14" fill="#ffffff" stroke="#3b82f6" strokeWidth="1" rx="2" />
-  <text x="232.5" y="113" fontSize="10" fill="#3b82f6" fontFamily="monospace" textAnchor="middle" fontWeight="600">B02</text>
-  
-  {/* Additional details - loading dock marker */}
-  <line x1="155" y1="250" x2="155" y2="260" stroke="#f59e0b" strokeWidth="3" />
-  <line x1="245" y1="250" x2="245" y2="260" stroke="#f59e0b" strokeWidth="3" />
-</svg>
+    <svg viewBox="0 0 400 260" className="w-full h-auto" aria-label="Warehouse layout with zones and locations">
+      <defs>
+        <linearGradient id="wh-bg" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#f8fafc" />
+          <stop offset="100%" stopColor="#f1f5f9" />
+        </linearGradient>
+      </defs>
+      {/* Card background */}
+      <rect x="8" y="8" width="384" height="244" rx="12" fill="url(#wh-bg)" stroke="#e2e8f0" strokeWidth="1" />
+
+      {/* Title bar */}
+      <rect x="8" y="8" width="384" height="36" rx="12" fill="#1e293b" />
+      <rect x="8" y="32" width="384" height="12" fill="#1e293b" />
+      <circle cx="26" cy="26" r="5" fill="#ef4444" />
+      <circle cx="42" cy="26" r="5" fill="#f59e0b" />
+      <circle cx="58" cy="26" r="5" fill="#22c55e" />
+      <text x="200" y="30" fontSize="11" fill="#94a3b8" textAnchor="middle" fontWeight="600">Warehouse Map</text>
+
+      {/* Zone A */}
+      <rect x="24" y="56" width="168" height="80" rx="6" fill="#eff6ff" stroke="#bfdbfe" strokeWidth="1" />
+      <text x="32" y="72" fontSize="9" fill="#3b82f6" fontWeight="700">ZONE A — Picking</text>
+      <rect x="32" y="80" width="32" height="20" rx="3" fill="#dbeafe" stroke="#93c5fd" strokeWidth="1" />
+      <text x="48" y="94" fontSize="7" fill="#2563eb" textAnchor="middle" fontWeight="600">A-01</text>
+      <rect x="70" y="80" width="32" height="20" rx="3" fill="#dbeafe" stroke="#93c5fd" strokeWidth="1" />
+      <text x="86" y="94" fontSize="7" fill="#2563eb" textAnchor="middle" fontWeight="600">A-02</text>
+      <rect x="108" y="80" width="32" height="20" rx="3" fill="#dbeafe" stroke="#93c5fd" strokeWidth="1" />
+      <text x="124" y="94" fontSize="7" fill="#2563eb" textAnchor="middle" fontWeight="600">A-03</text>
+      <rect x="146" y="80" width="32" height="20" rx="3" fill="#bbf7d0" stroke="#86efac" strokeWidth="1" />
+      <text x="162" y="94" fontSize="7" fill="#16a34a" textAnchor="middle" fontWeight="600">A-04</text>
+      {/* Capacity bars */}
+      <rect x="32" y="106" width="32" height="4" rx="2" fill="#e2e8f0" />
+      <rect x="32" y="106" width="26" height="4" rx="2" fill="#3b82f6" />
+      <rect x="70" y="106" width="32" height="4" rx="2" fill="#e2e8f0" />
+      <rect x="70" y="106" width="18" height="4" rx="2" fill="#3b82f6" />
+      <rect x="108" y="106" width="32" height="4" rx="2" fill="#e2e8f0" />
+      <rect x="108" y="106" width="30" height="4" rx="2" fill="#f59e0b" />
+      <rect x="146" y="106" width="32" height="4" rx="2" fill="#e2e8f0" />
+      <rect x="146" y="106" width="10" height="4" rx="2" fill="#22c55e" />
+      <text x="32" y="124" fontSize="7" fill="#64748b">81%</text>
+      <text x="70" y="124" fontSize="7" fill="#64748b">56%</text>
+      <text x="108" y="124" fontSize="7" fill="#d97706">94%</text>
+      <text x="146" y="124" fontSize="7" fill="#64748b">31%</text>
+
+      {/* Zone B */}
+      <rect x="208" y="56" width="168" height="80" rx="6" fill="#fefce8" stroke="#fde68a" strokeWidth="1" />
+      <text x="216" y="72" fontSize="9" fill="#ca8a04" fontWeight="700">ZONE B — Bulk Storage</text>
+      <rect x="216" y="80" width="32" height="20" rx="3" fill="#fef9c3" stroke="#fde68a" strokeWidth="1" />
+      <text x="232" y="94" fontSize="7" fill="#a16207" textAnchor="middle" fontWeight="600">B-01</text>
+      <rect x="254" y="80" width="32" height="20" rx="3" fill="#fef9c3" stroke="#fde68a" strokeWidth="1" />
+      <text x="270" y="94" fontSize="7" fill="#a16207" textAnchor="middle" fontWeight="600">B-02</text>
+      <rect x="292" y="80" width="32" height="20" rx="3" fill="#fee2e2" stroke="#fca5a5" strokeWidth="1" />
+      <text x="308" y="94" fontSize="7" fill="#dc2626" textAnchor="middle" fontWeight="600">B-03</text>
+      <rect x="330" y="80" width="32" height="20" rx="3" fill="#fef9c3" stroke="#fde68a" strokeWidth="1" />
+      <text x="346" y="94" fontSize="7" fill="#a16207" textAnchor="middle" fontWeight="600">B-04</text>
+      <rect x="216" y="106" width="32" height="4" rx="2" fill="#e2e8f0" />
+      <rect x="216" y="106" width="20" height="4" rx="2" fill="#eab308" />
+      <rect x="254" y="106" width="32" height="4" rx="2" fill="#e2e8f0" />
+      <rect x="254" y="106" width="28" height="4" rx="2" fill="#eab308" />
+      <rect x="292" y="106" width="32" height="4" rx="2" fill="#e2e8f0" />
+      <rect x="292" y="106" width="32" height="4" rx="2" fill="#ef4444" />
+      <rect x="330" y="106" width="32" height="4" rx="2" fill="#e2e8f0" />
+      <rect x="330" y="106" width="14" height="4" rx="2" fill="#eab308" />
+      <text x="216" y="124" fontSize="7" fill="#64748b">63%</text>
+      <text x="254" y="124" fontSize="7" fill="#64748b">88%</text>
+      <text x="292" y="124" fontSize="7" fill="#dc2626">Full</text>
+      <text x="330" y="124" fontSize="7" fill="#64748b">44%</text>
+
+      {/* Bottom stats row */}
+      <rect x="24" y="148" width="108" height="48" rx="6" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
+      <text x="34" y="164" fontSize="8" fill="#64748b" fontWeight="500">Total Locations</text>
+      <text x="34" y="184" fontSize="18" fill="#1e293b" fontWeight="700">248</text>
+      <text x="80" y="184" fontSize="9" fill="#22c55e" fontWeight="600">+12</text>
+
+      <rect x="146" y="148" width="108" height="48" rx="6" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
+      <text x="156" y="164" fontSize="8" fill="#64748b" fontWeight="500">Avg Utilization</text>
+      <text x="156" y="184" fontSize="18" fill="#1e293b" fontWeight="700">72%</text>
+
+      <rect x="268" y="148" width="108" height="48" rx="6" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
+      <text x="278" y="164" fontSize="8" fill="#64748b" fontWeight="500">Hospital</text>
+      <text x="278" y="184" fontSize="18" fill="#ef4444" fontWeight="700">3</text>
+      <text x="302" y="184" fontSize="9" fill="#64748b">locations</text>
+
+      {/* Legend */}
+      <rect x="24" y="208" width="352" height="32" rx="6" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
+      <circle cx="44" cy="224" r="5" fill="#dbeafe" stroke="#93c5fd" strokeWidth="1" />
+      <text x="54" y="228" fontSize="8" fill="#64748b">Normal</text>
+      <circle cx="104" cy="224" r="5" fill="#bbf7d0" stroke="#86efac" strokeWidth="1" />
+      <text x="114" y="228" fontSize="8" fill="#64748b">Low stock</text>
+      <circle cx="180" cy="224" r="5" fill="#fef9c3" stroke="#fde68a" strokeWidth="1" />
+      <text x="190" y="228" fontSize="8" fill="#64748b">Bulk</text>
+      <circle cx="234" cy="224" r="5" fill="#fee2e2" stroke="#fca5a5" strokeWidth="1" />
+      <text x="244" y="228" fontSize="8" fill="#64748b">Full / Hospital</text>
+      <rect x="316" y="220" width="20" height="8" rx="2" fill="#3b82f6" />
+      <text x="340" y="228" fontSize="8" fill="#64748b">Capacity</text>
+    </svg>
   );
 }
 
 export function InventorySketch() {
   return (
-<svg viewBox="0 0 400 300" className="w-full h-auto" aria-label="Inventory management sketch">
-  {/* Product boxes with 3D effect */}
-  <g>
-    {/* Box 1 */}
-    <rect x="50" y="50" width="60" height="60" fill="#dbeafe" stroke="#3b82f6" strokeWidth="2.5" rx="3" />
-    <polygon points="50,50 55,45 115,45 110,50" fill="#bfdbfe" stroke="#3b82f6" strokeWidth="2" />
-    <polygon points="110,50 115,45 115,105 110,110" fill="#93c5fd" stroke="#3b82f6" strokeWidth="2" />
-    <line x1="60" y1="60" x2="100" y2="60" stroke="#3b82f6" strokeWidth="1" opacity="0.3" />
-    <line x1="60" y1="70" x2="100" y2="70" stroke="#3b82f6" strokeWidth="1" opacity="0.3" />
-    <text x="80" y="88" fontSize="11" fill="#1e40af" textAnchor="middle" fontFamily="monospace" fontWeight="600">SKU-001</text>
-    <rect x="60" y="95" width="40" height="12" fill="#ffffff" stroke="#3b82f6" strokeWidth="1" rx="2" />
-    <text x="80" y="103" fontSize="9" fill="#3b82f6" textAnchor="middle" fontWeight="600">Qty: 150</text>
-    
-    {/* Box 2 */}
-    <rect x="150" y="50" width="60" height="60" fill="#dbeafe" stroke="#3b82f6" strokeWidth="2.5" rx="3" />
-    <polygon points="150,50 155,45 215,45 210,50" fill="#bfdbfe" stroke="#3b82f6" strokeWidth="2" />
-    <polygon points="210,50 215,45 215,105 210,110" fill="#93c5fd" stroke="#3b82f6" strokeWidth="2" />
-    <line x1="160" y1="60" x2="200" y2="60" stroke="#3b82f6" strokeWidth="1" opacity="0.3" />
-    <line x1="160" y1="70" x2="200" y2="70" stroke="#3b82f6" strokeWidth="1" opacity="0.3" />
-    <text x="180" y="88" fontSize="11" fill="#1e40af" textAnchor="middle" fontFamily="monospace" fontWeight="600">SKU-002</text>
-    <rect x="160" y="95" width="40" height="12" fill="#ffffff" stroke="#3b82f6" strokeWidth="1" rx="2" />
-    <text x="180" y="103" fontSize="9" fill="#3b82f6" textAnchor="middle" fontWeight="600">Qty: 89</text>
-    
-    {/* Box 3 */}
-    <rect x="250" y="50" width="60" height="60" fill="#dbeafe" stroke="#3b82f6" strokeWidth="2.5" rx="3" />
-    <polygon points="250,50 255,45 315,45 310,50" fill="#bfdbfe" stroke="#3b82f6" strokeWidth="2" />
-    <polygon points="310,50 315,45 315,105 310,110" fill="#93c5fd" stroke="#3b82f6" strokeWidth="2" />
-    <line x1="260" y1="60" x2="300" y2="60" stroke="#3b82f6" strokeWidth="1" opacity="0.3" />
-    <line x1="260" y1="70" x2="300" y2="70" stroke="#3b82f6" strokeWidth="1" opacity="0.3" />
-    <text x="280" y="88" fontSize="11" fill="#1e40af" textAnchor="middle" fontFamily="monospace" fontWeight="600">SKU-003</text>
-    <rect x="260" y="95" width="40" height="12" fill="#ffffff" stroke="#3b82f6" strokeWidth="1" rx="2" />
-    <text x="280" y="103" fontSize="9" fill="#3b82f6" textAnchor="middle" fontWeight="600">Qty: 234</text>
-  </g>
-  
-  {/* Location indicators with icons */}
-  <g>
-    <circle cx="80" cy="145" r="18" fill="#d1fae5" stroke="#10b981" strokeWidth="2.5" />
-    <path d="M 80 135 L 80 155 M 75 140 L 80 135 L 85 140" stroke="#10b981" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-    <text x="80" y="168" fontSize="10" fill="#059669" textAnchor="middle" fontWeight="600">A01-L2</text>
-    
-    <circle cx="180" cy="145" r="18" fill="#d1fae5" stroke="#10b981" strokeWidth="2.5" />
-    <path d="M 180 135 L 180 155 M 175 140 L 180 135 L 185 140" stroke="#10b981" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-    <text x="180" y="168" fontSize="10" fill="#059669" textAnchor="middle" fontWeight="600">B03-L1</text>
-    
-    <circle cx="280" cy="145" r="18" fill="#d1fae5" stroke="#10b981" strokeWidth="2.5" />
-    <path d="M 280 135 L 280 155 M 275 140 L 280 135 L 285 140" stroke="#10b981" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-    <text x="280" y="168" fontSize="10" fill="#059669" textAnchor="middle" fontWeight="600">C02-L3</text>
-  </g>
-  
-  {/* Connection lines */}
-  <line x1="80" y1="110" x2="80" y2="127" stroke="#3b82f6" strokeWidth="2" strokeDasharray="4,3" />
-  <line x1="180" y1="110" x2="180" y2="127" stroke="#3b82f6" strokeWidth="2" strokeDasharray="4,3" />
-  <line x1="280" y1="110" x2="280" y2="127" stroke="#3b82f6" strokeWidth="2" strokeDasharray="4,3" />
-  
-  {/* Dashboard with gradient background */}
-  <defs>
-    <linearGradient id="dashGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stopColor="#eff6ff" />
-      <stop offset="100%" stopColor="#dbeafe" />
-    </linearGradient>
-  </defs>
-  
-  <rect x="40" y="190" width="320" height="95" fill="url(#dashGrad)" stroke="#3b82f6" strokeWidth="2.5" rx="6" />
-  
-  {/* Dashboard header */}
-  <rect x="40" y="190" width="320" height="35" fill="#3b82f6" stroke="#3b82f6" strokeWidth="2.5" rx="6" />
-  <rect x="40" y="215" width="320" height="10" fill="#3b82f6" />
-  <text x="200" y="212" fontSize="14" fill="#ffffff" textAnchor="middle" fontWeight="700">Real-time Dashboard</text>
-  
-  {/* Dashboard metrics with icons */}
-  <g>
-    {/* Left column */}
-    <circle cx="65" cy="245" r="8" fill="#3b82f6" opacity="0.2" />
-    <rect x="62" y="242" width="6" height="6" fill="none" stroke="#3b82f6" strokeWidth="1.5" />
-    <text x="80" y="248" fontSize="11" fill="#1e40af" fontWeight="600">Total SKUs:</text>
-    <text x="150" y="248" fontSize="11" fill="#3b82f6" fontWeight="700">10,868</text>
-    
-    <circle cx="65" cy="265" r="8" fill="#10b981" opacity="0.2" />
-    <path d="M 65 260 L 65 270 M 60 265 L 65 260 L 70 265" stroke="#10b981" strokeWidth="1.5" fill="none" />
-    <text x="80" y="268" fontSize="11" fill="#059669" fontWeight="600">Locations:</text>
-    <text x="150" y="268" fontSize="11" fill="#10b981" fontWeight="700">6,654</text>
-    
-    {/* Right column */}
-    <circle cx="215" cy="245" r="8" fill="#f59e0b" opacity="0.2" />
-    <path d="M 212 243 L 218 243 L 215 248 L 218 248" stroke="#f59e0b" strokeWidth="1.5" fill="none" />
-    <text x="230" y="248" fontSize="11" fill="#d97706" fontWeight="600">Orders:</text>
-    <text x="285" y="248" fontSize="11" fill="#f59e0b" fontWeight="700">290+</text>
-    
-    <circle cx="215" cy="265" r="8" fill="#8b5cf6" opacity="0.2" />
-    <rect x="211" y="262" width="8" height="6" fill="none" stroke="#8b5cf6" strokeWidth="1.5" />
-    <text x="230" y="268" fontSize="11" fill="#7c3aed" fontWeight="600">Inventory:</text>
-    <text x="293" y="268" fontSize="11" fill="#8b5cf6" fontWeight="700">195K+</text>
-  </g>
-  
-  {/* Decorative elements */}
-  <circle cx="350" cy="200" r="3" fill="#10b981" />
-  <circle cx="343" cy="203" r="2" fill="#3b82f6" />
-  <circle cx="357" cy="205" r="2" fill="#f59e0b" />
-</svg>
+    <svg viewBox="0 0 400 260" className="w-full h-auto" aria-label="Inventory dashboard showing SKU stock levels">
+      <defs>
+        <linearGradient id="inv-bg" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#f8fafc" />
+          <stop offset="100%" stopColor="#f1f5f9" />
+        </linearGradient>
+      </defs>
+      <rect x="8" y="8" width="384" height="244" rx="12" fill="url(#inv-bg)" stroke="#e2e8f0" strokeWidth="1" />
+
+      {/* Title bar */}
+      <rect x="8" y="8" width="384" height="36" rx="12" fill="#1e293b" />
+      <rect x="8" y="32" width="384" height="12" fill="#1e293b" />
+      <circle cx="26" cy="26" r="5" fill="#ef4444" />
+      <circle cx="42" cy="26" r="5" fill="#f59e0b" />
+      <circle cx="58" cy="26" r="5" fill="#22c55e" />
+      <text x="200" y="30" fontSize="11" fill="#94a3b8" textAnchor="middle" fontWeight="600">Inventory Management</text>
+
+      {/* Summary cards */}
+      <rect x="20" y="52" width="86" height="44" rx="6" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
+      <text x="28" y="66" fontSize="7" fill="#64748b" fontWeight="500">On Hand</text>
+      <text x="28" y="84" fontSize="16" fill="#1e293b" fontWeight="700">4,218</text>
+
+      <rect x="114" y="52" width="86" height="44" rx="6" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
+      <text x="122" y="66" fontSize="7" fill="#64748b" fontWeight="500">Reserved</text>
+      <text x="122" y="84" fontSize="16" fill="#f59e0b" fontWeight="700">892</text>
+
+      <rect x="208" y="52" width="86" height="44" rx="6" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
+      <text x="216" y="66" fontSize="7" fill="#64748b" fontWeight="500">Available</text>
+      <text x="216" y="84" fontSize="16" fill="#22c55e" fontWeight="700">3,326</text>
+
+      <rect x="302" y="52" width="86" height="44" rx="6" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
+      <text x="310" y="66" fontSize="7" fill="#64748b" fontWeight="500">Backordered</text>
+      <text x="310" y="84" fontSize="16" fill="#ef4444" fontWeight="700">14</text>
+
+      {/* Table header */}
+      <rect x="20" y="106" width="368" height="22" rx="4" fill="#f1f5f9" />
+      <text x="32" y="120" fontSize="8" fill="#64748b" fontWeight="600">SKU</text>
+      <text x="120" y="120" fontSize="8" fill="#64748b" fontWeight="600">Product</text>
+      <text x="220" y="120" fontSize="8" fill="#64748b" fontWeight="600">Location</text>
+      <text x="280" y="120" fontSize="8" fill="#64748b" fontWeight="600">Qty</text>
+      <text x="320" y="120" fontSize="8" fill="#64748b" fontWeight="600">Status</text>
+
+      {/* Row 1 */}
+      <rect x="20" y="130" width="368" height="26" rx="0" fill="#ffffff" />
+      <line x1="20" y1="156" x2="388" y2="156" stroke="#f1f5f9" strokeWidth="1" />
+      <text x="32" y="147" fontSize="9" fill="#1e293b" fontWeight="600" fontFamily="monospace">WH-1042</text>
+      <text x="120" y="147" fontSize="9" fill="#475569">Blue Widget Pro</text>
+      <text x="220" y="147" fontSize="9" fill="#475569">A-01</text>
+      <text x="280" y="147" fontSize="9" fill="#1e293b" fontWeight="600">150</text>
+      <rect x="320" y="138" width="48" height="16" rx="8" fill="#dcfce7" />
+      <text x="344" y="150" fontSize="7" fill="#16a34a" textAnchor="middle" fontWeight="600">In Stock</text>
+
+      {/* Row 2 */}
+      <rect x="20" y="158" width="368" height="26" rx="0" fill="#fefce8" />
+      <line x1="20" y1="184" x2="388" y2="184" stroke="#f1f5f9" strokeWidth="1" />
+      <text x="32" y="175" fontSize="9" fill="#1e293b" fontWeight="600" fontFamily="monospace">WH-2087</text>
+      <text x="120" y="175" fontSize="9" fill="#475569">Red Gadget X</text>
+      <text x="220" y="175" fontSize="9" fill="#475569">B-03</text>
+      <text x="280" y="175" fontSize="9" fill="#92400e" fontWeight="600">8</text>
+      <rect x="320" y="166" width="48" height="16" rx="8" fill="#fef3c7" />
+      <text x="344" y="178" fontSize="7" fill="#92400e" textAnchor="middle" fontWeight="600">Low</text>
+
+      {/* Row 3 */}
+      <rect x="20" y="186" width="368" height="26" rx="0" fill="#fff1f2" />
+      <line x1="20" y1="212" x2="388" y2="212" stroke="#f1f5f9" strokeWidth="1" />
+      <text x="32" y="203" fontSize="9" fill="#1e293b" fontWeight="600" fontFamily="monospace">WH-3155</text>
+      <text x="120" y="203" fontSize="9" fill="#475569">Green Cable 2m</text>
+      <text x="220" y="203" fontSize="9" fill="#475569">A-04</text>
+      <text x="280" y="203" fontSize="9" fill="#dc2626" fontWeight="600">0</text>
+      <rect x="320" y="194" width="56" height="16" rx="8" fill="#fee2e2" />
+      <text x="348" y="206" fontSize="7" fill="#dc2626" textAnchor="middle" fontWeight="600">Backorder</text>
+
+      {/* Row 4 */}
+      <rect x="20" y="214" width="368" height="26" rx="0" fill="#ffffff" />
+      <text x="32" y="231" fontSize="9" fill="#1e293b" fontWeight="600" fontFamily="monospace">WH-4201</text>
+      <text x="120" y="231" fontSize="9" fill="#475569">Silver Mount Kit</text>
+      <text x="220" y="231" fontSize="9" fill="#475569">C-02</text>
+      <text x="280" y="231" fontSize="9" fill="#1e293b" fontWeight="600">312</text>
+      <rect x="320" y="222" width="48" height="16" rx="8" fill="#dcfce7" />
+      <text x="344" y="234" fontSize="7" fill="#16a34a" textAnchor="middle" fontWeight="600">In Stock</text>
+    </svg>
   );
 }
 
 export function PickingSketch() {
   return (
-    <svg viewBox="0 0 400 300" className="w-full h-auto" aria-label="Picking workflow sketch">
-      {/* Picker with cart */}
-      <circle cx="100" cy="150" r="20" fill="none" stroke="#3b82f6" strokeWidth="2" />
-      <line x1="100" y1="170" x2="100" y2="200" stroke="#3b82f6" strokeWidth="2" />
-      <line x1="100" y1="200" x2="80" y2="220" stroke="#3b82f6" strokeWidth="2" />
-      <line x1="100" y1="200" x2="120" y2="220" stroke="#3b82f6" strokeWidth="2" />
-      
-      {/* Cart */}
-      <rect x="120" y="180" width="40" height="30" fill="none" stroke="#3b82f6" strokeWidth="2" />
-      <circle cx="130" cy="215" r="5" fill="none" stroke="#3b82f6" strokeWidth="1.5" />
-      <circle cx="150" cy="215" r="5" fill="none" stroke="#3b82f6" strokeWidth="1.5" />
-      
-      {/* Pick list */}
-      <rect x="200" y="50" width="150" height="200" fill="none" stroke="#3b82f6" strokeWidth="2" rx="4" />
-      <text x="275" y="75" fontSize="14" fill="#3b82f6" textAnchor="middle" fontWeight="bold">Pick List</text>
-      <line x1="210" y1="85" x2="340" y2="85" stroke="#3b82f6" strokeWidth="1" />
-      
-      {/* List items */}
-      <text x="220" y="110" fontSize="11" fill="#3b82f6">1. SKU-001 - A01-L2 (Qty: 5)</text>
-      <text x="220" y="130" fontSize="11" fill="#3b82f6">2. SKU-002 - B03-L1 (Qty: 3)</text>
-      <text x="220" y="150" fontSize="11" fill="#3b82f6">3. SKU-003 - C02-L3 (Qty: 2)</text>
-      <text x="220" y="170" fontSize="11" fill="#3b82f6">4. SKU-004 - A05-L1 (Qty: 1)</text>
-      
-      {/* Checkmarks */}
-      <path d="M 210 105 L 215 110 L 225 100" fill="none" stroke="#10b981" strokeWidth="2" strokeLinecap="round" />
-      <path d="M 210 125 L 215 130 L 225 120" fill="none" stroke="#10b981" strokeWidth="2" strokeLinecap="round" />
-      
-      {/* Progress bar */}
-      <rect x="210" y="200" width="130" height="15" fill="none" stroke="#3b82f6" strokeWidth="2" />
-      <rect x="212" y="202" width="65" height="11" fill="#10b981" />
-      <text x="275" y="230" fontSize="10" fill="#3b82f6" textAnchor="middle">50% Complete</text>
-      
-      {/* Barcode scanner */}
-      <rect x="50" y="50" width="60" height="40" fill="none" stroke="#3b82f6" strokeWidth="2" rx="4" />
-      <line x1="55" y1="60" x2="105" y2="60" stroke="#3b82f6" strokeWidth="1" />
-      <line x1="55" y1="70" x2="105" y2="70" stroke="#3b82f6" strokeWidth="1" />
-      <line x1="55" y1="80" x2="105" y2="80" stroke="#3b82f6" strokeWidth="1" />
-      <text x="80" y="95" fontSize="9" fill="#3b82f6" textAnchor="middle">Scanner</text>
+    <svg viewBox="0 0 400 260" className="w-full h-auto" aria-label="Batch picking workflow with scan validation">
+      <defs>
+        <linearGradient id="pk-bg" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#f8fafc" />
+          <stop offset="100%" stopColor="#f1f5f9" />
+        </linearGradient>
+      </defs>
+      <rect x="8" y="8" width="384" height="244" rx="12" fill="url(#pk-bg)" stroke="#e2e8f0" strokeWidth="1" />
+
+      {/* Title bar */}
+      <rect x="8" y="8" width="384" height="36" rx="12" fill="#1e293b" />
+      <rect x="8" y="32" width="384" height="12" fill="#1e293b" />
+      <circle cx="26" cy="26" r="5" fill="#ef4444" />
+      <circle cx="42" cy="26" r="5" fill="#f59e0b" />
+      <circle cx="58" cy="26" r="5" fill="#22c55e" />
+      <text x="200" y="30" fontSize="11" fill="#94a3b8" textAnchor="middle" fontWeight="600">Batch Picking — BT-0042</text>
+
+      {/* Batch info bar */}
+      <rect x="20" y="52" width="368" height="28" rx="6" fill="#eff6ff" stroke="#bfdbfe" strokeWidth="1" />
+      <rect x="28" y="58" width="52" height="16" rx="8" fill="#3b82f6" />
+      <text x="54" y="70" fontSize="8" fill="#ffffff" textAnchor="middle" fontWeight="600">Multi Batch</text>
+      <text x="96" y="70" fontSize="8" fill="#64748b">5 orders</text>
+      <text x="148" y="70" fontSize="8" fill="#64748b">12 items</text>
+      <text x="204" y="70" fontSize="8" fill="#64748b">Tote: T-108</text>
+      <rect x="268" y="58" width="112" height="16" rx="8" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
+      <rect x="268" y="58" width="75" height="16" rx="8" fill="#22c55e" />
+      <text x="324" y="70" fontSize="8" fill="#ffffff" textAnchor="middle" fontWeight="700">8 / 12</text>
+      <text x="356" y="70" fontSize="7" fill="#64748b">67%</text>
+
+      {/* Pick list items */}
+      {/* Item 1 — completed */}
+      <rect x="20" y="88" width="368" height="32" rx="6" fill="#f0fdf4" stroke="#bbf7d0" strokeWidth="1" />
+      <circle cx="38" cy="104" r="8" fill="#22c55e" />
+      <path d="M34 104 L37 107 L42 101" stroke="#ffffff" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+      <text x="54" y="100" fontSize="8" fill="#16a34a" fontWeight="600">A-01</text>
+      <text x="54" y="112" fontSize="8" fill="#64748b">WH-1042 · Blue Widget Pro</text>
+      <text x="310" y="100" fontSize="8" fill="#16a34a" fontWeight="700">3 / 3</text>
+      <text x="310" y="112" fontSize="7" fill="#16a34a">Scanned ✓</text>
+
+      {/* Item 2 — completed */}
+      <rect x="20" y="124" width="368" height="32" rx="6" fill="#f0fdf4" stroke="#bbf7d0" strokeWidth="1" />
+      <circle cx="38" cy="140" r="8" fill="#22c55e" />
+      <path d="M34 140 L37 143 L42 137" stroke="#ffffff" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+      <text x="54" y="136" fontSize="8" fill="#16a34a" fontWeight="600">A-03</text>
+      <text x="54" y="148" fontSize="8" fill="#64748b">WH-2087 · Red Gadget X</text>
+      <text x="310" y="136" fontSize="8" fill="#16a34a" fontWeight="700">5 / 5</text>
+      <text x="310" y="148" fontSize="7" fill="#16a34a">Scanned ✓</text>
+
+      {/* Item 3 — active / scanning */}
+      <rect x="20" y="160" width="368" height="32" rx="6" fill="#eff6ff" stroke="#3b82f6" strokeWidth="2" />
+      <circle cx="38" cy="176" r="8" fill="#3b82f6" />
+      <text x="38" y="180" fontSize="8" fill="#ffffff" textAnchor="middle" fontWeight="700">3</text>
+      <text x="54" y="172" fontSize="8" fill="#2563eb" fontWeight="600">B-02</text>
+      <text x="54" y="184" fontSize="8" fill="#64748b">WH-4201 · Silver Mount Kit</text>
+      <text x="310" y="172" fontSize="8" fill="#2563eb" fontWeight="700">2 / 3</text>
+      <rect x="310" y="178" width="60" height="12" rx="6" fill="#3b82f6" />
+      <text x="340" y="188" fontSize="7" fill="#ffffff" textAnchor="middle" fontWeight="600">Scan item</text>
+
+      {/* Item 4 — pending */}
+      <rect x="20" y="196" width="368" height="32" rx="6" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
+      <circle cx="38" cy="212" r="8" fill="#e2e8f0" />
+      <text x="38" y="216" fontSize="8" fill="#94a3b8" textAnchor="middle" fontWeight="700">4</text>
+      <text x="54" y="208" fontSize="8" fill="#94a3b8" fontWeight="600">C-01</text>
+      <text x="54" y="220" fontSize="8" fill="#cbd5e1">WH-3155 · Green Cable 2m</text>
+      <text x="310" y="208" fontSize="8" fill="#94a3b8" fontWeight="700">0 / 1</text>
+      <text x="310" y="220" fontSize="7" fill="#cbd5e1">Pending</text>
+
+      {/* Bottom action bar */}
+      <rect x="20" y="234" width="176" height="14" rx="4" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
+      <text x="108" y="244" fontSize="8" fill="#64748b" textAnchor="middle">Navigate to B-02 → Shelf 3</text>
+      <rect x="212" y="234" width="80" height="14" rx="4" fill="#f1f5f9" stroke="#e2e8f0" strokeWidth="1" />
+      <text x="252" y="244" fontSize="8" fill="#64748b" textAnchor="middle">Skip Order</text>
+      <rect x="300" y="234" width="88" height="14" rx="4" fill="#ef4444" />
+      <text x="344" y="244" fontSize="8" fill="#ffffff" textAnchor="middle" fontWeight="600">Flag Hospital</text>
     </svg>
   );
 }
 
 export function OrderSketch() {
   return (
-    <svg viewBox="0 0 400 300" className="w-full h-auto" aria-label="Order management sketch">
-      {/* Order card */}
-      <rect x="50" y="50" width="300" height="200" fill="none" stroke="#3b82f6" strokeWidth="2" rx="8" />
-      
-      {/* Header */}
-      <rect x="50" y="50" width="300" height="40" fill="#3b82f6" opacity="0.1" />
-      <text x="70" y="75" fontSize="14" fill="#3b82f6" fontWeight="bold">Order #ORD-12345</text>
-      <text x="280" y="75" fontSize="12" fill="#10b981" textAnchor="end">Processing</text>
-      
-      {/* Customer info */}
-      <text x="70" y="110" fontSize="12" fill="#3b82f6" fontWeight="bold">Customer:</text>
-      <text x="70" y="130" fontSize="11" fill="#6b7280">John Doe</text>
-      <text x="70" y="145" fontSize="11" fill="#6b7280">john@example.com</text>
-      
-      {/* Items */}
-      <text x="70" y="170" fontSize="12" fill="#3b82f6" fontWeight="bold">Items:</text>
-      <text x="70" y="190" fontSize="11" fill="#6b7280">• SKU-001 x 5</text>
-      <text x="70" y="205" fontSize="11" fill="#6b7280">• SKU-002 x 3</text>
-      <text x="70" y="220" fontSize="11" fill="#6b7280">• SKU-003 x 2</text>
-      
-      {/* Status timeline */}
-      <circle cx="320" cy="100" r="8" fill="#10b981" />
-      <text x="320" y="125" fontSize="9" fill="#6b7280" textAnchor="middle">Pending</text>
-      
-      <circle cx="320" cy="150" r="8" fill="#10b981" />
-      <text x="320" y="175" fontSize="9" fill="#6b7280" textAnchor="middle">Picking</text>
-      
-      <circle cx="320" cy="200" r="8" fill="#e5e7eb" />
-      <text x="320" y="225" fontSize="9" fill="#6b7280" textAnchor="middle">Shipped</text>
-      
-      <line x1="320" y1="108" x2="320" y2="142" stroke="#10b981" strokeWidth="2" />
-      <line x1="320" y1="158" x2="320" y2="192" stroke="#e5e7eb" strokeWidth="2" />
+    <svg viewBox="0 0 400 260" className="w-full h-auto" aria-label="Order detail with status timeline and items">
+      <defs>
+        <linearGradient id="ord-bg" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#f8fafc" />
+          <stop offset="100%" stopColor="#f1f5f9" />
+        </linearGradient>
+      </defs>
+      <rect x="8" y="8" width="384" height="244" rx="12" fill="url(#ord-bg)" stroke="#e2e8f0" strokeWidth="1" />
+
+      {/* Title bar */}
+      <rect x="8" y="8" width="384" height="36" rx="12" fill="#1e293b" />
+      <rect x="8" y="32" width="384" height="12" fill="#1e293b" />
+      <circle cx="26" cy="26" r="5" fill="#ef4444" />
+      <circle cx="42" cy="26" r="5" fill="#f59e0b" />
+      <circle cx="58" cy="26" r="5" fill="#22c55e" />
+      <text x="200" y="30" fontSize="11" fill="#94a3b8" textAnchor="middle" fontWeight="600">Order #ORD-78234</text>
+
+      {/* Status timeline — horizontal */}
+      <rect x="20" y="52" width="368" height="36" rx="6" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
+      {/* Step 1 done */}
+      <circle cx="60" cy="66" r="7" fill="#22c55e" />
+      <path d="M57 66 L59 68 L63 64" stroke="#fff" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      <text x="60" y="82" fontSize="7" fill="#16a34a" textAnchor="middle" fontWeight="600">Pending</text>
+      <line x1="67" y1="66" x2="123" y2="66" stroke="#22c55e" strokeWidth="2" />
+      {/* Step 2 done */}
+      <circle cx="130" cy="66" r="7" fill="#22c55e" />
+      <path d="M127 66 L129 68 L133 64" stroke="#fff" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      <text x="130" y="82" fontSize="7" fill="#16a34a" textAnchor="middle" fontWeight="600">Picking</text>
+      <line x1="137" y1="66" x2="193" y2="66" stroke="#22c55e" strokeWidth="2" />
+      {/* Step 3 active */}
+      <circle cx="200" cy="66" r="7" fill="#3b82f6" />
+      <circle cx="200" cy="66" r="3" fill="#ffffff" />
+      <text x="200" y="82" fontSize="7" fill="#2563eb" textAnchor="middle" fontWeight="600">Packing</text>
+      <line x1="207" y1="66" x2="263" y2="66" stroke="#e2e8f0" strokeWidth="2" />
+      {/* Step 4 pending */}
+      <circle cx="270" cy="66" r="7" fill="#e2e8f0" />
+      <text x="270" y="82" fontSize="7" fill="#94a3b8" textAnchor="middle">Shipped</text>
+      <line x1="277" y1="66" x2="333" y2="66" stroke="#e2e8f0" strokeWidth="2" />
+      {/* Step 5 pending */}
+      <circle cx="340" cy="66" r="7" fill="#e2e8f0" />
+      <text x="340" y="82" fontSize="7" fill="#94a3b8" textAnchor="middle">Delivered</text>
+
+      {/* Order info */}
+      <rect x="20" y="96" width="180" height="64" rx="6" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
+      <text x="30" y="112" fontSize="8" fill="#64748b" fontWeight="500">Customer</text>
+      <text x="30" y="126" fontSize="10" fill="#1e293b" fontWeight="600">Acme Corp</text>
+      <text x="30" y="140" fontSize="8" fill="#64748b">order@acme.com</text>
+      <text x="30" y="152" fontSize="8" fill="#64748b">Priority: High</text>
+
+      <rect x="208" y="96" width="180" height="64" rx="6" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
+      <text x="218" y="112" fontSize="8" fill="#64748b" fontWeight="500">Shipping</text>
+      <text x="218" y="126" fontSize="10" fill="#1e293b" fontWeight="600">FedEx Ground</text>
+      <text x="218" y="140" fontSize="8" fill="#64748b">123 Main St, NY 10001</text>
+      <rect x="218" y="146" width="56" height="12" rx="6" fill="#dbeafe" />
+      <text x="246" y="155" fontSize="7" fill="#2563eb" textAnchor="middle" fontWeight="600">Validated ✓</text>
+
+      {/* Items table */}
+      <rect x="20" y="168" width="368" height="18" rx="4" fill="#f1f5f9" />
+      <text x="30" y="180" fontSize="7" fill="#64748b" fontWeight="600">Item</text>
+      <text x="180" y="180" fontSize="7" fill="#64748b" fontWeight="600">SKU</text>
+      <text x="260" y="180" fontSize="7" fill="#64748b" fontWeight="600">Qty</text>
+      <text x="310" y="180" fontSize="7" fill="#64748b" fontWeight="600">Status</text>
+
+      <text x="30" y="200" fontSize="8" fill="#1e293b">Blue Widget Pro</text>
+      <text x="180" y="200" fontSize="8" fill="#475569" fontFamily="monospace">WH-1042</text>
+      <text x="260" y="200" fontSize="8" fill="#1e293b" fontWeight="600">3</text>
+      <rect x="310" y="192" width="40" height="14" rx="7" fill="#dcfce7" />
+      <text x="330" y="202" fontSize="7" fill="#16a34a" textAnchor="middle" fontWeight="600">Picked</text>
+
+      <line x1="20" y1="208" x2="388" y2="208" stroke="#f1f5f9" strokeWidth="1" />
+      <text x="30" y="222" fontSize="8" fill="#1e293b">Red Gadget X</text>
+      <text x="180" y="222" fontSize="8" fill="#475569" fontFamily="monospace">WH-2087</text>
+      <text x="260" y="222" fontSize="8" fill="#1e293b" fontWeight="600">1</text>
+      <rect x="310" y="214" width="40" height="14" rx="7" fill="#dcfce7" />
+      <text x="330" y="224" fontSize="7" fill="#16a34a" textAnchor="middle" fontWeight="600">Picked</text>
+
+      <line x1="20" y1="230" x2="388" y2="230" stroke="#f1f5f9" strokeWidth="1" />
+      <text x="30" y="244" fontSize="8" fill="#1e293b">Green Cable 2m</text>
+      <text x="180" y="244" fontSize="8" fill="#475569" fontFamily="monospace">WH-3155</text>
+      <text x="260" y="244" fontSize="8" fill="#1e293b" fontWeight="600">2</text>
+      <rect x="310" y="236" width="56" height="14" rx="7" fill="#fef3c7" />
+      <text x="338" y="246" fontSize="7" fill="#92400e" textAnchor="middle" fontWeight="600">Packing</text>
     </svg>
   );
 }
 
 export function DashboardSketch() {
   return (
-    <svg viewBox="0 0 400 300" className="w-full h-auto" aria-label="Dashboard sketch">
-      {/* Dashboard container */}
-      <rect x="20" y="20" width="360" height="260" fill="none" stroke="#3b82f6" strokeWidth="2" rx="8" />
-      
-      {/* Header */}
-      <text x="200" y="45" fontSize="16" fill="#3b82f6" textAnchor="middle" fontWeight="bold">Dashboard</text>
-      <line x1="30" y1="55" x2="370" y2="55" stroke="#3b82f6" strokeWidth="1" />
-      
-      {/* Stats cards */}
-      <rect x="40" y="70" width="100" height="80" fill="none" stroke="#3b82f6" strokeWidth="1.5" rx="4" />
-      <text x="90" y="95" fontSize="12" fill="#3b82f6" textAnchor="middle" fontWeight="bold">Orders</text>
-      <text x="90" y="115" fontSize="20" fill="#3b82f6" textAnchor="middle" fontWeight="bold">290</text>
-      <text x="90" y="135" fontSize="10" fill="#10b981" textAnchor="middle">+12% today</text>
-      
-      <rect x="160" y="70" width="100" height="80" fill="none" stroke="#3b82f6" strokeWidth="1.5" rx="4" />
-      <text x="210" y="95" fontSize="12" fill="#3b82f6" textAnchor="middle" fontWeight="bold">Items</text>
-      <text x="210" y="115" fontSize="20" fill="#3b82f6" textAnchor="middle" fontWeight="bold">1,450</text>
-      <text x="210" y="135" fontSize="10" fill="#10b981" textAnchor="middle">In progress</text>
-      
-      <rect x="280" y="70" width="100" height="80" fill="none" stroke="#3b82f6" strokeWidth="1.5" rx="4" />
-      <text x="330" y="95" fontSize="12" fill="#3b82f6" textAnchor="middle" fontWeight="bold">Batches</text>
-      <text x="330" y="115" fontSize="20" fill="#3b82f6" textAnchor="middle" fontWeight="bold">24</text>
-      <text x="330" y="135" fontSize="10" fill="#10b981" textAnchor="middle">Active</text>
-      
+    <svg viewBox="0 0 400 260" className="w-full h-auto" aria-label="Real-time dashboard with stats and chart">
+      <defs>
+        <linearGradient id="db-bg" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#f8fafc" />
+          <stop offset="100%" stopColor="#f1f5f9" />
+        </linearGradient>
+        <linearGradient id="chart-fill" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.15" />
+          <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+        </linearGradient>
+      </defs>
+      <rect x="8" y="8" width="384" height="244" rx="12" fill="url(#db-bg)" stroke="#e2e8f0" strokeWidth="1" />
+
+      {/* Title bar */}
+      <rect x="8" y="8" width="384" height="36" rx="12" fill="#1e293b" />
+      <rect x="8" y="32" width="384" height="12" fill="#1e293b" />
+      <circle cx="26" cy="26" r="5" fill="#ef4444" />
+      <circle cx="42" cy="26" r="5" fill="#f59e0b" />
+      <circle cx="58" cy="26" r="5" fill="#22c55e" />
+      <text x="200" y="30" fontSize="11" fill="#94a3b8" textAnchor="middle" fontWeight="600">Dashboard — Today</text>
+      {/* Live indicator */}
+      <circle cx="360" cy="26" r="4" fill="#22c55e" />
+      <text x="350" y="30" fontSize="7" fill="#22c55e" textAnchor="end" fontWeight="600">LIVE</text>
+
+      {/* Stat cards row */}
+      <rect x="20" y="52" width="84" height="52" rx="6" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
+      <text x="28" y="66" fontSize="7" fill="#64748b" fontWeight="500">To Ship</text>
+      <text x="28" y="88" fontSize="20" fill="#1e293b" fontWeight="700">47</text>
+      <text x="68" y="88" fontSize="8" fill="#ef4444" fontWeight="600">↑ 8</text>
+
+      <rect x="112" y="52" width="84" height="52" rx="6" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
+      <text x="120" y="66" fontSize="7" fill="#64748b" fontWeight="500">Shipped Today</text>
+      <text x="120" y="88" fontSize="20" fill="#22c55e" fontWeight="700">124</text>
+
+      <rect x="204" y="52" width="84" height="52" rx="6" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
+      <text x="212" y="66" fontSize="7" fill="#64748b" fontWeight="500">Late Orders</text>
+      <text x="212" y="88" fontSize="20" fill="#ef4444" fontWeight="700">3</text>
+
+      <rect x="296" y="52" width="92" height="52" rx="6" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
+      <text x="304" y="66" fontSize="7" fill="#64748b" fontWeight="500">Active Batches</text>
+      <text x="304" y="88" fontSize="20" fill="#3b82f6" fontWeight="700">6</text>
+      <text x="332" y="88" fontSize="8" fill="#64748b">picking</text>
+
       {/* Chart area */}
-      <rect x="40" y="170" width="320" height="90" fill="none" stroke="#3b82f6" strokeWidth="1.5" rx="4" />
-      <text x="200" y="190" fontSize="12" fill="#3b82f6" textAnchor="middle" fontWeight="bold">Order Trends</text>
-      
-      {/* Simple line chart */}
-      <polyline
-        points="60,250 100,230 140,240 180,220 220,210 260,200 300,190 340,180"
-        fill="none"
-        stroke="#3b82f6"
-        strokeWidth="2"
-      />
-      
+      <rect x="20" y="112" width="240" height="100" rx="6" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
+      <text x="30" y="128" fontSize="8" fill="#1e293b" fontWeight="600">Orders — Last 7 Days</text>
+      {/* Area chart */}
+      <path d="M36 196 L72 184 L108 188 L144 172 L180 164 L216 156 L244 148" fill="none" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M36 196 L72 184 L108 188 L144 172 L180 164 L216 156 L244 148 L244 200 L36 200 Z" fill="url(#chart-fill)" />
       {/* Data points */}
-      <circle cx="60" cy="250" r="3" fill="#3b82f6" />
-      <circle cx="100" cy="230" r="3" fill="#3b82f6" />
-      <circle cx="140" cy="240" r="3" fill="#3b82f6" />
-      <circle cx="180" cy="220" r="3" fill="#3b82f6" />
-      <circle cx="220" cy="210" r="3" fill="#3b82f6" />
-      <circle cx="260" cy="200" r="3" fill="#3b82f6" />
-      <circle cx="300" cy="190" r="3" fill="#3b82f6" />
-      <circle cx="340" cy="180" r="3" fill="#3b82f6" />
+      <circle cx="36" cy="196" r="3" fill="#ffffff" stroke="#3b82f6" strokeWidth="2" />
+      <circle cx="72" cy="184" r="3" fill="#ffffff" stroke="#3b82f6" strokeWidth="2" />
+      <circle cx="108" cy="188" r="3" fill="#ffffff" stroke="#3b82f6" strokeWidth="2" />
+      <circle cx="144" cy="172" r="3" fill="#ffffff" stroke="#3b82f6" strokeWidth="2" />
+      <circle cx="180" cy="164" r="3" fill="#ffffff" stroke="#3b82f6" strokeWidth="2" />
+      <circle cx="216" cy="156" r="3" fill="#ffffff" stroke="#3b82f6" strokeWidth="2" />
+      <circle cx="244" cy="148" r="3" fill="#3b82f6" stroke="#3b82f6" strokeWidth="2" />
+      {/* X axis labels */}
+      <text x="36" y="208" fontSize="6" fill="#94a3b8" textAnchor="middle">Mon</text>
+      <text x="72" y="208" fontSize="6" fill="#94a3b8" textAnchor="middle">Tue</text>
+      <text x="108" y="208" fontSize="6" fill="#94a3b8" textAnchor="middle">Wed</text>
+      <text x="144" y="208" fontSize="6" fill="#94a3b8" textAnchor="middle">Thu</text>
+      <text x="180" y="208" fontSize="6" fill="#94a3b8" textAnchor="middle">Fri</text>
+      <text x="216" y="208" fontSize="6" fill="#94a3b8" textAnchor="middle">Sat</text>
+      <text x="244" y="208" fontSize="6" fill="#94a3b8" textAnchor="middle">Sun</text>
+
+      {/* Right side — holds & pickers */}
+      <rect x="268" y="112" width="120" height="48" rx="6" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
+      <text x="278" y="128" fontSize="8" fill="#1e293b" fontWeight="600">Holds</text>
+      <text x="278" y="142" fontSize="7" fill="#64748b">Payment: <tspan fill="#f59e0b" fontWeight="600">2</tspan></text>
+      <text x="278" y="152" fontSize="7" fill="#64748b">Fraud: <tspan fill="#ef4444" fontWeight="600">1</tspan></text>
+
+      <rect x="268" y="164" width="120" height="48" rx="6" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
+      <text x="278" y="180" fontSize="8" fill="#1e293b" fontWeight="600">Top Pickers</text>
+      <text x="278" y="194" fontSize="7" fill="#64748b">Alex — <tspan fill="#22c55e" fontWeight="600">42 orders</tspan></text>
+      <text x="278" y="204" fontSize="7" fill="#64748b">Sam — <tspan fill="#3b82f6" fontWeight="600">38 orders</tspan></text>
+
+      {/* Bottom bar */}
+      <rect x="20" y="220" width="368" height="24" rx="6" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
+      <text x="30" y="236" fontSize="8" fill="#64748b">Yesterday: <tspan fill="#1e293b" fontWeight="600">118 shipped</tspan></text>
+      <text x="200" y="236" fontSize="8" fill="#64748b">Hospital: <tspan fill="#ef4444" fontWeight="600">3 locations</tspan></text>
+      <text x="340" y="236" fontSize="8" fill="#64748b">POs: <tspan fill="#3b82f6" fontWeight="600">2 pending</tspan></text>
     </svg>
   );
 }
 
 export function IntegrationSketch() {
   return (
-    <svg viewBox="0 0 400 300" className="w-full h-auto" aria-label="Integration sketch">
+    <svg viewBox="0 0 400 260" className="w-full h-auto" aria-label="Integration map showing connected services">
+      <defs>
+        <linearGradient id="int-bg" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#f8fafc" />
+          <stop offset="100%" stopColor="#f1f5f9" />
+        </linearGradient>
+      </defs>
+      <rect x="8" y="8" width="384" height="244" rx="12" fill="url(#int-bg)" stroke="#e2e8f0" strokeWidth="1" />
+
+      {/* Title bar */}
+      <rect x="8" y="8" width="384" height="36" rx="12" fill="#1e293b" />
+      <rect x="8" y="32" width="384" height="12" fill="#1e293b" />
+      <circle cx="26" cy="26" r="5" fill="#ef4444" />
+      <circle cx="42" cy="26" r="5" fill="#f59e0b" />
+      <circle cx="58" cy="26" r="5" fill="#22c55e" />
+      <text x="200" y="30" fontSize="11" fill="#94a3b8" textAnchor="middle" fontWeight="600">Integrations</text>
+
       {/* Central hub */}
-      <circle cx="200" cy="150" r="50" fill="none" stroke="#3b82f6" strokeWidth="3" />
-      <text x="200" y="155" fontSize="14" fill="#3b82f6" textAnchor="middle" fontWeight="bold">Smart Ship Right</text>
-      
-      {/* Shopify */}
-      <circle cx="80" cy="80" r="30" fill="none" stroke="#96bf48" strokeWidth="2" />
-      <text x="80" y="85" fontSize="11" fill="#96bf48" textAnchor="middle" fontWeight="bold">Shopify</text>
-      <line x1="110" y1="80" x2="150" y2="130" stroke="#96bf48" strokeWidth="2" />
-      
-      {/* FastAPI Backend */}
-      <circle cx="320" cy="80" r="30" fill="none" stroke="#009688" strokeWidth="2" />
-      <text x="320" y="85" fontSize="10" fill="#009688" textAnchor="middle" fontWeight="bold">FastAPI</text>
-      <line x1="290" y1="80" x2="250" y2="130" stroke="#009688" strokeWidth="2" />
-      
-      {/* Next.js Frontend */}
-      <circle cx="80" cy="220" r="30" fill="none" stroke="#000000" strokeWidth="2" />
-      <text x="80" y="225" fontSize="10" fill="#000000" textAnchor="middle" fontWeight="bold">Next.js</text>
-      <line x1="110" y1="220" x2="150" y2="170" stroke="#000000" strokeWidth="2" />
-      
-      {/* PostgreSQL */}
-      <circle cx="320" cy="220" r="30" fill="none" stroke="#336791" strokeWidth="2" />
-      <text x="320" y="225" fontSize="10" fill="#336791" textAnchor="middle" fontWeight="bold">PostgreSQL</text>
-      <line x1="290" y1="220" x2="250" y2="170" stroke="#336791" strokeWidth="2" />
-      
-      {/* Data flow indicators */}
-      <circle cx="130" cy="105" r="3" fill="#96bf48" />
-      <circle cx="270" cy="105" r="3" fill="#009688" />
-      <circle cx="130" cy="195" r="3" fill="#000000" />
-      <circle cx="270" cy="195" r="3" fill="#336791" />
+      <rect x="140" y="100" width="120" height="56" rx="10" fill="#1e293b" stroke="#334155" strokeWidth="2" />
+      <text x="200" y="124" fontSize="10" fill="#ffffff" textAnchor="middle" fontWeight="700">Smart Ship Right</text>
+      <text x="200" y="140" fontSize="7" fill="#94a3b8" textAnchor="middle">WMS + Contracts</text>
+
+      {/* Shopify — top left */}
+      <rect x="20" y="52" width="100" height="40" rx="8" fill="#ffffff" stroke="#96bf48" strokeWidth="1.5" />
+      <circle cx="40" cy="72" r="8" fill="#96bf48" opacity="0.15" />
+      <text x="40" y="76" fontSize="8" fill="#96bf48" textAnchor="middle" fontWeight="700">S</text>
+      <text x="60" y="68" fontSize="9" fill="#1e293b" fontWeight="600">Shopify</text>
+      <text x="60" y="80" fontSize="7" fill="#64748b">15+ webhooks</text>
+      {/* Connection line */}
+      <line x1="120" y1="72" x2="140" y2="116" stroke="#96bf48" strokeWidth="1.5" strokeDasharray="4,3" />
+      <circle cx="130" cy="94" r="3" fill="#96bf48" />
+
+      {/* ShipStation — top right */}
+      <rect x="280" y="52" width="100" height="40" rx="8" fill="#ffffff" stroke="#3b82f6" strokeWidth="1.5" />
+      <circle cx="300" cy="72" r="8" fill="#3b82f6" opacity="0.15" />
+      <text x="300" y="76" fontSize="8" fill="#3b82f6" textAnchor="middle" fontWeight="700">SS</text>
+      <text x="322" y="68" fontSize="9" fill="#1e293b" fontWeight="600">ShipStation</text>
+      <text x="322" y="80" fontSize="7" fill="#64748b">Labels & rates</text>
+      <line x1="280" y1="72" x2="260" y2="116" stroke="#3b82f6" strokeWidth="1.5" strokeDasharray="4,3" />
+      <circle cx="270" cy="94" r="3" fill="#3b82f6" />
+
+      {/* Google Cloud — bottom left */}
+      <rect x="20" y="168" width="100" height="40" rx="8" fill="#ffffff" stroke="#ea4335" strokeWidth="1.5" />
+      <circle cx="40" cy="188" r="8" fill="#ea4335" opacity="0.15" />
+      <text x="40" y="192" fontSize="8" fill="#ea4335" textAnchor="middle" fontWeight="700">G</text>
+      <text x="60" y="184" fontSize="9" fill="#1e293b" fontWeight="600">Google Cloud</text>
+      <text x="60" y="196" fontSize="7" fill="#64748b">Tasks & Storage</text>
+      <line x1="120" y1="188" x2="140" y2="144" stroke="#ea4335" strokeWidth="1.5" strokeDasharray="4,3" />
+      <circle cx="130" cy="166" r="3" fill="#ea4335" />
+
+      {/* PostgreSQL — bottom right */}
+      <rect x="280" y="168" width="100" height="40" rx="8" fill="#ffffff" stroke="#336791" strokeWidth="1.5" />
+      <circle cx="300" cy="188" r="8" fill="#336791" opacity="0.15" />
+      <text x="300" y="192" fontSize="8" fill="#336791" textAnchor="middle" fontWeight="700">PG</text>
+      <text x="322" y="184" fontSize="9" fill="#1e293b" fontWeight="600">PostgreSQL</text>
+      <text x="322" y="196" fontSize="7" fill="#64748b">Neon serverless</text>
+      <line x1="280" y1="188" x2="260" y2="144" stroke="#336791" strokeWidth="1.5" strokeDasharray="4,3" />
+      <circle cx="270" cy="166" r="3" fill="#336791" />
+
+      {/* Stripe — bottom center-left */}
+      <rect x="80" y="218" width="80" height="28" rx="6" fill="#ffffff" stroke="#635bff" strokeWidth="1.5" />
+      <text x="120" y="236" fontSize="9" fill="#635bff" textAnchor="middle" fontWeight="600">Stripe</text>
+      <line x1="120" y1="218" x2="180" y2="156" stroke="#635bff" strokeWidth="1" strokeDasharray="3,3" />
+
+      {/* Supabase — bottom center-right */}
+      <rect x="240" y="218" width="80" height="28" rx="6" fill="#ffffff" stroke="#3ecf8e" strokeWidth="1.5" />
+      <text x="280" y="236" fontSize="9" fill="#3ecf8e" textAnchor="middle" fontWeight="600">Supabase</text>
+      <line x1="280" y1="218" x2="220" y2="156" stroke="#3ecf8e" strokeWidth="1" strokeDasharray="3,3" />
+
+      {/* Data flow labels */}
+      <rect x="126" y="86" width="56" height="12" rx="6" fill="#f0fdf4" stroke="#bbf7d0" strokeWidth="1" />
+      <text x="154" y="95" fontSize="6" fill="#16a34a" textAnchor="middle" fontWeight="600">Bidirectional</text>
+      <rect x="224" y="86" width="44" height="12" rx="6" fill="#eff6ff" stroke="#bfdbfe" strokeWidth="1" />
+      <text x="246" y="95" fontSize="6" fill="#2563eb" textAnchor="middle" fontWeight="600">API sync</text>
     </svg>
   );
 }
-
