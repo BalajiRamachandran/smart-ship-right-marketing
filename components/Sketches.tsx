@@ -499,20 +499,20 @@ export function IntegrationSketch() {
       <rect x="280" y="168" width="100" height="40" rx="8" fill="#ffffff" stroke="#336791" strokeWidth="1.5" />
       <circle cx="300" cy="188" r="8" fill="#336791" opacity="0.15" />
       <text x="300" y="192" fontSize="8" fill="#336791" textAnchor="middle" fontWeight="700">PG</text>
-      <text x="322" y="184" fontSize="9" fill="#1e293b" fontWeight="600">PostgreSQL</text>
-      <text x="322" y="196" fontSize="7" fill="#64748b">Neon serverless</text>
+      <text x="322" y="184" fontSize="9" fill="#1e293b" fontWeight="600">Neon PostgreSQL</text>
+      <text x="322" y="196" fontSize="7" fill="#64748b">Managed database</text>
       <line x1="280" y1="188" x2="260" y2="144" stroke="#336791" strokeWidth="1.5" strokeDasharray="4,3" />
       <circle cx="270" cy="166" r="3" fill="#336791" />
 
-      {/* Stripe — bottom center-left */}
-      <rect x="80" y="218" width="80" height="28" rx="6" fill="#ffffff" stroke="#635bff" strokeWidth="1.5" />
-      <text x="120" y="236" fontSize="9" fill="#635bff" textAnchor="middle" fontWeight="600">Stripe</text>
-      <line x1="120" y1="218" x2="180" y2="156" stroke="#635bff" strokeWidth="1" strokeDasharray="3,3" />
+      {/* USPS — bottom center-left */}
+      <rect x="80" y="218" width="80" height="28" rx="6" fill="#ffffff" stroke="#004B87" strokeWidth="1.5" />
+      <text x="120" y="236" fontSize="9" fill="#004B87" textAnchor="middle" fontWeight="600">USPS</text>
+      <line x1="120" y1="218" x2="180" y2="156" stroke="#004B87" strokeWidth="1" strokeDasharray="3,3" />
 
-      {/* Supabase — bottom center-right */}
-      <rect x="240" y="218" width="80" height="28" rx="6" fill="#ffffff" stroke="#3ecf8e" strokeWidth="1.5" />
-      <text x="280" y="236" fontSize="9" fill="#3ecf8e" textAnchor="middle" fontWeight="600">Supabase</text>
-      <line x1="280" y1="218" x2="220" y2="156" stroke="#3ecf8e" strokeWidth="1" strokeDasharray="3,3" />
+      {/* FedEx — bottom center-right */}
+      <rect x="240" y="218" width="80" height="28" rx="6" fill="#ffffff" stroke="#4D148C" strokeWidth="1.5" />
+      <text x="280" y="236" fontSize="9" fill="#4D148C" textAnchor="middle" fontWeight="600">FedEx</text>
+      <line x1="280" y1="218" x2="220" y2="156" stroke="#4D148C" strokeWidth="1" strokeDasharray="3,3" />
 
       {/* Data flow labels */}
       <rect x="126" y="86" width="56" height="12" rx="6" fill="#f0fdf4" stroke="#bbf7d0" strokeWidth="1" />

@@ -1,8 +1,8 @@
-import { ScreenshotPlaceholder } from '@/components/ScreenshotPlaceholder';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { Section } from '@/components/ui/Section';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
+import Image from 'next/image';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -16,6 +16,7 @@ const workflows = [
     title: 'Batch Picking',
     description: 'Create or select picking batches, assign totes, scan items, skip blocked orders, and complete batches — all from your phone.',
     screenshotAlt: 'Mobile batch picking — tote assignment and item scanning',
+    screenshotSrc: '/screenshots/picking.png',
     steps: [
       'Select or create a picking batch',
       'Assign tote via barcode scan',
@@ -29,6 +30,7 @@ const workflows = [
     title: 'Move SKU',
     description: 'Move inventory between locations with a guided flow. Scan source, destination, and quantity — the system handles the rest.',
     screenshotAlt: 'Move SKU workflow — source, destination, and quantity',
+    screenshotSrc: '/screenshots/warehouse-locations.png',
     steps: [
       'Scan or search for the SKU',
       'Scan the source location',
@@ -41,6 +43,7 @@ const workflows = [
     title: 'Inventory Adjustment',
     description: 'Adjust inventory counts with reason codes. Changes sync to the backend and optionally to Shopify.',
     screenshotAlt: 'Inventory adjustment — reason codes and sync feedback',
+    screenshotSrc: '/screenshots/skus.png',
     steps: [
       'Scan or search for the SKU',
       'Enter new quantity',
@@ -123,8 +126,12 @@ export default function MobilePage() {
               </ul>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <ScreenshotPlaceholder alt="Mobile app — picking screen" aspect="aspect-[9/16]" />
-              <ScreenshotPlaceholder alt="Mobile app — barcode scanner" aspect="aspect-[9/16]" />
+              <div className="overflow-hidden rounded-xl border border-slate-200 shadow-lg">
+                <Image src="/screenshots/picking.png" alt="Picking workflow on mobile" width={400} height={600} className="w-full" />
+              </div>
+              <div className="overflow-hidden rounded-xl border border-slate-200 shadow-lg">
+                <Image src="/screenshots/skus.png" alt="Inventory barcode scanning" width={400} height={600} className="w-full" />
+              </div>
             </div>
           </div>
         </Container>
@@ -159,7 +166,9 @@ export default function MobilePage() {
                     </ol>
                   </div>
                   <div className={isEven ? '' : 'lg:order-1'}>
-                    <ScreenshotPlaceholder alt={workflow.screenshotAlt} aspect="aspect-[4/3]" />
+                    <div className="overflow-hidden rounded-xl border border-slate-200 shadow-lg">
+                      <Image src={workflow.screenshotSrc} alt={workflow.screenshotAlt} width={600} height={400} className="w-full" />
+                    </div>
                   </div>
                 </div>
               );

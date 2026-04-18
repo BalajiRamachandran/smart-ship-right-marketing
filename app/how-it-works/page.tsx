@@ -2,7 +2,7 @@ import { PageHeader } from '@/components/ui/PageHeader';
 import { Section } from '@/components/ui/Section';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
-import { ScreenshotPlaceholder } from '@/components/ScreenshotPlaceholder';
+import Image from 'next/image';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -17,36 +17,42 @@ const processSteps = [
     title: 'Orders sync automatically',
     detail: 'Connect Shopify and orders flow into Smart Ship Right in real time via webhooks. Manual order creation is also supported. Each order enters a controlled processing queue with hold management for payment, fraud, and address issues.',
     screenshotAlt: 'Order sync — Shopify orders flowing into Smart Ship Right',
+    screenshotSrc: '/screenshots/orders.png',
   },
   {
     step: '02',
     title: 'Inventory is validated',
     detail: 'Available stock is checked by SKU and location before releasing work to the floor. Reservations prevent overselling. Capacity constraints are validated automatically. Variance checks against Shopify catch discrepancies early.',
     screenshotAlt: 'Inventory validation — stock levels and reservation checks',
+    screenshotSrc: '/screenshots/skus.png',
   },
   {
     step: '03',
     title: 'Pickers execute batches',
     detail: 'Teams run single-batch or multi-batch picking waves. Pick lists are sorted by warehouse location to minimize travel. Barcode scanning confirms every item. Tote assignment ensures orders stay separated.',
     screenshotAlt: 'Picking execution — barcode scanning and tote assignment',
+    screenshotSrc: '/screenshots/picking.png',
   },
   {
     step: '04',
     title: 'Orders are packed and verified',
     detail: 'Picked orders move to the packing hub. Packers scan totes and verify items against the order. Pack-and-print workflows generate packing slips and labels in one step. Direct-to-packing is available for orders that skip batch picking.',
     screenshotAlt: 'Packing station — scan verification and label printing',
+    screenshotSrc: '/screenshots/packing.png',
   },
   {
     step: '05',
     title: 'Labels are printed and shipped',
     detail: 'ShipStation integration compares rates across carriers and generates labels. Tracking numbers are captured automatically and synced back to Shopify. Manifests are created for carrier pickup. Bulk shipping handles high-volume days.',
     screenshotAlt: 'Shipping — carrier rates, labels, and manifest generation',
+    screenshotSrc: '/screenshots/packing.png',
   },
   {
     step: '06',
     title: 'Dashboard tracks everything',
     detail: 'Real-time WebSocket dashboard shows orders to ship, late orders, holds, picker performance, and hospital stats. Yesterday vs. today comparisons help spot trends. Role-based access ensures the right people see the right data.',
     screenshotAlt: 'Dashboard — real-time stats and performance tracking',
+    screenshotSrc: '/screenshots/dashboard.png',
   },
 ];
 
@@ -115,7 +121,9 @@ export default function HowItWorksPage() {
                       <p className="text-slate-600 leading-relaxed">{item.detail}</p>
                     </div>
                     <div className={isEven ? '' : 'lg:order-1'}>
-                      <ScreenshotPlaceholder alt={item.screenshotAlt} aspect="aspect-[4/3]" />
+                      <div className="overflow-hidden rounded-xl border border-slate-200 shadow-lg">
+                        <Image src={item.screenshotSrc} alt={item.screenshotAlt} width={600} height={400} className="w-full" />
+                      </div>
                     </div>
                   </div>
                 );

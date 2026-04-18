@@ -157,7 +157,7 @@ const features = [
   },
   {
     title: 'Backorder Tracking',
-    description: 'Automatically detect when reserved quantity exceeds on-hand stock. Backordered SKUs are flagged across orders and SKU pages, excluded from picking batches, and can auto-populate purchase orders.',
+    description: 'Automatically detect when reserved quantity exceeds on-hand stock. Backordered SKUs are flagged across orders and SKU pages, excluded from picking batches, and can auto-populate purchase order line items.',
     Sketch: InventorySketch,
     screenshotSrc: '/screenshots/skus.png',
     screenshotAlt: 'Backorder tracking — SKU and order-level backorder indicators',
@@ -172,7 +172,7 @@ const features = [
   },
   {
     title: 'Shopify Sync Controls',
-    description: 'Granular per-action-type inventory sync toggles. Control exactly which operations push inventory changes to Shopify — manual adjustments, PO receiving, bulk updates, hospital actions, and more.',
+    description: 'Granular per-action-type inventory sync toggles. Control exactly which operations push inventory changes to Shopify — manual adjustments, PO receiving, bulk updates, hospital quarantine/resolve, and external fulfillment.',
     Sketch: IntegrationSketch,
     screenshotSrc: '/screenshots/settings.png',
     screenshotAlt: 'Shopify sync controls — per-action toggle panel',
@@ -266,6 +266,9 @@ export default function FeaturesPage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
+              'Dropship Support (SKU-level flag)',
+              'Exchange & Return Handling',
+              'Inventory Reservations',
               'Purchase Order Management',
               'Vendor Management',
               'Receiving Workflows',
@@ -276,6 +279,7 @@ export default function FeaturesPage() {
               'Risk Assessment & Fraud Detection',
               'Invoice Generation',
               'Packing Slips (PDF/HTML/Thermal)',
+              'Packing Weight Warnings',
               'Camera Barcode Scanner',
               'Code128 & QR Barcodes',
               'WebSocket Real-time Updates',
@@ -283,13 +287,17 @@ export default function FeaturesPage() {
               'RBAC (Admin/Manager/Operator/Viewer)',
               'Granular Permissions & Groups',
               'Tote Management',
-              'CSV Import (Orders/Products/Locations/SKUs)',
+              'CSV Import & Export',
               'Alert System',
-              'Entity Notes & Attachments',
+              'SKU History & Audit Trail',
               'Order Tags & Categories',
               'Address Validation & Editing',
               'Shopify OAuth + 15+ Webhooks',
-              'Google Cloud Tasks & Storage',
+              'Sync Log UI',
+              'In-App Help Center',
+              'Google Cloud (Run, Tasks, Storage)',
+              'Neon PostgreSQL + Alembic',
+              'Entity Notes & Attachments',
             ].map((capability) => (
               <div key={capability} className="card-hover flex items-center rounded-lg border border-slate-200 bg-white p-4">
                 <svg className="w-5 h-5 text-blue-500 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">

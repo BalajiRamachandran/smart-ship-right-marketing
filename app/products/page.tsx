@@ -36,7 +36,7 @@ export default function ProductsPage() {
                   <div>
                     <h3 className="font-semibold text-slate-900 mb-2">Core stack</h3>
                     <div className="flex flex-wrap gap-2">
-                      {['FastAPI', 'Python 3.8+', 'PostgreSQL', 'SQLAlchemy 2.0', 'JWT Auth', 'WebSocket'].map((tech) => (
+                      {['FastAPI', 'Python 3.11', 'PostgreSQL (Neon)', 'SQLAlchemy 2.0', 'JWT Auth', 'WebSocket'].map((tech) => (
                         <span key={tech} className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700 border border-emerald-200">
                           {tech}
                         </span>
@@ -49,12 +49,16 @@ export default function ProductsPage() {
                       {[
                         'Inventory & locations',
                         'Orders & fulfillment',
-                        'Picking (SIB/MIB)',
+                        'Picking (single/multi)',
                         'Packing & shipping',
                         'Purchase orders',
                         'Warehouse analytics',
                         'Hospital & quarantine',
                         'Automation rules',
+                        'Dropship support',
+                        'Inventory reservations',
+                        'Backorder tracking',
+                        'Shopify sync controls',
                       ].map((item) => (
                         <li key={item} className="flex items-center">
                           <span className="mr-2 h-1.5 w-1.5 rounded-full bg-emerald-500" />
@@ -64,7 +68,7 @@ export default function ProductsPage() {
                     </ul>
                   </div>
                   <div className="rounded-lg bg-slate-50 p-4 text-sm text-slate-600">
-                    <strong>Scale:</strong> 25+ routers · 200+ endpoints · 40+ models · 15+ Shopify webhooks · 3 integrations · 30+ test scripts
+                    <strong>Scale:</strong> Handles 1,000+ orders/day with &lt;100ms API response times across 200+ endpoints.
                   </div>
                 </div>
               </div>
@@ -82,7 +86,7 @@ export default function ProductsPage() {
                   <div>
                     <h3 className="font-semibold text-slate-900 mb-2">Core stack</h3>
                     <div className="flex flex-wrap gap-2">
-                      {['Next.js 15', 'React 19', 'TypeScript', 'Tailwind CSS', 'WebSocket Client', 'Recharts'].map((tech) => (
+                      {['Next.js 14', 'React 18', 'TypeScript', 'Tailwind CSS', 'WebSocket Client', 'Recharts'].map((tech) => (
                         <span key={tech} className="rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700 border border-blue-200">
                           {tech}
                         </span>
@@ -94,13 +98,17 @@ export default function ProductsPage() {
                     <ul className="grid grid-cols-2 gap-1 text-sm text-slate-600">
                       {[
                         'Dashboard & analytics',
-                        'Orders & picking',
+                        'Orders & order detail',
+                        'Picking batches',
                         'Packing hub',
                         'Shipping & labels',
                         'Inventory management',
-                        'Warehouse map',
-                        'Purchase orders',
-                        'Settings & users',
+                        'Warehouse map & locations',
+                        'Purchase orders & receiving',
+                        'Automation rules',
+                        'Sync log & settings',
+                        'CSV export on all tables',
+                        'In-app help center',
                       ].map((item) => (
                         <li key={item} className="flex items-center">
                           <span className="mr-2 h-1.5 w-1.5 rounded-full bg-blue-500" />
@@ -110,7 +118,7 @@ export default function ProductsPage() {
                     </ul>
                   </div>
                   <div className="rounded-lg bg-slate-50 p-4 text-sm text-slate-600">
-                    <strong>Scale:</strong> 50+ pages · 100+ components · 15+ API clients · 10+ hooks
+                    <strong>Scale:</strong> 50+ pages with real-time WebSocket updates and responsive design for tablet and mobile.
                   </div>
                 </div>
               </div>
@@ -161,7 +169,7 @@ export default function ProductsPage() {
                 { title: 'Frontend', desc: 'Next.js web app with TypeScript and real-time WebSocket updates', color: 'blue' },
                 { title: 'Backend API', desc: 'FastAPI REST endpoints with WebSocket support and JWT auth', color: 'emerald' },
                 { title: 'Database', desc: 'PostgreSQL with SQLAlchemy ORM for reliable data persistence', color: 'purple' },
-                { title: 'Integrations', desc: 'Shopify (OAuth + 15 webhooks), ShipStation, Google Cloud (Tasks, Storage), Stripe', color: 'amber' },
+                { title: 'Integrations', desc: 'Shopify (OAuth + 15 webhooks), ShipStation, Google Cloud (Cloud Run, Tasks, Storage)', color: 'amber' },
               ].map((item) => (
                 <div key={item.title} className="rounded-xl border border-slate-200 bg-white p-5 text-center">
                   <h3 className="font-semibold text-slate-900 mb-2">{item.title}</h3>

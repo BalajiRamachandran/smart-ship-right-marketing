@@ -62,12 +62,12 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
               { name: 'FastAPI', desc: 'High-performance Python API' },
-              { name: 'Next.js 15', desc: 'React framework with SSR' },
+              { name: 'Next.js 14', desc: 'React framework with SSR' },
               { name: 'PostgreSQL', desc: 'Enterprise-grade database' },
               { name: 'TypeScript', desc: 'Type-safe development' },
               { name: 'Tailwind CSS', desc: 'Utility-first styling' },
               { name: 'WebSocket', desc: 'Real-time communication' },
-              { name: 'Supabase', desc: 'Auth & database platform' },
+              { name: 'Google Cloud', desc: 'Cloud Run, Tasks, Storage' },
             ].map((tech) => (
               <div key={tech.name} className="card-hover rounded-xl border border-slate-200 bg-white p-5 text-center">
                 <h3 className="font-semibold text-slate-900 mb-1">{tech.name}</h3>
