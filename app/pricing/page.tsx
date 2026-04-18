@@ -8,7 +8,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Pricing | Smart Ship Right',
   description:
-    'Simple, transparent pricing for Smart Ship Right warehouse management and contract management. No contracts, no onboarding fees.',
+    'Simple, transparent pricing for Smart Ship Right warehouse management. No onboarding fees.',
 };
 
 const plans = [
@@ -52,7 +52,6 @@ const plans = [
       'Mobile-ready responsive web app',
       'Purchase orders & receiving',
       'Real-time WebSocket dashboard',
-      'Contract management (Mudra)',
       'Priority email & chat support',
     ],
     cta: 'Start Free Trial',
@@ -99,10 +98,6 @@ const faqs = [
   {
     q: 'Do you charge onboarding or setup fees?',
     a: 'No. All plans include free onboarding. Professional and Enterprise plans include a dedicated onboarding call to help you configure your warehouse.',
-  },
-  {
-    q: 'What is Mudra contract management?',
-    a: 'Mudra is our built-in contract management module. It includes AI-powered contract generation, risk analysis, e-signatures, and audit trails — included in Professional and Enterprise plans.',
   },
   {
     q: 'Can I use Smart Ship Right with platforms other than Shopify?',
@@ -209,7 +204,6 @@ export default function PricingPage() {
                   { feature: 'Backorder tracking', starter: false, pro: true, enterprise: true },
                   { feature: 'Shopify sync controls', starter: false, pro: true, enterprise: true },
                   { feature: 'Purchase orders & receiving', starter: false, pro: true, enterprise: true },
-                  { feature: 'Contract management (Mudra)', starter: false, pro: true, enterprise: true },
                   { feature: 'Automation rules', starter: false, pro: false, enterprise: true },
                   { feature: 'Hospital & quarantine', starter: false, pro: false, enterprise: true },
                   { feature: 'Custom API integrations', starter: false, pro: false, enterprise: true },

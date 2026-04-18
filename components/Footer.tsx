@@ -12,7 +12,7 @@ export default function Footer() {
               <Image src="/logo.svg" alt="Smart Ship Right" width={182} height={40} className="h-9 w-auto brightness-200" />
             </div>
             <p className="mb-6 text-sm leading-relaxed text-slate-400">
-              Warehouse management and contract operations in one platform. Pick, pack, ship, and manage agreements with confidence.
+              Warehouse management platform. Pick, pack, ship, and manage your fulfillment with confidence.
             </p>
             <div className="flex gap-4">
               <a href="mailto:contact@smartshipright.com" className="text-slate-400 hover:text-white transition-colors" aria-label="Email us">

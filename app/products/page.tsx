@@ -1,15 +1,15 @@
 import { IntegrationSketch, DashboardSketch } from '@/components/Sketches';
-import { ScreenshotPlaceholder } from '@/components/ScreenshotPlaceholder';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { Section } from '@/components/ui/Section';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
+import Image from 'next/image';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Products | Smart Ship Right',
   description:
-    'Explore Smart Ship Right products: WMS backend, web frontend, mobile app, and Mudra contract management.',
+    'Explore Smart Ship Right products: WMS backend, web frontend, and mobile-ready web app.',
 };
 
 export default function ProductsPage() {
@@ -17,7 +17,7 @@ export default function ProductsPage() {
     <div className="bg-white">
       <PageHeader
         title="The Smart Ship Right platform"
-        description="A complete warehouse management system with a FastAPI backend, Next.js web app, Expo mobile app, and built-in contract management."
+        description="A complete warehouse management system with a FastAPI backend, Next.js web app, and mobile-ready responsive interface."
       />
 
       {/* Product Cards */}
@@ -31,7 +31,7 @@ export default function ProductsPage() {
                 <p className="mt-1 text-emerald-50">FastAPI · PostgreSQL · WebSocket</p>
               </div>
               <div className="p-6">
-                <ScreenshotPlaceholder alt="Backend API — endpoints, WebSocket, and database" aspect="aspect-[3/2]" className="mb-6" />
+                <div className="overflow-hidden rounded-xl mb-6"><Image src="/screenshots/settings.png" alt="Backend API — endpoints and configuration" width={800} height={500} className="w-full" /></div>
                 <div className="space-y-4">
                   <div>
                     <h3 className="font-semibold text-slate-900 mb-2">Core stack</h3>
@@ -77,7 +77,7 @@ export default function ProductsPage() {
                 <p className="mt-1 text-blue-50">Next.js · TypeScript · Tailwind CSS</p>
               </div>
               <div className="p-6">
-                <ScreenshotPlaceholder alt="Web frontend — dashboard, picking, packing, and shipping" aspect="aspect-[3/2]" className="mb-6" />
+                <div className="overflow-hidden rounded-xl mb-6"><Image src="/screenshots/dashboard.png" alt="Web frontend — dashboard, picking, packing, and shipping" width={800} height={500} className="w-full" /></div>
                 <div className="space-y-4">
                   <div>
                     <h3 className="font-semibold text-slate-900 mb-2">Core stack</h3>
@@ -125,7 +125,7 @@ export default function ProductsPage() {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-6">
               <div>
-                <ScreenshotPlaceholder alt="Responsive web app — picking and scanning on tablet" aspect="aspect-[3/2]" />
+                <div className="overflow-hidden rounded-xl"><Image src="/screenshots/picking.png" alt="Responsive web app — picking and scanning on tablet" width={800} height={500} className="w-full" /></div>
               </div>
               <div className="space-y-4">
                 <h3 className="font-semibold text-slate-900">Mobile capabilities (web-based)</h3>
@@ -149,48 +149,6 @@ export default function ProductsPage() {
                 <div className="rounded-lg bg-slate-50 p-4 text-sm text-slate-600">
                   <strong>Note:</strong> The web app is fully responsive and works on mobile browsers today. A dedicated native Expo mobile app with offline support is on the roadmap.
                 </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Mudra Contract Management */}
-          <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm mb-16">
-            <div className="bg-gradient-to-r from-amber-500 to-orange-600 p-6">
-              <h2 className="font-display text-2xl font-bold text-white">Mudra — Contract Management</h2>
-              <p className="mt-1 text-amber-50">AI-Powered · E-Signatures · Audit Trail</p>
-            </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-6">
-              <div className="space-y-4">
-                <h3 className="font-semibold text-slate-900">AI-powered contract operations</h3>
-                <ul className="space-y-2 text-sm text-slate-600">
-                  {[
-                    'Generate professional contracts from plain-text descriptions',
-                    'Automated risk analysis with severity levels and missing sections',
-                    'Plain language summaries for non-lawyers',
-                    'Clause library with suggestions and rewriting',
-                    'Multi-signer e-signature workflow with signing order',
-                    'Template management with dynamic field extraction',
-                    'Append-only audit logs with IP and user agent tracking',
-                    'Contract chat — ask questions about any agreement',
-                  ].map((item) => (
-                    <li key={item} className="flex items-start">
-                      <svg className="mr-2 mt-0.5 h-4 w-4 text-amber-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <div className="flex flex-wrap gap-2 pt-2">
-                  {['Google Gemini AI', 'Supabase', 'Stripe', 'Resend Email', 'Cloudflare R2'].map((tech) => (
-                    <span key={tech} className="rounded-full bg-amber-50 px-3 py-1 text-xs font-medium text-amber-700 border border-amber-200">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <ScreenshotPlaceholder alt="Mudra contract management — AI review, templates, and e-signatures" aspect="aspect-[3/2]" />
               </div>
             </div>
           </div>

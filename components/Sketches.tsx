@@ -465,7 +465,7 @@ export function IntegrationSketch() {
       {/* Central hub */}
       <rect x="140" y="100" width="120" height="56" rx="10" fill="#1e293b" stroke="#334155" strokeWidth="2" />
       <text x="200" y="124" fontSize="10" fill="#ffffff" textAnchor="middle" fontWeight="700">Smart Ship Right</text>
-      <text x="200" y="140" fontSize="7" fill="#94a3b8" textAnchor="middle">WMS + Contracts</text>
+      <text x="200" y="140" fontSize="7" fill="#94a3b8" textAnchor="middle">Warehouse Management</text>
 
       {/* Shopify — top left */}
       <rect x="20" y="52" width="100" height="40" rx="8" fill="#ffffff" stroke="#96bf48" strokeWidth="1.5" />

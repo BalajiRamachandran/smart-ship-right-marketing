@@ -8,7 +8,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'About | Smart Ship Right',
-  description: 'Learn about Smart Ship Right — a modern warehouse management and contract operations platform built for e-commerce teams.',
+  description: 'Learn about Smart Ship Right — a modern warehouse management platform built for e-commerce teams.',
 };
 
 export default function AboutPage() {
@@ -16,7 +16,7 @@ export default function AboutPage() {
     <div className="bg-white">
       <PageHeader
         title="About Smart Ship Right"
-        description="Built for warehouse teams that need real-time visibility, reliable fulfillment, and streamlined contract operations."
+        description="Built for warehouse teams that need real-time visibility and reliable fulfillment execution."
       />
 
       {/* Mission */}
@@ -32,12 +32,12 @@ export default function AboutPage() {
               </p>
               <p className="text-lg text-slate-600 mb-4 leading-relaxed">
                 We believe warehouse operations should be fast, accurate, and visible. Every feature — from
-                batch picking to contract management — is designed to reduce errors, save time, and scale
+                batch picking to shipping — is designed to reduce errors, save time, and scale
                 with your business.
               </p>
               <p className="text-lg text-slate-600 leading-relaxed">
                 Our platform handles the full lifecycle: inventory control, order processing, picking, packing,
-                shipping, and vendor contract management — all in one place.
+                shipping, and reporting — all in one place.
               </p>
             </div>
             <div className="flex flex-col gap-4">
@@ -68,7 +68,6 @@ export default function AboutPage() {
               { name: 'Tailwind CSS', desc: 'Utility-first styling' },
               { name: 'WebSocket', desc: 'Real-time communication' },
               { name: 'Supabase', desc: 'Auth & database platform' },
-              { name: 'Google Gemini', desc: 'AI contract analysis' },
             ].map((tech) => (
               <div key={tech.name} className="card-hover rounded-xl border border-slate-200 bg-white p-5 text-center">
                 <h3 className="font-semibold text-slate-900 mb-1">{tech.name}</h3>

@@ -9,7 +9,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Features | Smart Ship Right WMS',
   description:
-    'Comprehensive features for modern warehouse management: inventory, orders, single and multi batch picking, packing, shipping, Shopify and ShipStation integration, mobile app, and contract management.',
+    'Comprehensive features for modern warehouse management: inventory, orders, single and multi batch picking, packing, shipping, Shopify and ShipStation integration, and mobile app.',
 };
 
 const features = [
@@ -153,21 +153,6 @@ const features = [
       'ShipStation label generation and rate shopping',
       'Multi-carrier support and tracking sync',
       'Carrier manifests (create, list, download)',
-    ],
-  },
-  {
-    title: 'Contract Management (Mudra)',
-    description: 'AI-powered contract generation, review, and e-signatures. Manage vendor agreements, analyze risk, and maintain audit trails — all built into the platform.',
-    Sketch: OrderSketch,
-    screenshotSrc: '/screenshots/order-detail.png',
-    screenshotAlt: 'Contract management — AI review, e-signatures, and audit trail',
-    details: [
-      'AI-powered contract generation from descriptions',
-      'Automated risk analysis with severity levels',
-      'Plain language summaries for non-lawyers',
-      'Multi-signer e-signature workflow',
-      'Template management with dynamic fields',
-      'Append-only audit logs with IP tracking',
     ],
   },
   {
