@@ -6,9 +6,9 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Pricing | Smart Ship Right',
+  title: 'Pricing | Simple Plans for Every Warehouse Size',
   description:
-    'Simple, transparent pricing for Smart Ship Right warehouse management. No onboarding fees.',
+    'Transparent pricing for Smart Ship Right WMS. No contracts, no per-user fees. Start free with a 14-day trial. Plans from $99/month.',
 };
 
 const plans = [

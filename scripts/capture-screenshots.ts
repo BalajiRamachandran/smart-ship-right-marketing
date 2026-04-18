@@ -50,6 +50,28 @@ async function sanitizePage(page: Page) {
       if (input.name?.includes('phone')) {
         input.value = '(555) 000-0000';
       }
+      // Sanitize any input containing svaha/SVAHA
+      if (input.value && /svaha/i.test(input.value)) {
+        input.value = input.value.replace(/svaha-usa\.myshopify\.com/gi, 'acme-store.myshopify.com');
+        input.value = input.value.replace(/svaha-usa/gi, 'acme-store');
+        input.value = input.value.replace(/svaha/gi, 'acme');
+      }
+    });
+
+    // Sanitize placeholder attributes
+    document.querySelectorAll('[placeholder]').forEach((el) => {
+      const placeholder = el.getAttribute('placeholder') || '';
+      if (/svaha/i.test(placeholder)) {
+        el.setAttribute('placeholder', placeholder.replace(/svaha/gi, 'acme'));
+      }
+    });
+
+    // Sanitize value attributes on hidden inputs and data attributes
+    document.querySelectorAll('[value]').forEach((el) => {
+      const val = el.getAttribute('value') || '';
+      if (/svaha/i.test(val)) {
+        el.setAttribute('value', val.replace(/svaha-usa\.myshopify\.com/gi, 'acme-store.myshopify.com').replace(/svaha-usa/gi, 'acme-store').replace(/svaha/gi, 'acme'));
+      }
     });
 
     for (const textNode of textNodes) {
@@ -76,7 +98,7 @@ async function sanitizePage(page: Page) {
       // Customer names that look like "First Last" near order/customer context
       // (conservative — only replace in elements that likely contain customer data)
       const parent = textNode.parentElement;
-      const parentClass = parent?.className || '';
+      const parentClass = (parent?.className || '').toString();
       const parentText = parent?.textContent || '';
       if (
         parentClass.includes('customer') ||
@@ -96,6 +118,11 @@ async function sanitizePage(page: Page) {
         if (match.includes('EXC')) return '#DEMO-10042-EXC1';
         return '#DEMO-' + (10000 + Math.floor(Math.random() * 999));
       });
+
+      // Remove all "Svaha" / "SVAHA" / "svaha" references
+      text = text.replace(/\bSvaha\b/gi, 'Acme');
+      text = text.replace(/\bSVAHA\b/g, 'ACME');
+      text = text.replace(/svaha-usa/gi, 'acme-store');
 
       // City, State, ZIP patterns
       text = text.replace(
@@ -186,8 +213,8 @@ const screenshots: Screenshot[] = [
     viewport: { width: 1440, height: 900 },
   },
   {
-    name: 'automation-rules',
-    path: '/settings/automation',
+    name: 'shopify-settings',
+    path: '/settings/shopify',
     waitFor: 'main',
     delay: 2000,
     viewport: { width: 1440, height: 900 },
@@ -230,6 +257,64 @@ const screenshots: Screenshot[] = [
   {
     name: 'warehouse-analytics',
     path: '/warehouse/analytics',
+    waitFor: 'main',
+    delay: 2000,
+    viewport: { width: 1440, height: 900 },
+  },
+  // --- Detail / workflow pages ---
+  {
+    name: 'picking-batch',
+    path: '/picking/DYN-EC5A6CEB',
+    waitFor: 'main',
+    delay: 2500,
+    viewport: { width: 1440, height: 900 },
+  },
+  {
+    name: 'packing-batch',
+    path: '/packing/DYN-4664B3A4',
+    waitFor: 'main',
+    delay: 2500,
+    viewport: { width: 1440, height: 900 },
+  },
+  {
+    name: 'move-sku',
+    path: '/utils/move-sku',
+    waitFor: 'main',
+    delay: 2000,
+    viewport: { width: 1440, height: 900 },
+  },
+  {
+    name: 'adjust-inventory',
+    path: '/utils/adjust-inventory',
+    waitFor: 'main',
+    delay: 2000,
+    viewport: { width: 1440, height: 900 },
+  },
+  {
+    name: 'totes',
+    path: '/warehouse/totes',
+    waitFor: 'main',
+    delay: 2000,
+    viewport: { width: 1440, height: 900 },
+  },
+  {
+    name: 'location-detail',
+    path: '/warehouse/locations',
+    waitFor: 'main',
+    delay: 2000,
+    viewport: { width: 1440, height: 900 },
+    clickFirst: 'a[href*="/warehouse/locations/"]',
+  },
+  {
+    name: 'users',
+    path: '/settings/users',
+    waitFor: 'main',
+    delay: 2000,
+    viewport: { width: 1440, height: 900 },
+  },
+  {
+    name: 'permissions',
+    path: '/settings/permissions',
     waitFor: 'main',
     delay: 2000,
     viewport: { width: 1440, height: 900 },

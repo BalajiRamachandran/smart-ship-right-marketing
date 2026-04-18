@@ -31,7 +31,7 @@ export default function ProductsPage() {
                 <p className="mt-1 text-emerald-50">FastAPI · PostgreSQL · WebSocket</p>
               </div>
               <div className="p-6">
-                <div className="overflow-hidden rounded-xl mb-6"><Image src="/screenshots/settings.png" alt="Backend API — endpoints and configuration" width={800} height={500} className="w-full" /></div>
+                <div className="overflow-hidden rounded-xl mb-6"><Image src="/screenshots/dashboard.png" alt="Smart Ship Right dashboard" width={800} height={500} className="w-full" /></div>
                 <div className="space-y-4">
                   <div>
                     <h3 className="font-semibold text-slate-900 mb-2">Core stack</h3>
@@ -82,7 +82,7 @@ export default function ProductsPage() {
                 <p className="mt-1 text-blue-50">Next.js · TypeScript · Tailwind CSS</p>
               </div>
               <div className="p-6">
-                <div className="overflow-hidden rounded-xl mb-6"><Image src="/screenshots/dashboard.png" alt="Web frontend — dashboard, picking, packing, and shipping" width={800} height={500} className="w-full" /></div>
+                <div className="overflow-hidden rounded-xl mb-6"><Image src="/screenshots/orders.png" alt="Web frontend — orders, picking, packing, and shipping" width={800} height={500} className="w-full" /></div>
                 <div className="space-y-4">
                   <div>
                     <h3 className="font-semibold text-slate-900 mb-2">Core stack</h3>
@@ -135,7 +135,7 @@ export default function ProductsPage() {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-6">
               <div>
-                <div className="overflow-hidden rounded-xl"><Image src="/screenshots/picking.png" alt="Responsive web app — picking and scanning on tablet" width={800} height={500} className="w-full" /></div>
+                <div className="overflow-hidden rounded-xl"><Image src="/screenshots/move-sku.png" alt="Move SKU workflow on mobile" width={800} height={500} className="w-full" /></div>
               </div>
               <div className="space-y-4">
                 <h3 className="font-semibold text-slate-900">Mobile capabilities (web-based)</h3>

@@ -35,6 +35,23 @@ export default function Home() {
               </Button>
             </div>
             <p className="mt-4 text-sm text-slate-500">No credit card required · Free onboarding call</p>
+
+            {/* Feature badges */}
+            <div className="mt-6 flex flex-wrap justify-center gap-3">
+              {[
+                { icon: <svg className="w-4 h-4 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>, label: 'Shopify Sync' },
+                { icon: <svg className="w-4 h-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>, label: 'Batch Picking' },
+                { icon: <svg className="w-4 h-4 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" /></svg>, label: 'Barcode Scanning' },
+                { icon: <svg className="w-4 h-4 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" /></svg>, label: 'Shipping Labels' },
+                { icon: <svg className="w-4 h-4 text-rose-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>, label: 'Automation Rules' },
+                { icon: <svg className="w-4 h-4 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" /></svg>, label: 'Direct-to-Printer' },
+              ].map((f) => (
+                <div key={f.label} className="flex items-center gap-2 rounded-full bg-white/80 border border-slate-200 px-3 py-1.5 text-xs text-slate-700 shadow-sm">
+                  {f.icon}
+                  <span className="font-medium">{f.label}</span>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Full-width carousel */}
@@ -95,7 +112,7 @@ export default function Home() {
               </div>
               <div className="flex flex-col gap-4">
                 <div className="overflow-hidden rounded-xl border border-slate-200 shadow-lg">
-                  <Image src="/screenshots/skus.png" alt="SKU inventory management with stock levels and locations" width={800} height={500} className="w-full" />
+                  <Image src="/screenshots/skus.png" alt="SKU inventory list with stock levels, locations, and category filters" width={800} height={500} className="w-full" />
                 </div>
                 <div className="rounded-xl border border-slate-200 bg-slate-50 p-6">
                   <InventorySketch />
@@ -107,7 +124,7 @@ export default function Home() {
             <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2">
               <div className="order-2 lg:order-1 flex flex-col gap-4">
                 <div className="overflow-hidden rounded-xl border border-slate-200 shadow-lg">
-                  <Image src="/screenshots/picking.png" alt="Batch picking interface with single and multi batch workflows" width={800} height={500} className="w-full" />
+                  <Image src="/screenshots/picking-batch.png" alt="Active picking batch showing items to pick, scan status, and tote assignment" width={800} height={500} className="w-full" />
                 </div>
                 <div className="rounded-xl border border-slate-200 bg-slate-50 p-6">
                   <PickingSketch />
@@ -155,7 +172,7 @@ export default function Home() {
               </div>
               <div className="flex flex-col gap-4">
                 <div className="overflow-hidden rounded-xl border border-slate-200 shadow-lg">
-                  <Image src="/screenshots/packing.png" alt="Packing and shipping — labels, rates, and carrier selection" width={800} height={500} className="w-full" />
+                  <Image src="/screenshots/packing-batch.png" alt="Packing batch with order verification, item scanning, and label generation" width={800} height={500} className="w-full" />
                 </div>
                 <div className="rounded-xl border border-slate-200 bg-slate-50 p-6">
                   <IntegrationSketch />
@@ -229,11 +246,11 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { src: '/screenshots/dashboard.png', alt: 'Smart Ship Right dashboard showing orders to ship, inventory stats, and real-time metrics', caption: 'Dashboard' },
+              { src: '/screenshots/picking-batch.png', alt: 'Active picking batch showing items to pick, scan status, and tote assignment', caption: 'Batch Picking' },
+              { src: '/screenshots/packing-batch.png', alt: 'Packing batch with order verification, item scanning, and label generation', caption: 'Packing' },
               { src: '/screenshots/orders.png', alt: 'Order management list with status filters, search, and bulk actions', caption: 'Orders' },
-              { src: '/screenshots/picking.png', alt: 'Picking dashboard with batch management, tote assignment, and progress tracking', caption: 'Batch Picking' },
-              { src: '/screenshots/packing.png', alt: 'Packing hub with scan verification and label generation', caption: 'Packing Hub' },
               { src: '/screenshots/skus.png', alt: 'SKU inventory list with stock levels, locations, and category filters', caption: 'Inventory' },
-              { src: '/screenshots/sku-detail.png', alt: 'SKU detail page with inventory by location, history audit trail, and images', caption: 'SKU Detail' },
+              { src: '/screenshots/warehouse-map.png', alt: '3D warehouse map visualization with zones, aisles, and shelves', caption: 'Warehouse Map' },
             ].map((item) => (
               <figure key={item.caption}>
                 <div className="overflow-hidden rounded-xl border border-slate-200 shadow-sm transition-shadow hover:shadow-lg">

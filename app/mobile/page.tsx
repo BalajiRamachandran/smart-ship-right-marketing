@@ -6,9 +6,9 @@ import Image from 'next/image';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Mobile App | Smart Ship Right',
+  title: 'Mobile Warehouse App | Barcode Scanning on Any Device',
   description:
-    'Smart Ship Right mobile app: camera barcode scanning, mobile picking, move SKU, and inventory adjustment workflows for the warehouse floor.',
+    'Use Smart Ship Right on the warehouse floor. Camera barcode scanning, mobile picking, inventory adjustments, and SKU moves — all from your phone or tablet.',
 };
 
 const workflows = [
@@ -16,7 +16,7 @@ const workflows = [
     title: 'Batch Picking',
     description: 'Create or select picking batches, assign totes, scan items, skip blocked orders, and complete batches — all from your phone.',
     screenshotAlt: 'Mobile batch picking — tote assignment and item scanning',
-    screenshotSrc: '/screenshots/picking.png',
+    screenshotSrc: '/screenshots/picking-batch.png',
     steps: [
       'Select or create a picking batch',
       'Assign tote via barcode scan',
@@ -30,7 +30,7 @@ const workflows = [
     title: 'Move SKU',
     description: 'Move inventory between locations with a guided flow. Scan source, destination, and quantity — the system handles the rest.',
     screenshotAlt: 'Move SKU workflow — source, destination, and quantity',
-    screenshotSrc: '/screenshots/warehouse-locations.png',
+    screenshotSrc: '/screenshots/move-sku.png',
     steps: [
       'Scan or search for the SKU',
       'Scan the source location',
@@ -43,7 +43,7 @@ const workflows = [
     title: 'Inventory Adjustment',
     description: 'Adjust inventory counts with reason codes. Changes sync to the backend and optionally to Shopify.',
     screenshotAlt: 'Inventory adjustment — reason codes and sync feedback',
-    screenshotSrc: '/screenshots/skus.png',
+    screenshotSrc: '/screenshots/adjust-inventory.png',
     steps: [
       'Scan or search for the SKU',
       'Enter new quantity',
@@ -127,10 +127,10 @@ export default function MobilePage() {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="overflow-hidden rounded-xl border border-slate-200 shadow-lg">
-                <Image src="/screenshots/picking.png" alt="Picking workflow on mobile" width={400} height={600} className="w-full" />
+                <Image src="/screenshots/move-sku.png" alt="Move SKU workflow on mobile" width={400} height={600} className="w-full" />
               </div>
               <div className="overflow-hidden rounded-xl border border-slate-200 shadow-lg">
-                <Image src="/screenshots/skus.png" alt="Inventory barcode scanning" width={400} height={600} className="w-full" />
+                <Image src="/screenshots/adjust-inventory.png" alt="Inventory adjustment with reason codes" width={400} height={600} className="w-full" />
               </div>
             </div>
           </div>

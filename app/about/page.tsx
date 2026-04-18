@@ -1,14 +1,14 @@
 import { WarehouseSketch } from '@/components/Sketches';
-import { StorysetIllustration } from '@/components/StorysetIllustration';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { Section } from '@/components/ui/Section';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
+import Image from 'next/image';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'About | Smart Ship Right',
-  description: 'Learn about Smart Ship Right — a modern warehouse management platform built for e-commerce teams.',
+  title: 'About | Built for Shopify Warehouse Teams',
+  description: 'Smart Ship Right is a warehouse management system built for e-commerce teams that need real-time visibility, reliable fulfillment, and simple setup.',
 };
 
 export default function AboutPage() {
@@ -41,7 +41,9 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="flex flex-col gap-4">
-              <StorysetIllustration name="warehouse" className="max-h-52" />
+              <div className="overflow-hidden rounded-xl border border-slate-200 shadow-lg">
+                <Image src="/screenshots/warehouse-map.png" alt="3D warehouse map visualization with zones, aisles, and shelves" width={800} height={500} className="w-full" />
+              </div>
               <div className="rounded-xl border border-slate-200 bg-slate-50 p-6">
                 <WarehouseSketch />
               </div>
@@ -128,9 +130,9 @@ export default function AboutPage() {
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             {[
-              { value: '200+', label: 'API Endpoints', sub: '25+ routers, 40+ models, full OpenAPI docs' },
-              { value: '<100ms', label: 'Average API Response', sub: 'Fast enough for real-time warehouse ops' },
-              { value: '50+', label: 'Frontend Pages', sub: '100+ components, 15+ API clients' },
+              { value: '99.8%', label: 'Order Accuracy', sub: 'Barcode validation at every step' },
+              { value: '< 5 min', label: 'Setup Time', sub: 'Connect Shopify and start picking' },
+              { value: '24/7', label: 'Shopify Sync', sub: 'Orders, inventory, and fulfillment' },
             ].map((stat) => (
               <div key={stat.label}>
                 <div className="text-4xl font-bold mb-1">{stat.value}</div>

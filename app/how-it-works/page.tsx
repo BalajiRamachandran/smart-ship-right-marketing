@@ -6,9 +6,9 @@ import Image from 'next/image';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'How It Works | Smart Ship Right',
+  title: 'How It Works | From Order to Shipped in 6 Steps',
   description:
-    'From order intake to shipped status — see how Smart Ship Right manages your entire warehouse workflow in 6 clear steps.',
+    'See how Smart Ship Right manages your warehouse workflow: order sync, inventory validation, batch picking, packing verification, label generation, and real-time tracking.',
 };
 
 const processSteps = [
@@ -31,14 +31,14 @@ const processSteps = [
     title: 'Pickers execute batches',
     detail: 'Teams run single-batch or multi-batch picking waves. Pick lists are sorted by warehouse location to minimize travel. Barcode scanning confirms every item. Tote assignment ensures orders stay separated.',
     screenshotAlt: 'Picking execution — barcode scanning and tote assignment',
-    screenshotSrc: '/screenshots/picking.png',
+    screenshotSrc: '/screenshots/picking-batch.png',
   },
   {
     step: '04',
     title: 'Orders are packed and verified',
     detail: 'Picked orders move to the packing hub. Packers scan totes and verify items against the order. Pack-and-print workflows generate packing slips and labels in one step. Direct-to-packing is available for orders that skip batch picking.',
     screenshotAlt: 'Packing station — scan verification and label printing',
-    screenshotSrc: '/screenshots/packing.png',
+    screenshotSrc: '/screenshots/packing-batch.png',
   },
   {
     step: '05',

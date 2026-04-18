@@ -11,11 +11,9 @@ export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
 
   const links = [
-    { href: '/', label: 'Home' },
     { href: '/features', label: 'Features' },
-    { href: '/how-it-works', label: 'How It Works' },
     { href: '/pricing', label: 'Pricing' },
-    { href: '/products', label: 'Products' },
+    { href: '/how-it-works', label: 'How It Works' },
     { href: '/about', label: 'About' },
     { href: '/contact', label: 'Contact' },
   ];
