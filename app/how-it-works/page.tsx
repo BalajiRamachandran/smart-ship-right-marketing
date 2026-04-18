@@ -43,7 +43,7 @@ const processSteps = [
   {
     step: '05',
     title: 'Labels are printed and shipped',
-    detail: 'ShipStation integration compares rates across carriers and generates labels. Tracking numbers are captured automatically and synced back to Shopify. Manifests are created for carrier pickup. Bulk shipping handles high-volume days.',
+    detail: 'ShipStation integration compares rates across carriers and generates labels. Labels print directly to your warehouse printer — no pop-ups, no extra clicks. Tracking numbers are captured automatically and synced back to Shopify. Manifests are created for carrier pickup.',
     screenshotAlt: 'Shipping — carrier rates, labels, and manifest generation',
     screenshotSrc: '/screenshots/packing.png',
   },
