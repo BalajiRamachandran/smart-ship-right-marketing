@@ -421,3 +421,367 @@ These are ALL features actually built in Ship Right. Use this as the source of t
 - Entity notes and attachments
 - Consolidated type-safe API client
 - WebSocket real-time updates with auto-reconnect
+
+
+---
+
+## Pricing Recommendation
+
+### Competitive Landscape
+
+| Competitor | Lowest Plan | Mid-Tier | Enterprise | Notes |
+|---|---|---|---|---|
+| **ShipHero** | $499/mo | $1,995/mo (3PL) | $2,750/mo | Many brands end up at $2,000+/mo |
+| **SKULabs** | $299/mo | $699/mo | $1,999/mo | 5 tiers on Shopify App Store |
+| **ShipBob WMS** | Quote-based | Quote-based | Quote-based | Per-pick + per-storage fees on top |
+
+### Recommended Ship Right Pricing
+
+Replace the current $49/$149/Custom tiers with:
+
+| Plan | Price | Orders/mo | Users | Key Features |
+|---|---|---|---|---|
+| **Starter** | **$249/mo** | Up to 2,000 | 5 | Shopify sync, single-batch picking, barcode scanning, basic dashboard, email support |
+| **Professional** | **$499/mo** *(Most Popular)* | Up to 10,000 | 15 | Everything in Starter + multi-batch picking, ShipStation integration, packing hub, automation rules, dropship support, cycle counting, direct-to-printer, Shopify sync controls, priority support |
+| **Enterprise** | **$999/mo** | Unlimited | Unlimited | Everything in Professional + multi-warehouse, hospital/quarantine, custom integrations, dedicated onboarding, SLA guarantee, phone support |
+| **Custom** | **Contact us** | Unlimited | Unlimited | 3PL/multi-tenant, SSO/SAML, custom reporting, dedicated account manager |
+
+### Pricing Page Headline
+
+> **ShipHero features at half the price.**
+
+### Pricing Page Subheadline
+
+> Brands pay $2,000+/month for ShipHero. Ship Right gives you the same pick-pack-ship workflow, Shopify sync, and barcode scanning — starting at $249/mo with no per-order fees.
+
+### Savings Callout (add below the pricing cards)
+
+```tsx
+<div className="rounded-xl border border-green-200 bg-green-50 p-6 text-center mt-10">
+  <p className="text-3xl font-bold text-green-700">Save $18,000+/year</p>
+  <p className="text-sm text-green-600 mt-1">
+    compared to ShipHero — same features, flat pricing, no per-order fees
+  </p>
+</div>
+```
+
+### Feature Comparison Table (replace current)
+
+| Feature | Starter | Professional | Enterprise |
+|---|---|---|---|
+| Monthly orders | 2,000 | 10,000 | Unlimited |
+| Users | 5 | 15 | Unlimited |
+| Warehouses | 1 | Multiple | Unlimited |
+| Shopify integration | ✅ | ✅ | ✅ |
+| ShipStation integration | — | ✅ | ✅ |
+| Single-batch picking | ✅ | ✅ | ✅ |
+| Multi-batch picking | — | ✅ | ✅ |
+| Barcode scanning | ✅ | ✅ | ✅ |
+| Packing hub | ✅ | ✅ | ✅ |
+| Packing slips (PDF/HTML/Thermal) | ✅ | ✅ | ✅ |
+| Direct-to-printer | — | ✅ | ✅ |
+| Multi-carrier rate comparison | — | ✅ | ✅ |
+| Automation rules | — | ✅ | ✅ |
+| Dropship support | — | ✅ | ✅ |
+| Cycle counting | — | ✅ | ✅ |
+| Shopify sync controls | — | ✅ | ✅ |
+| Backorder tracking | ✅ | ✅ | ✅ |
+| Hospital & quarantine | — | — | ✅ |
+| Custom API integrations | — | — | ✅ |
+| Dedicated onboarding | — | ✅ | ✅ |
+| SLA guarantee | — | — | ✅ |
+| Per-order fees | **None** | **None** | **None** |
+
+---
+
+## FAQ (Replace Current)
+
+Replace the existing FAQ section on the pricing page with these questions. These are based on what Shopify merchants actually ask when evaluating a WMS.
+
+```tsx
+const faqs = [
+  {
+    q: 'Is there a free trial?',
+    a: 'Yes. Every plan includes a 14-day free trial with full access to all features. No credit card required. Your data is preserved if you subscribe after the trial.',
+  },
+  {
+    q: 'How does Ship Right compare to ShipHero?',
+    a: 'Ship Right offers the same core capabilities — Shopify sync, batch picking, barcode scanning, shipping labels, and automation — at a fraction of the cost. ShipHero starts at $499/mo and most brands pay $2,000+/mo. Ship Right starts at $249/mo with no per-order fees.',
+  },
+  {
+    q: 'Are there any per-order or per-label fees?',
+    a: 'No. All plans are flat monthly pricing. There are no per-order, per-pick, per-label, or per-shipment fees. Shipping label costs (postage) are billed through your ShipStation account, not through Ship Right.',
+  },
+  {
+    q: 'What counts as an "order"?',
+    a: 'An order is any sales order imported from Shopify or created manually. Cancelled orders before picking do not count toward your monthly limit. Exchange orders created by ReturnZap count as separate orders.',
+  },
+  {
+    q: 'Can I change plans later?',
+    a: 'Yes. Upgrade or downgrade at any time. Changes take effect on your next billing cycle. If you upgrade mid-cycle, we prorate the difference.',
+  },
+  {
+    q: 'Do I need ShipStation?',
+    a: 'ShipStation is required for shipping label generation and multi-carrier rate comparison (USPS, UPS, FedEx). It is included in Professional and Enterprise plans. Starter plan users can add ShipStation separately. You can still use Ship Right for inventory, picking, and packing without ShipStation.',
+  },
+  {
+    q: 'How long does setup take?',
+    a: 'Most teams are live within a day. Connect your Shopify store (60 seconds), import your warehouse locations, and start picking. Professional and Enterprise plans include a free onboarding call where we configure everything with you.',
+  },
+  {
+    q: 'Does Ship Right work on mobile?',
+    a: 'Yes. The web app is fully responsive and works on phones and tablets. Camera barcode scanning is built into the browser — no native app required. Bluetooth barcode scanners are also supported.',
+  },
+  {
+    q: 'Can I use Ship Right with platforms other than Shopify?',
+    a: 'Currently we integrate natively with Shopify and ShipStation. Enterprise and Custom plans support custom API integrations for other platforms like WooCommerce, Amazon, and eBay. Contact us to discuss your setup.',
+  },
+  {
+    q: 'Is my data secure?',
+    a: 'Yes. Ship Right runs on Google Cloud with encrypted connections (HTTPS), JWT authentication, role-based access control, and a complete audit trail on every action. Your warehouse data is the single source of truth — external systems cannot overwrite it.',
+  },
+  {
+    q: 'What kind of support do you offer?',
+    a: 'Starter: email support (24-hour response). Professional: priority email and chat support. Enterprise: phone and video support with a dedicated account manager. All plans include free onboarding.',
+  },
+  {
+    q: 'Can Ship Right handle exchanges and returns?',
+    a: 'Yes. Ship Right integrates with ReturnZap for exchange handling. Exchange items are tracked separately from the original order, shipped orders are protected from status downgrades, and inventory stays accurate throughout the process.',
+  },
+];
+```
+
+
+---
+
+## Third-Party Costs Transparency Section
+
+Add this section below the pricing cards and above the FAQ on the pricing page. Being upfront about additional costs builds trust and prevents surprises.
+
+### Section Title: "What's included — and what's not"
+
+```tsx
+<Section>
+  <Container>
+    <h2 className="font-display text-2xl font-bold text-slate-900 text-center mb-4">
+      What&apos;s included — and what&apos;s not
+    </h2>
+    <p className="text-center text-slate-600 mb-10 max-w-2xl mx-auto">
+      Ship Right is your warehouse management system. Shipping labels and postage are handled by your carrier account. Here&apos;s what to expect.
+    </p>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      {/* Included */}
+      <div className="rounded-xl border border-green-200 bg-green-50/50 p-6">
+        <h3 className="font-semibold text-green-800 mb-4 flex items-center gap-2">
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          </svg>
+          Included in your Ship Right plan
+        </h3>
+        <ul className="space-y-2 text-sm text-slate-700">
+          <li>✅ Unlimited SKUs and inventory tracking</li>
+          <li>✅ Shopify integration and sync</li>
+          <li>✅ Picking, packing, and warehouse workflows</li>
+          <li>✅ Barcode scanning (camera + Bluetooth)</li>
+          <li>✅ Packing slips (PDF, HTML, Thermal)</li>
+          <li>✅ Direct-to-printer support</li>
+          <li>✅ Dashboard, reports, and audit trail</li>
+          <li>✅ Role-based access control</li>
+          <li>✅ Free onboarding and support</li>
+          <li>✅ All software updates</li>
+        </ul>
+      </div>
+
+      {/* Not included */}
+      <div className="rounded-xl border border-slate-200 bg-slate-50/50 p-6">
+        <h3 className="font-semibold text-slate-800 mb-4 flex items-center gap-2">
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          Separate costs (your existing accounts)
+        </h3>
+        <ul className="space-y-3 text-sm text-slate-700">
+          <li>
+            <strong>ShipStation</strong> — from $9.99/mo
+            <p className="text-slate-500 text-xs mt-0.5">Required for shipping labels and carrier rates. You use your own ShipStation account. Ship Right connects via API.</p>
+          </li>
+          <li>
+            <strong>Shipping postage</strong> — varies by carrier
+            <p className="text-slate-500 text-xs mt-0.5">USPS, UPS, FedEx label costs are billed through ShipStation, not Ship Right. You get the same negotiated rates you already have.</p>
+          </li>
+          <li>
+            <strong>Shopify</strong> — from $39/mo
+            <p className="text-slate-500 text-xs mt-0.5">You need an active Shopify store. Ship Right connects via Shopify OAuth — no additional Shopify charges.</p>
+          </li>
+          <li>
+            <strong>Barcode hardware</strong> — optional
+            <p className="text-slate-500 text-xs mt-0.5">Camera scanning works on any phone. USB/Bluetooth scanners ($30-$150) and thermal printers ($200-$400) are optional upgrades.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    {/* Reassurance */}
+    <p className="text-center text-sm text-slate-500 mt-8">
+      No hidden fees. No per-order charges. No setup costs. Your Ship Right subscription covers the entire WMS platform.
+    </p>
+  </Container>
+</Section>
+```
+
+### Alternative: Compact Version (for FAQ)
+
+If you prefer to keep it shorter, add this as an FAQ entry:
+
+```tsx
+{
+  q: 'Are there any additional costs beyond the monthly plan?',
+  a: 'Ship Right covers the entire WMS platform — inventory, picking, packing, dashboard, and integrations. Shipping labels and postage are billed through your ShipStation account (from $9.99/mo). You also need an active Shopify store (from $39/mo). There are no per-order, per-label, or per-user fees from Ship Right. Barcode hardware (scanners, thermal printers) is optional — camera scanning works on any phone.',
+}
+```
+
+---
+
+## Plan Enforcement Architecture (for future backend implementation)
+
+When ready to enforce plan limits, here's the approach. **No backend changes needed now** — this is for when you onboard paying customers.
+
+### Database Changes
+
+Add to shop/tenant settings:
+```python
+plan = Column(String(20), default='professional')  # starter, professional, enterprise
+plan_order_limit = Column(Integer, default=10000)   # monthly order cap
+plan_user_limit = Column(Integer, default=15)       # max users
+plan_started_at = Column(DateTime)                  # billing cycle start
+```
+
+### Feature Gating Map
+
+```python
+PLAN_FEATURES = {
+    'starter': {
+        'order_limit': 2000,
+        'user_limit': 5,
+        'warehouses': 1,
+        'features': [
+            'shopify_sync', 'single_batch_picking', 'barcode_scanning',
+            'packing_slips', 'backorder_tracking', 'dashboard',
+            'csv_import', 'csv_export', 'help_center',
+        ],
+    },
+    'professional': {
+        'order_limit': 10000,
+        'user_limit': 15,
+        'warehouses': 5,
+        'features': ['*'],  # All features
+    },
+    'enterprise': {
+        'order_limit': None,  # Unlimited
+        'user_limit': None,
+        'warehouses': None,
+        'features': ['*'],
+    },
+}
+
+# Features gated to Professional+
+PROFESSIONAL_FEATURES = [
+    'multi_batch_picking', 'shipstation_integration', 'automation_rules',
+    'dropship_support', 'cycle_counting', 'direct_to_printer',
+    'shopify_sync_controls', 'packing_hub',
+]
+
+# Features gated to Enterprise
+ENTERPRISE_FEATURES = [
+    'hospital_quarantine', 'custom_api_integrations', 'sla_guarantee',
+]
+```
+
+### Enforcement Points
+
+1. **Order creation** — Check monthly count vs `plan_order_limit`
+2. **User creation** — Check user count vs `plan_user_limit`
+3. **Feature access** — Middleware checks plan before allowing access to gated endpoints
+4. **Frontend** — Show upgrade prompts when user tries to access a gated feature
+
+### Frontend Upgrade Prompt Pattern
+
+```tsx
+// When a Starter user tries to access automation rules:
+<div className="bg-blue-900/20 border border-blue-700 rounded-lg p-6 text-center">
+  <h3 className="text-lg font-semibold text-white mb-2">Automation Rules</h3>
+  <p className="text-gray-400 text-sm mb-4">
+    Automation rules are available on the Professional plan.
+  </p>
+  <a href="/settings/billing" className="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium">
+    Upgrade to Professional
+  </a>
+</div>
+```
+
+
+---
+
+## Updated Third-Party Costs — ShipStation & Shipping
+
+Replace the earlier ShipStation cost reference with this more accurate breakdown. The key point: **customers bring their own ShipStation API key** — Ship Right doesn't resell ShipStation.
+
+### ShipStation Pricing by Region (as of 2025)
+
+| Plan | US & Canada | Australia | UK |
+|---|---|---|---|
+| **Starter** (3 users) | $14.99/mo | $20/mo (AUD) | £10/mo |
+| **Standard** (10 users) | $29.99/mo | $50/mo (AUD) | £25/mo |
+| **Premium** (15 users) | $349.99/mo | $540/mo (AUD) | £270/mo |
+
+Note: ShipStation also charges per-shipment fees when using your own carrier accounts (not ShipStation's discounted rates). This varies by plan.
+
+### Updated "What's Not Included" Section
+
+Replace the ShipStation line item with:
+
+```tsx
+<li>
+  <strong>ShipStation</strong> — from $14.99/mo (US)
+  <p className="text-slate-500 text-xs mt-0.5">
+    Required for shipping labels and carrier rate comparison. You bring your own ShipStation account and API key — Ship Right connects to it. 
+    Pricing varies by region: US/Canada from $14.99/mo, Australia from $20 AUD/mo, UK from £10/mo.
+    <a href="https://www.shipstation.com/pricing/" target="_blank" rel="noopener" className="text-blue-500 hover:underline ml-1">
+      See ShipStation pricing →
+    </a>
+  </p>
+</li>
+<li>
+  <strong>Shipping postage & carrier fees</strong> — varies
+  <p className="text-slate-500 text-xs mt-0.5">
+    USPS, UPS, FedEx, DHL label costs are billed through your ShipStation account or directly by your carrier. 
+    Ship Right does not mark up postage. You keep your existing negotiated carrier rates.
+    International shipping rates depend on your carrier agreements.
+  </p>
+</li>
+```
+
+### Updated FAQ Entry
+
+Replace the ShipStation FAQ with:
+
+```tsx
+{
+  q: 'Do I need ShipStation? What does it cost?',
+  a: 'ShipStation is required for shipping label generation and multi-carrier rate comparison. You bring your own ShipStation account and API key — Ship Right connects to it via API. ShipStation plans start at $14.99/mo in the US ($20 AUD in Australia, £10 in the UK). Postage and carrier fees are billed through ShipStation or your carrier, not through Ship Right. You can use Ship Right for inventory, picking, and packing without ShipStation — you just won\'t be able to generate labels from within the app.',
+}
+```
+
+### Key Messaging Points
+
+1. **"Bring your own API key"** — Ship Right doesn't resell ShipStation. Customers connect their existing account. This means:
+   - No markup on shipping costs
+   - Customers keep their negotiated carrier rates
+   - Works with any ShipStation plan (Starter, Standard, Premium)
+
+2. **International shipping** — Don't quote a single ShipStation price. Say "from $14.99/mo" and link to ShipStation's pricing page. Mention that pricing varies by region.
+
+3. **ShipStation is optional** — Ship Right works without ShipStation for inventory, picking, and packing. ShipStation is only needed for label generation. This matters for customers who use a different shipping provider or print labels elsewhere.
+
+4. **Future: Shippo / EasyPost alternative** — If you plan to support other label providers (Shippo, EasyPost, Pirate Ship), mention it as "coming soon" on the pricing page. This reduces the perceived lock-in to ShipStation.
