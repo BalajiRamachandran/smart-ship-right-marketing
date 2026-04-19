@@ -36,7 +36,7 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <Link href="/" className="flex items-center gap-2">
-              <Image src="/logo.svg" alt="Smart Ship Right" width={182} height={40} priority className="h-9 w-auto" />
+              <Image src="/logo-dark.svg" alt="Smart Ship Right" width={182} height={40} priority className="h-9 w-auto" />
             </Link>
           </div>
 

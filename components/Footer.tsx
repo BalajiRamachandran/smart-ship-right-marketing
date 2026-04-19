@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-1">
             <div className="mb-4">
-              <Image src="/logo.svg" alt="Smart Ship Right" width={182} height={40} className="h-9 w-auto brightness-200" />
+              <Image src="/logo.svg" alt="Smart Ship Right" width={182} height={40} className="h-9 w-auto" />
             </div>
             <p className="mb-6 text-sm leading-relaxed text-slate-400">
               Warehouse management system for Shopify merchants. Pick, pack, ship with real-time inventory and barcode scanning.

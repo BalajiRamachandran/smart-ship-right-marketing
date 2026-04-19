@@ -84,6 +84,12 @@ export const metadata: Metadata = {
       "Pick, pack, and ship with zero errors. Built for Shopify merchants.",
     images: ["/screenshots/dashboard.png"],
   },
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "32x32" },
+    ],
+  },
 };
 
 const jsonLd = {

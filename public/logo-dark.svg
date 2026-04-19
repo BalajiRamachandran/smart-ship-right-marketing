@@ -11,7 +11,7 @@
   <path d="M20 32 L26 26 L32 32" stroke="#ffffff" stroke-width="2.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
   <line x1="26" y1="26" x2="26" y2="38" stroke="#ffffff" stroke-width="2.8" stroke-linecap="round"/>
 
-  <!-- Text -->
-  <text x="62" y="24" font-family="Inter, system-ui, -apple-system, sans-serif" font-weight="600" font-size="13" fill="#64748b" letter-spacing="1.5">SMART</text>
-  <text x="62" y="44" font-family="Inter, system-ui, -apple-system, sans-serif" font-weight="700" font-size="22" fill="#ffffff">Ship Right</text>
+  <!-- Text (dark for light backgrounds) -->
+  <text x="62" y="24" font-family="Inter, system-ui, -apple-system, sans-serif" font-weight="600" font-size="13" fill="#94a3b8" letter-spacing="1.5">SMART</text>
+  <text x="62" y="44" font-family="Inter, system-ui, -apple-system, sans-serif" font-weight="700" font-size="22" fill="#0f172a">Ship Right</text>
 </svg>
