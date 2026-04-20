@@ -64,12 +64,12 @@ export default function Home() {
       {/* ── Integration bar ── */}
       <section className="border-y border-slate-100 bg-slate-50/50 py-8">
         <Container>
-          <p className="mb-6 text-center text-sm font-medium uppercase tracking-wider text-slate-400">
+          <p className="mb-6 text-center text-sm font-medium uppercase tracking-wider text-slate-500">
             Integrated with the tools you already use
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-4">
             {['Shopify', 'ShipStation', 'USPS', 'UPS', 'FedEx', 'Google Cloud'].map((name) => (
-              <span key={name} className="text-lg font-semibold text-slate-300 transition-colors hover:text-slate-500">
+              <span key={name} className="text-lg font-semibold text-slate-400 transition-colors hover:text-slate-600">
                 {name}
               </span>
             ))}
@@ -225,7 +225,7 @@ export default function Home() {
             ].map((stat) => (
               <div key={stat.label}>
                 <div className="text-3xl md:text-4xl font-bold mb-1">{stat.value}</div>
-                <div className="text-blue-200 text-sm">{stat.label}</div>
+                <div className="text-blue-100 text-sm">{stat.label}</div>
               </div>
             ))}
           </div>

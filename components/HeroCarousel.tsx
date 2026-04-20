@@ -45,7 +45,7 @@ const slides = [
     badgeColor: 'bg-teal-500',
   },
   {
-    src: '/screenshots/automation-rules.png',
+    src: '/screenshots/settings.png',
     alt: 'Automation rules engine with conditions, actions, and triggers',
     headline: 'Automation Rules',
     description: 'Auto-hold fraud orders, auto-prioritize by carrier, trigger notifications — no code required.',

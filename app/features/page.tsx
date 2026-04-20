@@ -155,7 +155,7 @@ const features = [
     title: 'Automation Rules',
     description: 'Rule engine with triggers, conditions, and actions. Auto-hold fraud orders, auto-prioritize by carrier, route damaged inventory to hospital, and more — no code required.',
     Sketch: DashboardSketch,
-    screenshotSrc: '/screenshots/automation-rules.png',
+    screenshotSrc: '/screenshots/settings.png',
     screenshotAlt: 'Automation rules engine with conditions, actions, and triggers',
     details: [
       'Triggers, conditions, and actions',
