@@ -1,6 +1,6 @@
-# Ship-Right Marketing Website
+# Smart Ship Right Marketing Website
 
-A modern, multi-page marketing and product portfolio website built with Next.js 14, TypeScript, and Tailwind CSS. This website showcases the Ship-Right Warehouse Management System with beautiful sketches instead of traditional images.
+A modern, multi-page marketing and product portfolio website built with Next.js 14, TypeScript, and Tailwind CSS. This website showcases the Smart Ship Right Warehouse Management System with beautiful sketches instead of traditional images.
 
 ## 🚀 Features
 
@@ -208,7 +208,7 @@ vercel
 ## 📞 Support
 
 For questions or issues:
-- Check the main Ship-Right documentation
+- Check the main Smart Ship Right documentation
 - Review Next.js documentation
 - Open an issue in the repository
 
@@ -218,4 +218,4 @@ MIT License - see LICENSE file for details
 
 ---
 
-**Ship-Right Marketing Website** - Built with modern web technologies and best practices.
+**Smart Ship Right Marketing Website** - Built with modern web technologies and best practices.

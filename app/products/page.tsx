@@ -1,204 +1,191 @@
-import Link from 'next/link';
-import { IntegrationSketch, WarehouseSketch, DashboardSketch } from '@/components/Sketches';
+import { IntegrationSketch, DashboardSketch } from '@/components/Sketches';
+import { PageHeader } from '@/components/ui/PageHeader';
+import { Section } from '@/components/ui/Section';
+import { Container } from '@/components/ui/Container';
+import { Button } from '@/components/ui/Button';
+import Image from 'next/image';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Products | Ship-Right WMS',
-  description: 'Explore our comprehensive warehouse management system products: FastAPI backend and Next.js frontend.',
+  title: 'Products | Smart Ship Right',
+  description:
+    'Explore Smart Ship Right products: WMS backend, web frontend, and mobile-ready web app.',
 };
 
 export default function ProductsPage() {
   return (
     <div className="bg-white">
-      {/* Header */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Complete Warehouse Management Solution
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Built with modern technologies for maximum performance and scalability
-          </p>
-        </div>
-      </section>
+      <PageHeader
+        title="The Smart Ship Right platform"
+        description="A complete warehouse management system with a FastAPI backend, Next.js web app, and mobile-ready responsive interface."
+      />
 
-      {/* Products */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
-            {/* Backend Product */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200">
-              <div className="bg-gradient-to-r from-green-500 to-teal-600 p-6">
-                <h2 className="text-3xl font-bold text-white mb-2">FastAPI Backend</h2>
-                <p className="text-green-50">Robust REST API for warehouse operations</p>
+      {/* Product Cards */}
+      <Section>
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+            {/* WMS Backend */}
+            <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+              <div className="bg-gradient-to-r from-emerald-500 to-teal-600 p-6">
+                <h2 className="font-display text-2xl font-bold text-white">WMS Backend</h2>
+                <p className="mt-1 text-emerald-50">FastAPI · PostgreSQL · WebSocket</p>
               </div>
-              <div className="p-8">
-                <div className="mb-6">
-                  <IntegrationSketch />
-                </div>
-                <div className="space-y-4 mb-6">
+              <div className="p-6">
+                <div className="overflow-hidden rounded-xl mb-6"><Image src="/screenshots/dashboard.png" alt="Smart Ship Right dashboard" width={800} height={500} className="w-full" /></div>
+                <div className="space-y-4">
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Core Technologies</h3>
-                    <ul className="space-y-2 text-gray-600">
-                      <li className="flex items-center">
-                        <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
-                        FastAPI (Python 3.8+)
-                      </li>
-                      <li className="flex items-center">
-                        <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
-                        PostgreSQL 12+ / SQLite
-                      </li>
-                      <li className="flex items-center">
-                        <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
-                        SQLAlchemy 2.0 ORM
-                      </li>
-                      <li className="flex items-center">
-                        <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
-                        JWT Authentication
-                      </li>
-                      <li className="flex items-center">
-                        <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
-                        WebSocket Support
-                      </li>
-                    </ul>
+                    <h3 className="font-semibold text-slate-900 mb-2">Core stack</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {['FastAPI', 'Python 3.11', 'PostgreSQL (Neon)', 'SQLAlchemy 2.0', 'JWT Auth', 'WebSocket'].map((tech) => (
+                        <span key={tech} className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700 border border-emerald-200">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Key Features</h3>
-                    <ul className="space-y-2 text-gray-600">
-                      <li>• RESTful API with OpenAPI docs</li>
-                      <li>• Real-time WebSocket updates</li>
-                      <li>• Role-based access control</li>
-                      <li>• Comprehensive error handling</li>
-                      <li>• Database migration support</li>
-                      <li>• Health check endpoints</li>
+                    <h3 className="font-semibold text-slate-900 mb-2">API coverage</h3>
+                    <ul className="grid grid-cols-2 gap-1 text-sm text-slate-600">
+                      {[
+                        'Inventory & locations',
+                        'Orders & fulfillment',
+                        'Picking (single/multi)',
+                        'Packing & shipping',
+                        'Direct-to-printer labels',
+                        'Purchase orders',
+                        'Warehouse analytics',
+                        'Hospital & quarantine',
+                        'Automation rules',
+                        'Dropship support',
+                        'Inventory reservations',
+                        'Backorder tracking',
+                        'Shopify sync controls',
+                      ].map((item) => (
+                        <li key={item} className="flex items-center">
+                          <span className="mr-2 h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                          {item}
+                        </li>
+                      ))}
                     </ul>
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">API Capabilities</h3>
-                    <ul className="space-y-2 text-gray-600">
-                      <li>• Inventory management endpoints</li>
-                      <li>• Order processing APIs</li>
-                      <li>• Picking batch operations</li>
-                      <li>• Purchase order management</li>
-                      <li>• Warehouse analytics</li>
-                      <li>• Shopify integration</li>
-                    </ul>
+                  <div className="rounded-lg bg-slate-50 p-4 text-sm text-slate-600">
+                    <strong>Scale:</strong> Handles 1,000+ orders/day with &lt;100ms API response times across 200+ endpoints.
                   </div>
-                </div>
-                <div className="bg-gray-50 rounded-lg p-4">
-                  <p className="text-sm text-gray-600">
-                    <strong>Performance:</strong> Handles 1,000+ orders/day, 50+ concurrent pickers, 
-                    &lt;100ms average API response time
-                  </p>
                 </div>
               </div>
             </div>
 
-            {/* Frontend Product */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200">
+            {/* Web Frontend */}
+            <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
               <div className="bg-gradient-to-r from-blue-500 to-indigo-600 p-6">
-                <h2 className="text-3xl font-bold text-white mb-2">Next.js Frontend</h2>
-                <p className="text-blue-50">Modern, responsive web application</p>
+                <h2 className="font-display text-2xl font-bold text-white">Web Frontend</h2>
+                <p className="mt-1 text-blue-50">Next.js · TypeScript · Tailwind CSS</p>
               </div>
-              <div className="p-8">
-                <div className="mb-6">
-                  <DashboardSketch />
-                </div>
-                <div className="space-y-4 mb-6">
+              <div className="p-6">
+                <div className="overflow-hidden rounded-xl mb-6"><Image src="/screenshots/orders.png" alt="Web frontend — orders, picking, packing, and shipping" width={800} height={500} className="w-full" /></div>
+                <div className="space-y-4">
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Core Technologies</h3>
-                    <ul className="space-y-2 text-gray-600">
-                      <li className="flex items-center">
-                        <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-                        Next.js 14 (App Router)
-                      </li>
-                      <li className="flex items-center">
-                        <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-                        TypeScript
-                      </li>
-                      <li className="flex items-center">
-                        <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-                        Tailwind CSS
-                      </li>
-                      <li className="flex items-center">
-                        <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-                        React 18
-                      </li>
-                      <li className="flex items-center">
-                        <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-                        WebSocket Client
-                      </li>
-                    </ul>
+                    <h3 className="font-semibold text-slate-900 mb-2">Core stack</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {['Next.js 14', 'React 18', 'TypeScript', 'Tailwind CSS', 'WebSocket Client', 'Recharts'].map((tech) => (
+                        <span key={tech} className="rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700 border border-blue-200">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Key Features</h3>
-                    <ul className="space-y-2 text-gray-600">
-                      <li>• Server-side rendering (SSR)</li>
-                      <li>• Real-time updates via WebSocket</li>
-                      <li>• Bluetooth scanner integration</li>
-                      <li>• Responsive design (tablet-optimized)</li>
-                      <li>• Role-based UI components</li>
-                      <li>• Type-safe API integration</li>
+                    <h3 className="font-semibold text-slate-900 mb-2">Pages & modules</h3>
+                    <ul className="grid grid-cols-2 gap-1 text-sm text-slate-600">
+                      {[
+                        'Dashboard & analytics',
+                        'Orders & order detail',
+                        'Picking batches',
+                        'Packing hub',
+                        'Shipping & labels',
+                        'Direct-to-printer setup',
+                        'Inventory management',
+                        'Warehouse map & locations',
+                        'Purchase orders & receiving',
+                        'Automation rules',
+                        'Sync log & settings',
+                        'CSV export on all tables',
+                        'In-app help center',
+                      ].map((item) => (
+                        <li key={item} className="flex items-center">
+                          <span className="mr-2 h-1.5 w-1.5 rounded-full bg-blue-500" />
+                          {item}
+                        </li>
+                      ))}
                     </ul>
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Pages & Modules</h3>
-                    <ul className="space-y-2 text-gray-600">
-                      <li>• Dashboard with real-time metrics</li>
-                      <li>• Order management interface</li>
-                      <li>• Picking system with workflows</li>
-                      <li>• Inventory management</li>
-                      <li>• Warehouse 3D visualization</li>
-                      <li>• Settings & user management</li>
-                    </ul>
+                  <div className="rounded-lg bg-slate-50 p-4 text-sm text-slate-600">
+                    <strong>Scale:</strong> 50+ pages with real-time WebSocket updates and responsive design for tablet and mobile.
                   </div>
-                </div>
-                <div className="bg-gray-50 rounded-lg p-4">
-                  <p className="text-sm text-gray-600">
-                    <strong>Performance:</strong> Supports 1000+ items per table, &lt;1s real-time latency, 
-                    5 concurrent WebSocket connections
-                  </p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Architecture Overview */}
-          <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">System Architecture</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="bg-white rounded-lg p-6 shadow-sm mb-4">
-                  <WarehouseSketch />
-                </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Backend API</h3>
-                <p className="text-sm text-gray-600">
-                  FastAPI REST endpoints with WebSocket support for real-time communication
-                </p>
+          {/* Mobile App */}
+          <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm mb-16">
+            <div className="bg-gradient-to-r from-purple-500 to-violet-600 p-6">
+              <h2 className="font-display text-2xl font-bold text-white">Mobile-Ready Web App</h2>
+              <p className="mt-1 text-purple-50">Responsive · Camera Barcode Scanning · Works on Any Device</p>
+            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-6">
+              <div>
+                <div className="overflow-hidden rounded-xl"><Image src="/screenshots/move-sku.png" alt="Move SKU workflow on mobile" width={800} height={500} className="w-full" /></div>
               </div>
-              <div className="text-center">
-                <div className="bg-white rounded-lg p-6 shadow-sm mb-4">
-                  <IntegrationSketch />
+              <div className="space-y-4">
+                <h3 className="font-semibold text-slate-900">Mobile capabilities (web-based)</h3>
+                <ul className="space-y-2 text-sm text-slate-600">
+                  {[
+                    'Responsive web app works on tablets and phones',
+                    'Camera barcode scanning (Code128 & QR) via browser',
+                    'Batch picking with tote and item scan on mobile',
+                    'Inventory adjustments with reason codes',
+                    'Barcode pages for locations, totes, and SKUs',
+                    'Bluetooth barcode scanner support',
+                  ].map((item) => (
+                    <li key={item} className="flex items-start">
+                      <svg className="mr-2 mt-0.5 h-4 w-4 text-purple-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <div className="rounded-lg bg-slate-50 p-4 text-sm text-slate-600">
+                  <strong>Note:</strong> The web app is fully responsive and works on mobile browsers today. A dedicated native Expo mobile app with offline support is on the roadmap.
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Database</h3>
-                <p className="text-sm text-gray-600">
-                  PostgreSQL with SQLAlchemy ORM for reliable data persistence
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="bg-white rounded-lg p-6 shadow-sm mb-4">
-                  <DashboardSketch />
-                </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Frontend</h3>
-                <p className="text-sm text-gray-600">
-                  Next.js application with TypeScript for type-safe development
-                </p>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+
+          {/* Architecture */}
+          <div className="rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 to-blue-50/30 p-8">
+            <h2 className="font-display text-2xl font-bold text-slate-900 mb-8 text-center">System architecture</h2>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              {[
+                { title: 'Frontend', desc: 'Next.js web app with TypeScript and real-time WebSocket updates', color: 'blue' },
+                { title: 'Backend API', desc: 'FastAPI REST endpoints with WebSocket support and JWT auth', color: 'emerald' },
+                { title: 'Database', desc: 'PostgreSQL with SQLAlchemy ORM for reliable data persistence', color: 'purple' },
+                { title: 'Integrations', desc: 'Shopify (OAuth + 15 webhooks), ShipStation, Google Cloud (Cloud Run, Tasks, Storage)', color: 'amber' },
+              ].map((item) => (
+                <div key={item.title} className="rounded-xl border border-slate-200 bg-white p-5 text-center">
+                  <h3 className="font-semibold text-slate-900 mb-2">{item.title}</h3>
+                  <p className="text-sm text-slate-600">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-10 text-center">
+            <Button href="/contact" size="lg">Talk to the team</Button>
+          </div>
+        </Container>
+      </Section>
     </div>
   );
 }
-

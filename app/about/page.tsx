@@ -1,150 +1,193 @@
-import { WarehouseSketch, IntegrationSketch } from '@/components/Sketches';
+import { WarehouseSketch } from '@/components/Sketches';
+import { PageHeader } from '@/components/ui/PageHeader';
+import { Section } from '@/components/ui/Section';
+import { Container } from '@/components/ui/Container';
+import { Button } from '@/components/ui/Button';
+import Image from 'next/image';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'About | Ship-Right WMS',
-  description: 'Learn about Ship-Right, a modern warehouse management system built for efficiency, scalability, and reliability.',
+  title: 'About | Built for Shopify Warehouse Teams',
+  description: 'Smart Ship Right is a warehouse management system built for e-commerce teams that need real-time visibility, reliable fulfillment, and simple setup.',
 };
 
 export default function AboutPage() {
   return (
     <div className="bg-white">
-      {/* Header */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            About Ship-Right
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Modern warehouse management built for the future
-          </p>
-        </div>
-      </section>
+      <PageHeader
+        title="About Smart Ship Right"
+        description="Built for warehouse teams that need real-time visibility and reliable fulfillment execution."
+      />
 
-      {/* Mission Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Mission */}
+      <Section>
+        <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Mission</h2>
-              <p className="text-lg text-gray-600 mb-4">
-                Ship-Right was created to provide a comprehensive, modern warehouse management system 
-                that combines the power of enterprise-grade solutions with the flexibility and 
-                accessibility of open-source software.
+              <h2 className="font-display text-3xl font-bold text-slate-900 mb-6">Our mission</h2>
+              <p className="text-lg text-slate-600 mb-4 leading-relaxed">
+                Smart Ship Right was built to give e-commerce teams a warehouse management system that combines
+                enterprise-grade reliability with the simplicity of modern software. No bloated interfaces,
+                no six-month implementations.
               </p>
-              <p className="text-lg text-gray-600 mb-4">
-                We believe that warehouse operations should be streamlined, efficient, and scalable. 
-                Our platform is designed to help businesses of all sizes optimize their inventory 
-                management, order processing, and fulfillment workflows.
+              <p className="text-lg text-slate-600 mb-4 leading-relaxed">
+                We believe warehouse operations should be fast, accurate, and visible. Every feature — from
+                batch picking to shipping — is designed to reduce errors, save time, and scale
+                with your business.
               </p>
-              <p className="text-lg text-gray-600">
-                Built with industry best practices and modern technologies, Ship-Right delivers 
-                the reliability and performance your warehouse operations demand.
+              <p className="text-lg text-slate-600 leading-relaxed">
+                Our platform handles the full lifecycle: inventory control, order processing, picking, packing,
+                shipping, and reporting — all in one place.
               </p>
             </div>
-            <div className="bg-gray-50 rounded-lg p-8">
-              <WarehouseSketch />
+            <div className="flex flex-col gap-4">
+              <div className="overflow-hidden rounded-xl border border-slate-200 shadow-lg">
+                <Image src="/screenshots/warehouse-map.png" alt="3D warehouse map visualization with zones, aisles, and shelves" width={800} height={500} className="w-full" />
+              </div>
+              <div className="rounded-xl border border-slate-200 bg-slate-50 p-6">
+                <WarehouseSketch />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
-      {/* Technology Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Technology */}
+      <Section alt>
+        <Container>
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Built with Modern Technology</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Leveraging the best tools and frameworks for maximum performance and developer experience
+            <h2 className="font-display text-3xl font-bold text-slate-900 mb-4">Built with modern technology</h2>
+            <p className="mx-auto max-w-3xl text-lg text-slate-600">
+              We chose each tool for performance, reliability, and developer experience.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { name: 'FastAPI', desc: 'High-performance Python framework' },
+              { name: 'FastAPI', desc: 'High-performance Python API' },
               { name: 'Next.js 14', desc: 'React framework with SSR' },
               { name: 'PostgreSQL', desc: 'Enterprise-grade database' },
               { name: 'TypeScript', desc: 'Type-safe development' },
               { name: 'Tailwind CSS', desc: 'Utility-first styling' },
               { name: 'WebSocket', desc: 'Real-time communication' },
-              { name: 'JWT Auth', desc: 'Secure authentication' },
-              { name: 'SQLAlchemy', desc: 'Python ORM' },
+              { name: 'Google Cloud', desc: 'Cloud Run, Tasks, Storage' },
             ].map((tech) => (
-              <div key={tech.name} className="bg-white rounded-lg p-6 shadow-sm text-center">
-                <h3 className="font-semibold text-gray-900 mb-2">{tech.name}</h3>
-                <p className="text-sm text-gray-600">{tech.desc}</p>
+              <div key={tech.name} className="card-hover rounded-xl border border-slate-200 bg-white p-5 text-center">
+                <h3 className="font-semibold text-slate-900 mb-1">{tech.name}</h3>
+                <p className="text-sm text-slate-500">{tech.desc}</p>
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
-      {/* Values Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Values */}
+      <Section>
+        <Container>
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Values</h2>
+            <h2 className="font-display text-3xl font-bold text-slate-900">What we stand for</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
+            {[
+              {
+                icon: (
+                  <svg className="w-8 h-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                ),
+                title: 'Performance',
+                desc: 'Optimized for speed. Handle thousands of orders and SKUs with sub-100ms API responses and real-time WebSocket updates.',
+                color: 'blue',
+              },
+              {
+                icon: (
+                  <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                ),
+                title: 'Reliability',
+                desc: 'Enterprise-grade PostgreSQL, JWT authentication, role-based access, and append-only audit logs. Your data is safe.',
+                color: 'green',
+              },
+              {
+                icon: (
+                  <svg className="w-8 h-8 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
+                ),
+                title: 'Scalability',
+                desc: 'From 10 orders a day to 1,000+. Multi-warehouse, multi-user, and multi-channel — designed to grow with you.',
+                color: 'purple',
+              },
+            ].map((value) => (
+              <div key={value.title} className="text-center">
+                <div className={`w-16 h-16 bg-${value.color}-50 rounded-2xl flex items-center justify-center mx-auto mb-4`}>
+                  {value.icon}
+                </div>
+                <h3 className="text-xl font-semibold text-slate-900 mb-2">{value.title}</h3>
+                <p className="text-slate-600 leading-relaxed">{value.desc}</p>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Performance</h3>
-              <p className="text-gray-600">
-                Optimized for speed and efficiency. Handle thousands of orders and SKUs with ease.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Reliability</h3>
-              <p className="text-gray-600">
-                Built with enterprise-grade technologies for maximum uptime and data integrity.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Scalability</h3>
-              <p className="text-gray-600">
-                Designed to grow with your business. From startup to enterprise scale.
-              </p>
-            </div>
+            ))}
           </div>
-        </div>
+        </Container>
+      </Section>
+
+      {/* Stats */}
+      <section className="bg-gradient-to-r from-blue-600 to-indigo-700 py-16 text-white">
+        <Container>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            {[
+              { value: '99.8%', label: 'Order Accuracy', sub: 'Barcode validation at every step' },
+              { value: '< 5 min', label: 'Setup Time', sub: 'Connect Shopify and start picking' },
+              { value: '24/7', label: 'Shopify Sync', sub: 'Orders, inventory, and fulfillment' },
+            ].map((stat) => (
+              <div key={stat.label}>
+                <div className="text-4xl font-bold mb-1">{stat.value}</div>
+                <div className="text-blue-200 font-medium">{stat.label}</div>
+                <p className="text-sm text-blue-300 mt-1">{stat.sub}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-20 bg-blue-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div>
-              <div className="text-4xl font-bold mb-2">75%</div>
-              <div className="text-blue-100">Feature Complete</div>
-              <p className="text-sm text-blue-200 mt-2">Core warehouse operations fully functional</p>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">1000+</div>
-              <div className="text-blue-100">Orders/Day Capacity</div>
-              <p className="text-sm text-blue-200 mt-2">Tested and optimized for high volume</p>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">&lt;100ms</div>
-              <div className="text-blue-100">Average API Response</div>
-              <p className="text-sm text-blue-200 mt-2">Lightning-fast performance</p>
-            </div>
+      {/* Support */}
+      <Section>
+        <Container>
+          <div className="text-center mb-12">
+            <h2 className="font-display text-3xl font-bold text-slate-900">Customer support you can count on</h2>
           </div>
-        </div>
-      </section>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: (
+                  <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                ),
+                title: 'Email & Chat',
+                desc: 'Reach us anytime. Most tickets answered within 24 hours.',
+              },
+              {
+                icon: (
+                  <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+                ),
+                title: 'Free Onboarding',
+                desc: 'Dedicated onboarding call to configure your warehouse and train your team.',
+              },
+              {
+                icon: (
+                  <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+                ),
+                title: 'Documentation',
+                desc: 'Comprehensive docs, API reference, and guides for every feature.',
+              },
+            ].map((item) => (
+              <div key={item.title} className="text-center">
+                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-50">
+                  {item.icon}
+                </div>
+                <h3 className="font-semibold text-slate-900 mb-2">{item.title}</h3>
+                <p className="text-sm text-slate-600">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10 text-center">
+            <Button href="/contact" size="lg">Get in touch</Button>
+          </div>
+        </Container>
+      </Section>
     </div>
   );
 }
-

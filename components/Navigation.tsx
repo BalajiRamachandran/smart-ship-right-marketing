@@ -1,55 +1,78 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 export default function Navigation() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  const links = [
+    { href: '/features', label: 'Features' },
+    { href: '/pricing', label: 'Pricing' },
+    { href: '/how-it-works', label: 'How It Works' },
+    { href: '/about', label: 'About' },
+    { href: '/contact', label: 'Contact' },
+  ];
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
-    <nav className="bg-white shadow-sm sticky top-0 z-50">
+    <nav
+      className={`sticky top-0 z-50 border-b transition-all ${
+        scrolled
+          ? 'border-gray-200 bg-white/95 shadow-lg backdrop-blur-md'
+          : 'border-transparent bg-white'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">SR</span>
-              </div>
-              <span className="text-xl font-bold text-gray-900">Ship-Right</span>
+            <Link href="/" className="flex items-center gap-2">
+              <Image src="/logo-dark.svg" alt="Smart Ship Right" width={182} height={40} priority className="h-9 w-auto" />
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="text-gray-700 hover:text-blue-600 transition-colors">
-              Home
-            </Link>
-            <Link href="/features" className="text-gray-700 hover:text-blue-600 transition-colors">
-              Features
-            </Link>
-            <Link href="/products" className="text-gray-700 hover:text-blue-600 transition-colors">
-              Products
-            </Link>
-            <Link href="/about" className="text-gray-700 hover:text-blue-600 transition-colors">
-              About
-            </Link>
-            <Link href="/contact" className="text-gray-700 hover:text-blue-600 transition-colors">
-              Contact
-            </Link>
+          <div className="hidden lg:flex items-center gap-1">
+            {links.map((link) => {
+              const active = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                    active
+                      ? 'bg-blue-50 text-blue-700'
+                      : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
             <Link
               href="/contact"
-              className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+              className="ml-3 rounded-lg bg-blue-600 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-blue-700 shadow-sm"
             >
-              Get Started
+              Get Started Free
             </Link>
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-blue-600 focus:outline-none"
+              className="text-slate-600 hover:text-slate-900 focus:outline-none p-2"
               aria-label="Toggle menu"
+              aria-expanded={isOpen}
             >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 {isOpen ? (
@@ -64,28 +87,30 @@ export default function Navigation() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden py-4 space-y-4">
-            <Link href="/" className="block text-gray-700 hover:text-blue-600" onClick={() => setIsOpen(false)}>
-              Home
-            </Link>
-            <Link href="/features" className="block text-gray-700 hover:text-blue-600" onClick={() => setIsOpen(false)}>
-              Features
-            </Link>
-            <Link href="/products" className="block text-gray-700 hover:text-blue-600" onClick={() => setIsOpen(false)}>
-              Products
-            </Link>
-            <Link href="/about" className="block text-gray-700 hover:text-blue-600" onClick={() => setIsOpen(false)}>
-              About
-            </Link>
-            <Link href="/contact" className="block text-gray-700 hover:text-blue-600" onClick={() => setIsOpen(false)}>
-              Contact
-            </Link>
+          <div className="lg:hidden py-4 space-y-1 border-t border-slate-100">
+            {links.map((link) => {
+              const active = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`block rounded-lg px-3 py-2.5 text-sm font-medium ${
+                    active
+                      ? 'bg-blue-50 text-blue-700'
+                      : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                  }`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
             <Link
               href="/contact"
-              className="block bg-blue-600 text-white px-4 py-2 rounded-lg text-center hover:bg-blue-700"
+              className="mt-2 block rounded-lg bg-blue-600 px-4 py-2.5 text-center text-sm font-semibold text-white hover:bg-blue-700"
               onClick={() => setIsOpen(false)}
             >
-              Get Started
+              Get Started Free
             </Link>
           </div>
         )}
@@ -93,4 +118,3 @@ export default function Navigation() {
     </nav>
   );
 }
-

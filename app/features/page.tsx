@@ -1,468 +1,361 @@
 import { WarehouseSketch, InventorySketch, PickingSketch, OrderSketch, DashboardSketch, IntegrationSketch } from '@/components/Sketches';
+import { PageHeader } from '@/components/ui/PageHeader';
+import { Section } from '@/components/ui/Section';
+import { Container } from '@/components/ui/Container';
+import { Button } from '@/components/ui/Button';
+import Image from 'next/image';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Features | Ship-Right WMS',
-  description: 'Comprehensive features for modern warehouse management including detailed batch picking processes (single-item and multi-item), ShipStation shipping integration, inventory tracking, order processing, and real-time analytics.',
+  title: 'Features | Inventory, Picking, Packing, Shipping & Automation',
+  description:
+    'Explore Smart Ship Right features: real-time inventory, single and multi batch picking, barcode scanning, shipping labels, automation rules, dropship support, cycle counting, and Shopify sync.',
 };
 
-export default function FeaturesPage() {
-  const features = [
-    {
-      title: 'Inventory Management',
-      description: 'Real-time tracking with location-based storage. Multi-location inventory support with reserved quantity management and automatic capacity constraint validation.',
-      sketch: InventorySketch,
-      details: [
-        'Real-time inventory tracking',
-        'Multi-location inventory support',
-        'Reserved quantity management',
-        'Automatic capacity validation',
-        'Stock movement audit trail',
-        '10,868+ SKUs supported',
-      ],
-    },
-    {
-      title: 'Order Processing',
-      description: 'Complete order lifecycle management from creation to fulfillment. Support for priority handling, order filtering, and real-time status updates.',
-      sketch: OrderSketch,
-      details: [
-        'Complete order lifecycle',
-        'Status tracking (pending → shipped)',
-        'Priority handling (normal, high, urgent)',
-        'Customer information management',
-        'Order filtering and search',
-        'Real-time order updates',
-      ],
-    },
-    {
-      title: 'Advanced Picking Operations',
-      description: 'Comprehensive batch picking workflows designed for maximum efficiency. Support for both single-item and multi-item batch processes with intelligent route optimization and real-time validation.',
-      sketch: PickingSketch,
-      details: [
-        'Single-item batch (SIB) workflow',
-        'Multi-item batch (MIB) workflow',
-        'Location-optimized pick lists',
-        'Barcode scanning validation',
-        'Tote assignment and tracking',
-        'Batch reservation system',
-      ],
-      expandedContent: {
-        singleItemBatch: {
-          title: 'Single-Item Batch (SIB) Picking Process',
-          description: 'Ideal for high-volume orders with single SKU requirements. Streamlines picking operations by grouping orders with identical items into efficient batches.',
-          steps: [
-            {
-              step: '1. Batch Creation',
-              detail: 'System automatically groups pending orders containing the same SKU into a single batch. Configurable batch size limits ensure optimal picker workload.',
-            },
-            {
-              step: '2. Batch Assignment',
-              detail: 'Warehouse manager or system assigns batches to available pickers. Real-time batch status tracking prevents double-assignment and ensures accountability.',
-            },
-            {
-              step: '3. Location Optimization',
-              detail: 'Pick list is automatically sorted by warehouse location (Zone → X coordinate → Level) to minimize travel time and maximize picking efficiency.',
-            },
-            {
-              step: '4. Picking Execution',
-              detail: 'Picker navigates through optimized route, scans barcode at each location to validate item and quantity. System provides real-time feedback on accuracy.',
-            },
-            {
-              step: '5. Tote Management',
-              detail: 'Each order in the batch is assigned to a specific tote. Picker scans tote barcode before placing items to ensure correct order-to-tote mapping.',
-            },
-            {
-              step: '6. Batch Completion',
-              detail: 'Upon completion, system validates all items, updates inventory in real-time, and marks orders as ready for packing. Automatic reservation release prevents stock conflicts.',
-            },
-          ],
-          benefits: [
-            'Reduces travel time by up to 40%',
-            'Minimizes picking errors through barcode validation',
-            'Enables parallel picking with multiple pickers',
-            'Real-time inventory updates prevent overselling',
-          ],
-        },
-        multiItemBatch: {
-          title: 'Multi-Item Batch (MIB) Picking Process',
-          description: 'Perfect for complex orders with multiple SKUs. Groups multiple orders into a single batch, allowing pickers to collect all items in one efficient pass through the warehouse.',
-          steps: [
-            {
-              step: '1. Intelligent Batching',
-              detail: 'System analyzes order characteristics (item count, locations, priority) and groups compatible orders into batches. Considers warehouse layout and picker capacity.',
-            },
-            {
-              step: '2. Route Optimization',
-              detail: 'Advanced algorithm creates optimal picking route that minimizes backtracking. Groups items by zone and level, ensuring efficient warehouse traversal.',
-            },
-            {
-              step: '3. Multi-Order Pick List',
-              detail: 'Picker receives consolidated pick list showing all items needed for all orders in the batch. Each item clearly marked with destination order and tote assignment.',
-            },
-            {
-              step: '4. Sequential Picking',
-              detail: 'Picker follows optimized route, scanning each location and item barcode. System validates quantity and ensures items are placed in correct order totes.',
-            },
-            {
-              step: '5. Order Segregation',
-              detail: 'Items are automatically sorted into correct totes based on order assignment. Visual indicators and barcode scanning prevent cross-contamination between orders.',
-            },
-            {
-              step: '6. Quality Validation',
-              detail: 'Before batch completion, system verifies all items are picked correctly. Missing or incorrect items trigger alerts for immediate resolution.',
-            },
-            {
-              step: '7. Batch Finalization',
-              detail: 'Completed batch releases inventory reservations, updates order statuses, and prepares totes for packing station. Real-time dashboard reflects completion status.',
-            },
-          ],
-          benefits: [
-            'Handles complex multi-SKU orders efficiently',
-            'Reduces warehouse traffic and congestion',
-            'Improves picker productivity by 50%+',
-            'Ensures order accuracy through validation',
-          ],
-        },
+const features = [
+  {
+    title: 'Inventory Management',
+    description: 'Real-time tracking with location-based storage. Multi-location inventory support with reserved quantity management, backorder detection, and automatic capacity constraint validation.',
+    Sketch: InventorySketch,
+    screenshotSrc: '/screenshots/sku-detail.png',
+    screenshotAlt: 'SKU detail with inventory by location, history audit trail, and product images',
+    details: [
+      'Real-time inventory tracking by SKU and location',
+      'Multi-location inventory with reserved quantity management',
+      'Backorder detection (computed at read time)',
+      'Inventory reservations (reserve on paid, unreserve on ship)',
+      'Dropship-only SKU flag (excluded from pick/pack)',
+      'Stock movement audit trail and history',
+      'CSV import and export for bulk updates',
+      'Inventory variance checks with Shopify',
+    ],
+  },
+  {
+    title: 'Order Processing',
+    description: 'Complete order lifecycle management from import to fulfillment. Hold management for payment, fraud, and address issues. Risk assessment and exchange handling built in.',
+    Sketch: OrderSketch,
+    screenshotSrc: '/screenshots/order-detail.png',
+    screenshotAlt: 'Order detail page with items, shipping info, status timeline, and notes',
+    details: [
+      'Complete order lifecycle (Pending → Picking → Packed → Shipped → Delivered)',
+      'Hold management (payment, fraud, review, address, operator)',
+      'Risk assessment and fraud detection',
+      'Exchange handling (ReturnZap integration)',
+      'Address validation and editing with Shopify sync',
+      'Invoice generation and order tags',
+      'CSV export for order data',
+      'Real-time updates via WebSocket',
+    ],
+  },
+  {
+    title: 'Single & Multi Batch Picking',
+    description: 'Single-batch, multi-batch, and single-order picking with location-optimized routes, barcode scanning validation, and tote assignment. Flag problem locations to hospital directly from the picking flow.',
+    Sketch: PickingSketch,
+    screenshotSrc: '/screenshots/picking-batch.png',
+    screenshotAlt: 'Active picking batch showing items to pick, scan status, and tote assignment',
+    details: [
+      'Single-batch workflow for high-volume single-SKU orders',
+      'Multi-batch workflow for complex multi-SKU orders',
+      'Single-order batch for priority shipments',
+      'Location-optimized pick lists (Zone → Aisle → Shelf)',
+      'Barcode scanning validation at every pick',
+      'Out-of-order scanning support',
+      'Tote assignment and tracking',
+      'Hospital flag from picking flow',
+      'Batch reservation system prevents overselling',
+    ],
+    expanded: {
+      singleBatch: {
+        title: 'Single Batch Picking',
+        steps: [
+          'System groups pending orders with the same SKU into a batch',
+          'Pick list sorted by warehouse location to minimize travel',
+          'Picker scans barcode at each location to validate item and quantity',
+          'Each order assigned to a specific tote — scan tote before placing items',
+          'On completion, inventory updates in real time and orders move to packing',
+        ],
+      },
+      multiBatch: {
+        title: 'Multi Batch Picking',
+        steps: [
+          'System analyzes order characteristics and groups compatible orders',
+          'Consolidated pick list shows all items for all orders in the batch',
+          'Picker follows optimized route, scanning each location and item',
+          'Items sorted into correct totes based on order assignment',
+          'Quality validation before batch completion — missing items trigger alerts',
+        ],
       },
     },
-    {
-      title: 'Warehouse Management',
-      description: '3D warehouse visualization with location management. Track capacity, utilization, and optimize space allocation.',
-      sketch: WarehouseSketch,
-      details: [
-        '3D warehouse mapping',
-        'Location format: {Zone}{X}-L{Y}',
-        '5 zones (A-E), 4 levels (L1-L4)',
-        'Location types (shelf, floor, staging)',
-        'Capacity tracking',
-        'Utilization analytics',
-      ],
-    },
-    {
-      title: 'Real-time Dashboard',
-      description: 'Comprehensive analytics and monitoring. Track orders, inventory, batches, and warehouse utilization in real-time.',
-      sketch: DashboardSketch,
-      details: [
-        'Real-time metrics display',
-        'Key performance indicators',
-        'Recent orders tracking',
-        'Low stock alerts',
-        'WebSocket integration',
-        'Role-based dashboards',
-      ],
-    },
-    {
-      title: 'E-commerce Integration',
-      description: 'Seamless integration with Shopify and other e-commerce platforms. Automatic product sync, order import, and fulfillment updates.',
-      sketch: IntegrationSketch,
-      details: [
-        'Shopify integration',
-        'Product synchronization',
-        'Order import automation',
-        'Inventory variance checking',
-        'Fulfillment management',
-        'Webhook support',
-      ],
-    },
-    {
-      title: 'ShipStation Integration',
-      description: 'Seamless shipping and tracking integration with ShipStation. Automate label creation, carrier selection, and real-time tracking updates across your entire fulfillment workflow.',
-      sketch: IntegrationSketch,
-      details: [
-        'Automated label generation',
-        'Multi-carrier support',
-        'Real-time tracking sync',
-        'Shipping rate comparison',
-        'Order fulfillment automation',
-        'Tracking number management',
-      ],
-      expandedContent: {
-        shipping: {
-          title: 'Automated Shipping Process',
-          description: 'Streamline your shipping operations with direct ShipStation integration. From order fulfillment to label printing, automate every step of the shipping process.',
-          steps: [
-            {
-              step: '1. Order Fulfillment',
-              detail: 'Once orders are picked and packed in Ship-Right, system automatically marks orders as ready for shipment. Packing information (weight, dimensions, items) is captured and prepared for ShipStation.',
-            },
-            {
-              step: '2. ShipStation Sync',
-              detail: 'Fulfilled orders are automatically synchronized with ShipStation via API. Order details, customer information, and shipping preferences are seamlessly transferred.',
-            },
-            {
-              step: '3. Carrier Selection',
-              detail: 'ShipStation compares rates across multiple carriers (USPS, FedEx, UPS, DHL, etc.) based on package details and delivery requirements. System can auto-select best rate or present options for manual selection.',
-            },
-            {
-              step: '4. Label Generation',
-              detail: 'Shipping labels are automatically generated in ShipStation with all required information. Labels can be printed directly from Ship-Right interface or through ShipStation dashboard.',
-            },
-            {
-              step: '5. Tracking Number Capture',
-              detail: 'Upon label creation, tracking numbers are automatically captured and stored in Ship-Right. System updates order status to "shipped" and associates tracking information.',
-            },
-            {
-              step: '6. Customer Notification',
-              detail: 'Tracking numbers are automatically synced back to your e-commerce platform (Shopify, WooCommerce, etc.) for customer notifications. Customers receive shipping confirmations with tracking links.',
-            },
-          ],
-          benefits: [
-            'Eliminates manual data entry',
-            'Reduces shipping errors by 95%',
-            'Saves 2-3 hours daily on shipping tasks',
-            'Access to discounted carrier rates',
-          ],
-        },
-        tracking: {
-          title: 'Real-Time Tracking & Updates',
-          description: 'Comprehensive tracking integration keeps you and your customers informed at every stage of the shipping process.',
-          features: [
-            {
-              feature: 'Automatic Tracking Sync',
-              detail: 'ShipStation automatically updates tracking status as packages move through carrier networks. Ship-Right receives real-time updates via webhook integration.',
-            },
-            {
-              feature: 'Multi-Carrier Tracking',
-              detail: 'Unified tracking interface supports all major carriers. Single view shows status across USPS, FedEx, UPS, DHL, and regional carriers.',
-            },
-            {
-              feature: 'Customer Portal Integration',
-              detail: 'Tracking information automatically appears in customer accounts on your e-commerce platform. Customers can track orders without leaving your site.',
-            },
-            {
-              feature: 'Delivery Confirmation',
-              detail: 'Upon delivery, ShipStation captures delivery confirmation and signature (if required). Ship-Right automatically updates order status to "delivered" and triggers post-delivery workflows.',
-            },
-            {
-              feature: 'Exception Handling',
-              detail: 'System alerts you to shipping exceptions (delays, failed delivery attempts, address issues) in real-time. Proactive notifications enable quick resolution.',
-            },
-            {
-              feature: 'Analytics & Reporting',
-              detail: 'Comprehensive shipping analytics track delivery times, carrier performance, shipping costs, and customer satisfaction metrics. Export reports for business intelligence.',
-            },
-          ],
-        },
-        integrationDetails: {
-          title: 'Integration Capabilities',
-          features: [
-            'RESTful API integration with ShipStation',
-            'Bi-directional data synchronization',
-            'Webhook support for real-time updates',
-            'Bulk shipping operations',
-            'Custom shipping rules and automation',
-            'Multi-warehouse shipping support',
-            'International shipping support',
-            'Insurance and signature options',
-          ],
-        },
-      },
-    },
-  ];
+  },
+  {
+    title: 'Packing & Shipping',
+    description: 'Packing hub with batch and order-based flows. Scan totes, verify items, and print labels directly to your warehouse printer — no browser dialogs. ShipStation powers labels, rate shopping, carriers, and manifests.',
+    Sketch: IntegrationSketch,
+    screenshotSrc: '/screenshots/packing-batch.png',
+    screenshotAlt: 'Packing batch with order verification, item scanning, and label generation',
+    details: [
+      'Packing hub by batch or by order',
+      'Direct-to-packing (skip picking batch)',
+      'Scan tote and SKU for verification',
+      'Direct-to-printer for shipping labels and packing slips',
+      'Supports Zebra, DYMO, and thermal label printers',
+      'Auto-print on label creation — no browser print dialog',
+      'Packing slips (PDF, HTML — Letter, A4, Thermal)',
+      'Multi-carrier rate comparison via ShipStation (USPS, UPS, FedEx)',
+      'EOD manifests and SCAN forms',
+      'Missing weight warnings on packing pages',
+    ],
+  },
+  {
+    title: 'Warehouse Management',
+    description: 'Full warehouse layout management with 3D map, zones, locations, and capacity tracking. Tote management, barcode pages, and warehouse analytics.',
+    Sketch: WarehouseSketch,
+    screenshotSrc: '/screenshots/warehouse-map.png',
+    screenshotAlt: '3D warehouse map visualization with zones, aisles, and shelves',
+    details: [
+      '3D warehouse map with zones, aisles, and shelves',
+      'Location CRUD with types, capacity, and hierarchy',
+      'Location barcode pages for scanning',
+      'Capacity and utilization analytics',
+      'Tote management with barcode support',
+      'CSV import for locations',
+    ],
+  },
+  {
+    title: 'Hospital & Quarantine',
+    description: 'Quarantine damaged or suspect inventory at the SKU or location level. Flag issues directly from picking, resolve from the hospital dashboard, and track everything.',
+    Sketch: WarehouseSketch,
+    screenshotSrc: '/screenshots/hospital.png',
+    screenshotAlt: 'Hospital quarantine zone with held items and resolution workflow',
+    details: [
+      'SKU and location-level quarantine',
+      'Flag issues directly from picking workflow',
+      'Resolve and release from hospital dashboard',
+      'Reason tracking (not enough units, damaged, empty, needs count)',
+      'Hospital stats on main dashboard',
+      'Automation rules can bulk-hold inventory',
+    ],
+  },
+  {
+    title: 'Cycle Counting',
+    description: 'Schedule counts by location or SKU, assign to staff, and track variance. Scan-to-count workflow ensures accuracy without shutting down operations.',
+    Sketch: InventorySketch,
+    screenshotSrc: '/screenshots/cycle-counts.png',
+    screenshotAlt: 'Cycle counting page with scheduled counts and variance tracking',
+    details: [
+      'Schedule counts by location, zone, or SKU',
+      'Assign counts to warehouse staff',
+      'Scan-to-count workflow',
+      'Auto-reconcile discrepancies against on-hand',
+      'Variance reports and history',
+      'No warehouse shutdown required',
+    ],
+  },
+  {
+    title: 'Automation Rules',
+    description: 'Rule engine with triggers, conditions, and actions. Auto-hold fraud orders, auto-prioritize by carrier, route damaged inventory to hospital, and more — no code required.',
+    Sketch: DashboardSketch,
+    screenshotSrc: '/screenshots/settings.png',
+    screenshotAlt: 'Automation rules engine with conditions, actions, and triggers',
+    details: [
+      'Triggers, conditions, and actions',
+      'Auto-hold fraud-flagged orders',
+      'Auto-prioritize by shipping method',
+      'Auto-tag orders by category',
+      'Route damaged inventory to hospital',
+      'Set items as dropship via automation',
+      'Execution history and statistics',
+    ],
+  },
+  {
+    title: 'Real-time Dashboard',
+    description: 'WebSocket-powered dashboard with orders to ship, late orders, holds, POs, hospital stats, and picker performance. Know exactly where every order stands.',
+    Sketch: DashboardSketch,
+    screenshotSrc: '/screenshots/dashboard.png',
+    screenshotAlt: 'Smart Ship Right dashboard showing orders to ship, inventory stats, and real-time metrics',
+    details: [
+      'Orders to ship, late orders, and holds',
+      'Purchase orders and inventory changes',
+      'Hospital stats and packer metrics',
+      'Today/yesterday orders received and shipped',
+      'WebSocket real-time updates',
+      'Role-based access control',
+    ],
+  },
+  {
+    title: 'Shopify & ShipStation Integration',
+    description: 'Full Shopify integration with OAuth, REST + GraphQL, and 15+ webhooks. Per-action sync controls let you gate exactly which operations push to Shopify. ShipStation for labels, tracking, and manifests.',
+    Sketch: IntegrationSketch,
+    screenshotSrc: '/screenshots/shopify-settings.png',
+    screenshotAlt: 'Shopify integration settings with sync controls and webhook configuration',
+    details: [
+      'Shopify OAuth with bidirectional sync',
+      'REST + GraphQL API support',
+      '15+ webhooks (orders, products, inventory, fulfillments)',
+      'Per-action-type sync controls (7 toggles)',
+      'Sync log with status filters and history',
+      'ShipStation labels, rates, carriers, manifests',
+      'ReturnZap exchange handling',
+    ],
+  },
+  {
+    title: 'Mobile Warehouse Operations',
+    description: 'The web app is fully responsive and works on tablets and phones. Camera barcode scanning, mobile picking, SKU moves, and inventory adjustments — all from the browser.',
+    Sketch: DashboardSketch,
+    screenshotSrc: '/screenshots/move-sku.png',
+    screenshotAlt: 'Move SKU workflow with source location, destination, and quantity',
+    details: [
+      'Responsive web app works on any device',
+      'Camera barcode scanning (Code128 & QR)',
+      'Mobile batch picking with tote and item scan',
+      'Move SKU between locations (guided workflow)',
+      'Inventory adjustment with reason codes',
+      'Bluetooth barcode scanner support',
+    ],
+  },
+];
 
+export default function FeaturesPage() {
   return (
     <div className="bg-white">
-      {/* Header */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Powerful Features for Modern Warehouses
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Everything you need to streamline operations, boost productivity, and scale your warehouse management
-          </p>
-        </div>
-      </section>
+      <PageHeader
+        title="Powerful features for modern warehouses"
+        description="Everything you need to streamline operations, boost productivity, and scale warehouse execution."
+      />
 
-      {/* Features Grid */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Section>
+        <Container>
           <div className="space-y-24">
             {features.map((feature, index) => {
-              const SketchComponent = feature.sketch;
               const isEven = index % 2 === 0;
-
               return (
                 <div
                   key={feature.title}
-                  className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
-                    isEven ? '' : 'lg:flex-row-reverse'
-                  }`}
+                  className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start"
                 >
                   <div className={isEven ? '' : 'lg:order-2'}>
-                    <h2 className="text-3xl font-bold text-gray-900 mb-4">{feature.title}</h2>
-                    <p className="text-lg text-gray-600 mb-6">{feature.description}</p>
+                    <h2 className="font-display text-3xl font-bold text-slate-900 mb-4">{feature.title}</h2>
+                    <p className="text-lg text-slate-600 mb-6 leading-relaxed">{feature.description}</p>
                     <ul className="space-y-3 mb-8">
                       {feature.details.map((detail, idx) => (
                         <li key={idx} className="flex items-start">
-                          <svg
-                            className="w-6 h-6 text-green-500 mr-3 flex-shrink-0"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                          >
+                          <svg className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                           </svg>
-                          <span className="text-gray-700">{detail}</span>
+                          <span className="text-slate-700">{detail}</span>
                         </li>
                       ))}
                     </ul>
 
-                    {/* Expanded Content for Picking Operations */}
-                    {feature.expandedContent?.singleItemBatch && (
-                      <div className="mt-8 space-y-8">
-                        <div className="bg-blue-50 rounded-lg p-6 border border-blue-200">
-                          <h3 className="text-2xl font-bold text-gray-900 mb-3">{feature.expandedContent.singleItemBatch.title}</h3>
-                          <p className="text-gray-700 mb-6">{feature.expandedContent.singleItemBatch.description}</p>
-                          <div className="space-y-4 mb-6">
-                            {feature.expandedContent.singleItemBatch.steps.map((stepItem, stepIdx) => (
-                              <div key={stepIdx} className="bg-white rounded-lg p-4 border-l-4 border-blue-500">
-                                <h4 className="font-semibold text-gray-900 mb-2">{stepItem.step}</h4>
-                                <p className="text-gray-600 text-sm">{stepItem.detail}</p>
-                              </div>
-                            ))}
+                    {/* Expanded picking content */}
+                    {feature.expanded && (
+                      <div className="space-y-6">
+                        {Object.values(feature.expanded).map((section) => (
+                          <div key={section.title} className="rounded-xl border border-blue-200 bg-blue-50 p-5">
+                            <h3 className="font-display text-lg font-bold text-slate-900 mb-3">{section.title}</h3>
+                            <ol className="space-y-2">
+                              {section.steps.map((step, i) => (
+                                <li key={i} className="flex items-start text-sm">
+                                  <span className="mr-3 mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-blue-600 text-xs font-bold text-white">
+                                    {i + 1}
+                                  </span>
+                                  <span className="text-slate-700">{step}</span>
+                                </li>
+                              ))}
+                            </ol>
                           </div>
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                            {feature.expandedContent.singleItemBatch.benefits.map((benefit, benefitIdx) => (
-                              <div key={benefitIdx} className="flex items-start">
-                                <svg className="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                <span className="text-sm text-gray-700">{benefit}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-
-                        <div className="bg-green-50 rounded-lg p-6 border border-green-200">
-                          <h3 className="text-2xl font-bold text-gray-900 mb-3">{feature.expandedContent.multiItemBatch.title}</h3>
-                          <p className="text-gray-700 mb-6">{feature.expandedContent.multiItemBatch.description}</p>
-                          <div className="space-y-4 mb-6">
-                            {feature.expandedContent.multiItemBatch.steps.map((stepItem, stepIdx) => (
-                              <div key={stepIdx} className="bg-white rounded-lg p-4 border-l-4 border-green-500">
-                                <h4 className="font-semibold text-gray-900 mb-2">{stepItem.step}</h4>
-                                <p className="text-gray-600 text-sm">{stepItem.detail}</p>
-                              </div>
-                            ))}
-                          </div>
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                            {feature.expandedContent.multiItemBatch.benefits.map((benefit, benefitIdx) => (
-                              <div key={benefitIdx} className="flex items-start">
-                                <svg className="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                <span className="text-sm text-gray-700">{benefit}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Expanded Content for ShipStation Integration */}
-                    {feature.expandedContent?.shipping && (
-                      <div className="mt-8 space-y-8">
-                        <div className="bg-purple-50 rounded-lg p-6 border border-purple-200">
-                          <h3 className="text-2xl font-bold text-gray-900 mb-3">{feature.expandedContent.shipping.title}</h3>
-                          <p className="text-gray-700 mb-6">{feature.expandedContent.shipping.description}</p>
-                          <div className="space-y-4 mb-6">
-                            {feature.expandedContent.shipping.steps.map((stepItem, stepIdx) => (
-                              <div key={stepIdx} className="bg-white rounded-lg p-4 border-l-4 border-purple-500">
-                                <h4 className="font-semibold text-gray-900 mb-2">{stepItem.step}</h4>
-                                <p className="text-gray-600 text-sm">{stepItem.detail}</p>
-                              </div>
-                            ))}
-                          </div>
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                            {feature.expandedContent.shipping.benefits.map((benefit, benefitIdx) => (
-                              <div key={benefitIdx} className="flex items-start">
-                                <svg className="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                <span className="text-sm text-gray-700">{benefit}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-
-                        <div className="bg-indigo-50 rounded-lg p-6 border border-indigo-200">
-                          <h3 className="text-2xl font-bold text-gray-900 mb-3">{feature.expandedContent.tracking.title}</h3>
-                          <p className="text-gray-700 mb-6">{feature.expandedContent.tracking.description}</p>
-                          <div className="space-y-4">
-                            {feature.expandedContent.tracking.features.map((featureItem, featureIdx) => (
-                              <div key={featureIdx} className="bg-white rounded-lg p-4 border-l-4 border-indigo-500">
-                                <h4 className="font-semibold text-gray-900 mb-2">{featureItem.feature}</h4>
-                                <p className="text-gray-600 text-sm">{featureItem.detail}</p>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-
-                        <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
-                          <h3 className="text-2xl font-bold text-gray-900 mb-4">{feature.expandedContent.integrationDetails.title}</h3>
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                            {feature.expandedContent.integrationDetails.features.map((integrationFeature, idx) => (
-                              <div key={idx} className="flex items-start">
-                                <svg className="w-5 h-5 text-blue-500 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span className="text-sm text-gray-700">{integrationFeature}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
+                        ))}
                       </div>
                     )}
                   </div>
+
                   <div className={isEven ? '' : 'lg:order-1'}>
-                    <div className="bg-gray-50 rounded-lg p-8 flex items-center justify-center">
-                      <SketchComponent />
+                    <div className="flex flex-col gap-4">
+                      <div className="overflow-hidden rounded-xl border border-slate-200 shadow-lg">
+                        <Image src={feature.screenshotSrc} alt={feature.screenshotAlt} width={800} height={500} className="w-full" />
+                      </div>
+                      <div className="rounded-xl border border-slate-200 bg-slate-50 p-6">
+                        <feature.Sketch />
+                      </div>
                     </div>
                   </div>
                 </div>
               );
             })}
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
-      {/* Additional Features List */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Additional Capabilities</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* Additional Capabilities */}
+      <Section alt>
+        <Container>
+          <h2 className="font-display text-3xl font-bold text-slate-900 mb-12 text-center">
+            Additional capabilities
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
+              'Dropship Support (SKU-level flag)',
+              'Exchange & Return Handling',
+              'Inventory Reservations',
               'Purchase Order Management',
               'Vendor Management',
               'Receiving Workflows',
-              'Shipping Integration',
-              'Bluetooth Scanner Support',
+              'Hospital & Quarantine',
+              'Automation Rules Engine',
+              'Backorder Tracking',
+              'Shopify Sync Controls',
+              'Risk Assessment & Fraud Detection',
+              'Invoice Generation',
+              'Packing Slips (PDF/HTML/Thermal)',
+              'Direct-to-Printer (Zebra/DYMO/Thermal)',
+              'Packing Weight Warnings',
+              'Camera Barcode Scanner',
+              'Code128 & QR Barcodes',
               'WebSocket Real-time Updates',
-              'JWT Authentication',
-              'Role-based Access Control',
-              'Multi-warehouse Support',
-              'Batch Automation',
+              'JWT Authentication (24h)',
+              'RBAC (Admin/Manager/Operator/Viewer)',
+              'Granular Permissions & Groups',
               'Tote Management',
+              'CSV Import & Export',
               'Alert System',
+              'SKU History & Audit Trail',
+              'Order Tags & Categories',
+              'Address Validation & Editing',
+              'Shopify OAuth + 15+ Webhooks',
+              'Sync Log UI',
+              'In-App Help Center',
+              'Google Cloud (Run, Tasks, Storage)',
+              'Neon PostgreSQL + Alembic',
+              'Entity Notes & Attachments',
             ].map((capability) => (
-              <div key={capability} className="bg-white rounded-lg p-4 shadow-sm">
-                <div className="flex items-center">
-                  <svg
-                    className="w-5 h-5 text-blue-600 mr-3"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  <span className="text-gray-700 font-medium">{capability}</span>
-                </div>
+              <div key={capability} className="card-hover flex items-center rounded-lg border border-slate-200 bg-white p-4">
+                <svg className="w-5 h-5 text-blue-500 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span className="text-sm font-medium text-slate-700">{capability}</span>
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
+
+      {/* CTA */}
+      <Section>
+        <Container>
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="font-display text-3xl font-bold text-slate-900">
+              Ready to see these features in action?
+            </h2>
+            <p className="mt-4 text-lg text-slate-600">
+              Start your free trial or book a demo to see how Smart Ship Right fits your operation.
+            </p>
+            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+              <Button href="/contact" size="lg">Start Free Trial</Button>
+              <Button href="/pricing" variant="outline" size="lg">View Pricing</Button>
+            </div>
+          </div>
+        </Container>
+      </Section>
     </div>
   );
 }
-
