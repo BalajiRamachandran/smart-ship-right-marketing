@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="bg-slate-900 text-gray-300">
       <Container className="py-16">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-1">
             <div className="mb-4">
               <Image src="/logo.svg" alt="Smart Ship Right" width={182} height={40} className="h-9 w-auto" />
@@ -71,15 +71,37 @@ export default function Footer() {
               </Link>
             </div>
           </div>
+
+          <div>
+            <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Legal</h3>
+            <ul className="space-y-3">
+              {[
+                { href: '/privacy-policy', label: 'Privacy Policy' },
+                { href: '/terms-and-conditions', label: 'Terms & Conditions' },
+              ].map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="text-sm text-slate-400 hover:text-white transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         <div className="mt-12 border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-slate-500">
             &copy; {new Date().getFullYear()} Smart Ship Right. All rights reserved.
           </p>
-          <p className="text-sm text-slate-500">
-            Built for Shopify merchants
-          </p>
+          <div className="flex items-center gap-5">
+            <Link href="/privacy-policy" className="text-sm text-slate-500 hover:text-slate-300 transition-colors">
+              Privacy
+            </Link>
+            <Link href="/terms-and-conditions" className="text-sm text-slate-500 hover:text-slate-300 transition-colors">
+              Terms
+            </Link>
+            <p className="text-sm text-slate-500">Built for Shopify merchants</p>
+          </div>
         </div>
       </Container>
     </footer>

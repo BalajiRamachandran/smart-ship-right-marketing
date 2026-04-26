@@ -94,7 +94,7 @@ export default function AboutPage() {
                 ),
                 title: 'Performance',
                 desc: 'Optimized for speed. Handle thousands of orders and SKUs with sub-100ms API responses and real-time WebSocket updates.',
-                color: 'blue',
+                bgClass: 'bg-blue-50',
               },
               {
                 icon: (
@@ -102,7 +102,7 @@ export default function AboutPage() {
                 ),
                 title: 'Reliability',
                 desc: 'Enterprise-grade PostgreSQL, JWT authentication, role-based access, and append-only audit logs. Your data is safe.',
-                color: 'green',
+                bgClass: 'bg-green-50',
               },
               {
                 icon: (
@@ -110,11 +110,11 @@ export default function AboutPage() {
                 ),
                 title: 'Scalability',
                 desc: 'From 10 orders a day to 1,000+. Multi-warehouse, multi-user, and multi-channel — designed to grow with you.',
-                color: 'purple',
+                bgClass: 'bg-purple-50',
               },
             ].map((value) => (
               <div key={value.title} className="text-center">
-                <div className={`w-16 h-16 bg-${value.color}-50 rounded-2xl flex items-center justify-center mx-auto mb-4`}>
+                <div className={`w-16 h-16 ${value.bgClass} rounded-2xl flex items-center justify-center mx-auto mb-4`}>
                   {value.icon}
                 </div>
                 <h3 className="text-xl font-semibold text-slate-900 mb-2">{value.title}</h3>
